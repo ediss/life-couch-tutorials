@@ -63,7 +63,24 @@ Author URL: http://w3layouts.com
 									<a class="nav-link" href="{{route('contact')}}#contact">Kontakt</a>
 								</li>
 
-								<li class="nav-item login-link">
+								<li class="nav-item d-md-none">
+									@if(Auth::user())
+									<div class="dropdown">
+										<button class="dropbtn">{{ Auth::user()->name }}</button>
+										<div class="dropdown-content">
+											<a class="nav-link ml-0" href="{{ route("custom.logout") }}">Logout</a>
+											<a class="nav-link ml-0" href="{{ route('user.courses') }}">Moji Kursevi</a>
+
+										</div>
+									</div>
+
+									@else
+									<a class="nav-link " data-toggle="modal" data-target="#loginModal"
+										href="#">Logovanje</a>
+									@endif
+								</li>
+
+								<li class="nav-item login-link d-none d-md-block">
 
 									@if(Auth::user())
 									<div class="dropdown">
