@@ -20,20 +20,22 @@ Author URL: http://w3layouts.com
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
 
-	
+
 
 </head>
 
 <body>
 	<input type="hidden" id="device_id" name="device_id">
 
-
+	<div id="preloader">
+		<div id="status"></div>
+	</div>
 
 	<!--w3l-banner-slider-main-->
 	<!--w3l-banner-slider-main-->
 	<section class="w3l-banner-slider-main w3l-inner-page-main">
 		<div class="breadcrumb-infhny">
-			<header class="top-headerhny">
+			<header class="top-headerhny" id="topheader">
 				<!--/nav-->
 				<nav class="navbar navbar-expand-md navbar-light fill">
 					<div class="container-fluid">
@@ -46,19 +48,19 @@ Author URL: http://w3layouts.com
 
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							<ul class="navbar-nav mx-lg-auto ml-auto">
-								<li class="nav-item active">
+								<li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
 									<a class="nav-link" href="{{url('/')}}">Početna</a>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item {{ request()->is('courses*') ? 'active' : '' }}">
 									<a class="nav-link" href="{{ route('all-courses') }}#all-courses">Kursevi</a>
 								</li>
-								<li class="nav-item">
+								<li class="nav-item {{ request()->is('About-me*') ? 'active' : '' }}">
 									<a class="nav-link" href="{{route('about')}}#about-me">O meni</a>
 								</li>
 
 
-								<li class="nav-item">
-									<a class="nav-link" href="{{route('contact')}}#contact" >Kontakt</a>
+								<li class="nav-item {{ request()->is('contact*') ? 'active' : '' }}">
+									<a class="nav-link" href="{{route('contact')}}#contact">Kontakt</a>
 								</li>
 
 								<li class="nav-item login-link">
@@ -68,7 +70,7 @@ Author URL: http://w3layouts.com
 										<button class="dropbtn">{{ Auth::user()->name }}</button>
 										<div class="dropdown-content">
 											<a class="nav-link ml-0" href="{{ route("custom.logout") }}">Logout</a>
-										  	<a  class="nav-link ml-0"href="{{ route('user.courses') }}">Moji Kursevi</a>
+											<a class="nav-link ml-0" href="{{ route('user.courses') }}">Moji Kursevi</a>
 
 										</div>
 									</div>
@@ -97,14 +99,16 @@ Author URL: http://w3layouts.com
 					@if(Request::url() != url("/"))
     				<ol class="breadcrumb mb-0">
 						<li class="breadcrumb-item"><a href="{{url('/')}}">Početna</a></li>
-					<li class="breadcrumb-item active" aria-current="page"><a href="{{ Request::url() }}">@yield('breadcrumb-item')</a></li>
-					<li class="breadcrumb-item" aria-current="page">@yield('success')<li>
-					</ol>
-					@endif
+			<li class="breadcrumb-item active" aria-current="page"><a
+					href="{{ Request::url() }}">@yield('breadcrumb-item')</a></li>
+			<li class="breadcrumb-item" aria-current="page">@yield('success')
+			<li>
+				</ol>
+				@endif
 
 				</nav>
-			</div> --}}
-			<!-- //breadcrumbs-->
+		</div> --}}
+		<!-- //breadcrumbs-->
 		</div>
 		<!--//banner-slider-->
 	</section>
@@ -112,115 +116,115 @@ Author URL: http://w3layouts.com
 
 	@yield('content')
 
-<!-- Footer -->
-<footer class="page-footer font-small indigo">
+	<!-- Footer -->
+	<footer class="page-footer font-small indigo">
 
-	<!-- Footer Links -->
-	<div class="container">
+		<!-- Footer Links -->
+		<div class="container">
 
-	  <!-- Grid row-->
-	  <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+			<!-- Grid row-->
+			<div class="row text-center d-flex justify-content-center pt-5 mb-3">
 
-		<!-- Grid column -->
-		<div class="col-md-2 mb-3">
-		  <h6 class="text-uppercase font-weight-bold">
-			<a class="nav-link" href="{{url('/')}}">Početna</a>
-		  </h6>
+				<!-- Grid column -->
+				<div class="col-md-2 mb-3">
+					<h6 class="text-uppercase font-weight-bold">
+						<a class="nav-link" href="{{url('/')}}">Početna</a>
+					</h6>
+				</div>
+				<!-- Grid column -->
+
+				<!-- Grid column -->
+				<div class="col-md-2 mb-3">
+					<h6 class="text-uppercase font-weight-bold">
+						<a class="nav-link" href="{{ route('all-courses') }}#all-courses">Kursevi</a>
+
+					</h6>
+				</div>
+				<!-- Grid column -->
+
+				<!-- Grid column -->
+				<div class="col-md-2 mb-3">
+					<h6 class="text-uppercase font-weight-bold">
+						<a class="nav-link" href="{{route('about')}}#about-me">O meni</a>
+
+					</h6>
+				</div>
+				<!-- Grid column -->
+
+				<!-- Grid column -->
+				<div class="col-md-2 mb-3">
+					<h6 class="text-uppercase font-weight-bold">
+						<a class="nav-link" href="{{route('contact')}}#contact">Kontakt</a>
+
+					</h6>
+				</div>
+				<!-- Grid column -->
+
+
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row-->
+			<hr class="rgba-white-light" style="margin: 0 15%;">
+
+			<!-- Grid row-->
+			<div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+				<!-- Grid column -->
+				<div class="col-md-8 col-12 mt-5">
+					<p style="line-height: 1.7rem"> <i> &rdquo; NEKI CITAT U 2 RECENICE &rdquo;</i> </p>
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row-->
+			<hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+			<!-- Grid row-->
+			<div class="row pb-3">
+
+				<!-- Grid column -->
+				<div class="col-md-12">
+
+					<div class="mb-5 flex-center">
+
+						<!-- Facebook -->
+						<a class="fb-ic">
+							<i class="fa fa-facebook-f fa-lg white-text mr-4 fa-2x"> </i>
+						</a>
+						<!-- Twitter -->
+						<a class="tw-ic">
+							<i class="fa fa-twitter fa-lg white-text mr-4 fa-2x"> </i>
+						</a>
+						<!-- Google +-->
+
+
+						<!--Instagram-->
+						<a class="ins-ic">
+							<i class="fa fa-instagram fa-lg white-text mr-4 fa-2x"> </i>
+						</a>
+						<!--Pinterest-->
+
+
+					</div>
+
+				</div>
+				<!-- Grid column -->
+
+			</div>
+			<!-- Grid row-->
+
 		</div>
-		<!-- Grid column -->
+		<!-- Footer Links -->
 
-		<!-- Grid column -->
-		<div class="col-md-2 mb-3">
-		  <h6 class="text-uppercase font-weight-bold">
-			<a class="nav-link" href="{{ route('all-courses') }}#all-courses">Kursevi</a>
-
-		  </h6>
+		<!-- Copyright -->
+		<div class="footer-copyright text-center py-3 text-white">
+			<p>All rights reserved &copy; Life-Leaf</p>
 		</div>
-		<!-- Grid column -->
+		<!-- Copyright -->
 
-		<!-- Grid column -->
-		<div class="col-md-2 mb-3">
-		  <h6 class="text-uppercase font-weight-bold">
-			<a class="nav-link" href="{{route('about')}}#about-me">O meni</a>
-
-		  </h6>
-		</div>
-		<!-- Grid column -->
-
-		<!-- Grid column -->
-		<div class="col-md-2 mb-3">
-		  <h6 class="text-uppercase font-weight-bold">
-			<a class="nav-link" href="{{route('contact')}}#contact" >Kontakt</a>
-
-		  </h6>
-		</div>
-		<!-- Grid column -->
-
-
-		<!-- Grid column -->
-
-	  </div>
-	  <!-- Grid row-->
-	  <hr class="rgba-white-light" style="margin: 0 15%;">
-
-	  <!-- Grid row-->
-	  <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
-
-		<!-- Grid column -->
-		<div class="col-md-8 col-12 mt-5">
-		  <p style="line-height: 1.7rem"> <i> &rdquo; NEKI CITAT U 2 RECENICE &rdquo;</i> </p>
-		</div>
-		<!-- Grid column -->
-
-	  </div>
-	  <!-- Grid row-->
-	  <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
-
-	  <!-- Grid row-->
-	  <div class="row pb-3">
-
-		<!-- Grid column -->
-		<div class="col-md-12">
-
-		  <div class="mb-5 flex-center">
-
-			<!-- Facebook -->
-			<a class="fb-ic">
-			  <i class="fa fa-facebook-f fa-lg white-text mr-4 fa-2x"> </i>
-			</a>
-			<!-- Twitter -->
-			<a class="tw-ic">
-			  <i class="fa fa-twitter fa-lg white-text mr-4 fa-2x"> </i>
-			</a>
-			<!-- Google +-->
-
-
-			<!--Instagram-->
-			<a class="ins-ic">
-			  <i class="fa fa-instagram fa-lg white-text mr-4 fa-2x"> </i>
-			</a>
-			<!--Pinterest-->
-
-
-		  </div>
-
-		</div>
-		<!-- Grid column -->
-
-	  </div>
-	  <!-- Grid row-->
-
-	</div>
-	<!-- Footer Links -->
-
-	<!-- Copyright -->
-	<div class="footer-copyright text-center py-3 text-white">
-		<p>All rights reserved &copy; Life-Leaf</p>
-	</div>
-	<!-- Copyright -->
-
-  </footer>
-  <!-- Footer -->
+	</footer>
+	<!-- Footer -->
 	<section class="w3l-footer-16">
 
 		<button onclick="topFunction()" id="movetop" title="Go to top">
@@ -316,8 +320,12 @@ Author URL: http://w3layouts.com
 	{{-- <script src ="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script> --}}
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.8.2/fingerprint2.min.js"></script>
 
+	{{-- <script src="{{ asset("assets/js/bootstrap.min.js") }}"></script> --}}
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 
 	<script>
+
 		// When the user scrolls down 20px from the top of the document, show the button
 		window.onscroll = function () {
 			scrollFunction()
@@ -326,11 +334,11 @@ Author URL: http://w3layouts.com
 		function scrollFunction() {
 			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
 				document.getElementById("movetop").style.display = "block";
-				document.getElementById("menu").style.display = "block";
+				// document.getElementById("menu").style.display = "block";
 
 			} else {
 				document.getElementById("movetop").style.display = "none";
-				document.getElementById("menu").style.display = "none";
+				// document.getElementById("menu").style.display = "none";
 			}
 		}
 
@@ -384,7 +392,6 @@ Author URL: http://w3layouts.com
 
 
 	<!--//pop-up-box-->
-	<script src="{{ asset("assets/js/bootstrap.min.js") }}"></script>
 
 	<script>
 		var hash= '';
@@ -413,8 +420,8 @@ Author URL: http://w3layouts.com
 
 	</script>
 
-<script>
-	function goToCourse(id) {
+	<script>
+		function goToCourse(id) {
 		var course_id = id;
 		var device_id = $("#device_id").val();
 		var route = $("#route");
@@ -455,7 +462,24 @@ Author URL: http://w3layouts.com
         });
 	}
 
-</script>
+
+	$( '#topheader .navbar-nav a' ).on( 'click', function () {
+	$( '#topheader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
+	$( this ).parent( 'li' ).addClass( 'active' );
+});
+
+
+		// makes sure the whole site is loaded
+
+	$(window).on('load', function(){ 
+		$("#status").fadeOut();
+        // will fade out the whole DIV that covers the website.
+    $("#preloader").delay(1000).fadeOut("slow");
+	});
+	
+
+
+	</script>
 
 	@yield('footer-scripts')
 </body>

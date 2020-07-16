@@ -12470,3 +12470,26 @@ a.text-dark:hover, a.text-dark:focus {
   color:white !important;
 }
 
+#preloader  {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     bottom: 0;
+     background-color: #fff;
+     z-index: 99;
+    height: 100%;
+ }
+
+#status  {
+     width: 200px;
+     height: 200px;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     /* background-image: url(http://opengraphicdesign.com/wp-content/uploads/2009/01/loader64.gif); */
+     background-image: url(https://media1.tenor.com/images/672b62d967f8d00d608d22f36c1831db/tenor.gif?itemid=5388999);
+     background-repeat: no-repeat;
+     background-position: center;
+     margin: -100px 0 0 -100px;
+ }
