@@ -35,7 +35,7 @@ Početna
 							</span>
 						</a>
 						<a href="#" onclick=goToCourse({{$course->id}})><img
-								src="assets/images/p1.jpg" class="img-fluid" alt=""></a>
+								src="assets/images/banners/main-banner2.jpg" class="img-fluid" alt=""></a>
 						<div class="course-content">
 							<div class="course-info">
 								<h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
@@ -71,7 +71,7 @@ Početna
 								<span class="fa fa-play"></span>
 							</span>
 						</a>
-						<a href="course.html"><img src="assets/images/p1.jpg" class="img-fluid" alt=""></a>
+						<a href="course.html"><img src="assets/images/banners/main-banner2.jpg" class="img-fluid" alt=""></a>
 						<div class="course-content">
 							<div class="course-info">
 								<h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
@@ -105,7 +105,7 @@ Početna
 								<span class="fa fa-play"></span>
 							</span>
 						</a>
-						<a href="#"><img src="assets/images/p2.jpg" class="img-fluid" alt=""></a>
+						<a href="#"><img src="assets/images/banners/main-banner2.jpg" class="img-fluid" alt=""></a>
 						<div class="course-content">
 							<div class="course-info">
 								<h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
@@ -136,7 +136,7 @@ Početna
 								<span class="fa fa-play"></span>
 							</span>
 						</a>
-						<a href="#"><img src="assets/images/p3.jpg" class="img-fluid" alt=""></a>
+						<a href="#"><img src="assets/images/banners/main-banner2.jpg" class="img-fluid" alt=""></a>
 						<div class="course-content">
 							<div class="course-info">
 								<h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
@@ -167,7 +167,7 @@ Početna
 								<span class="fa fa-play"></span>
 							</span>
 						</a>
-						<a href="#"><img src="assets/images/p4.jpg" class="img-fluid" alt=""></a>
+						<a href="#"><img src="assets/images/banners/main-banner2.jpg" class="img-fluid" alt=""></a>
 						<div class="course-content">
 							<div class="course-info">
 								<h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
@@ -197,7 +197,7 @@ Početna
 								<span class="fa fa-play"></span>
 							</span>
 						</a>
-						<a href="#"><img src="assets/images/p8.jpg" class="img-fluid" alt=""></a>
+						<a href="#"><img src="assets/images/banners/main-banner2.jpg" class="img-fluid" alt=""></a>
 						<div class="course-content">
 							<div class="course-info">
 								<h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
@@ -227,7 +227,7 @@ Početna
 								<span class="fa fa-play"></span>
 							</span>
 						</a>
-						<a href="#"><img src="assets/images/p6.jpg" class="img-fluid" alt=""></a>
+						<a href="#"><img src="assets/images/banners/main-banner2.jpg" class="img-fluid" alt=""></a>
 						<div class="course-content">
 							<div class="course-info">
 								<h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
