@@ -99,7 +99,7 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" data-toggle="modal" data-target="#uplatnicaModal">Primer
+                                            <a class="nav-link" data-toggle="modal" data-target="#uplatnicaModalUser">Primer
                                                 Uplatnice</a>
                                         </li>
                                     </ul>
