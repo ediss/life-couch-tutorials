@@ -131,7 +131,7 @@ class CourseController extends Controller
                         $data = [
                             'name'          => $name,
                             'email'         => $email,
-                            'birt_year'     => $yob,
+                            'birth_year'    => $yob,
                             'gender'        => $gender,
                             'phone'         => $phone,
                             'relationship'  => $relationship,

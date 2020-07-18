@@ -5,7 +5,7 @@
 
  Ime: {{$name}}
  E-mail: {{$email}}
- Godina rodjenja: {{$yob}}
+ Godina rodjenja: {{$birth_year}}
  Pol: {{$gender}}
  Broj telefona: {{$phone}}
  Status veze: {{$relationship}}
