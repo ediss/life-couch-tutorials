@@ -31,7 +31,7 @@
                                                     style='position:absolute;top:0;left:0;width:100%;height:100%;'>
                                                 </iframe>
                                             </div>
-                                            <div class="mt-5">
+                                            <div class="mt-3 course-content">
                                                 {!! $course->course_content !!}
                                             </div>
                                         </div>
@@ -62,7 +62,7 @@
                                             </iframe>
                                         </div>
 
-                                        <div class="mt-5 ml-3">
+                                        <div class="mt-3 course-content">
                                             {!! $course->course_content !!}
                                         </div>
 
