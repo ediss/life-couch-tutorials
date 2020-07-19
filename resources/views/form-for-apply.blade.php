@@ -74,11 +74,11 @@ Prijava za kurs <br>
                 <div class="form-group">
                     <label>Zivim u:</label>
                     <div class="radio">
-                        <label class=""><input type="radio" name="country" checked> Srbiji</label>
+                        <label class=""><input type="radio" name="country" value="U Srbiji" checked> Srbiji</label>
                     </div>
 
                     <div class="radio">
-                        <label class=""><input type="radio" name="country"> Van Srbije</label>
+                        <label class=""><input type="radio" name="country" value="van Srbije"> Van Srbije</label>
                     </div>
                 </div>
 
@@ -88,6 +88,12 @@ Prijava za kurs <br>
                         placeholder="nikola@gmail.com">
                     <small id="emailHelp" class="form-text text- text-danger">Ukoliko ste se vec prijavljivali
                         na neki kurs, potrebno je da se ulogujete kako biste se prijavili.</small>
+                </div>
+
+                <div class="form-group">
+                    <label>Lozinka</label>
+                    <input type="password" class="form-control" name="password"
+                        placeholder="*******">
                 </div>
 
                 <div class="form-group">

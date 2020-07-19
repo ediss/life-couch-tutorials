@@ -23,6 +23,7 @@ Route::prefix("admin/")->middleware(['auth','admin'])->group(function(){
     Route::any('create-course',                     'AdminController@createCourse')     ->name("admin.create-course");
     Route::any('add-user-to-course/{course_id}',    'AdminController@addUserToCourse')  ->name("admin.add.user.to.course");
     Route::any('edit-course/{course_id}',           'AdminController@editCourse')       ->name("admin.edit.course");
+    Route::any('delete-course/{course_id}',         'AdminController@deleteCourse')     ->name("admin.delete.course");
 });
 
 

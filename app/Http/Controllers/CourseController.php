@@ -65,26 +65,56 @@ class CourseController extends Controller
     public function courseSubscription(Request $request, $course_id=null) {
         $course_name    = Course::where('id', $course_id)->first('name');
         $course_price   = CoursePrice::where("course_id", '=', $course_id)->first();
-        
+
 
         if ($request->isMethod('post')) {
-
 
             if(Auth::user()) {
                 //send maja mail|
                 //send user mail
+                $user           = Auth::user();
+                $name           = $user->name;
+                $gender         = $user->gender;
+                $course_name    = $course_name->name;
+
+                $data = [
+                    'name'          => $name,
+                    'email'         => $user->email,
+                    'birth_year'    => $user->birth_year,
+                    'phone'         => $user->mobile_phone,
+                    'relationship'  => $user->relationship,
+                    'profession'    => $user->proffesion,
+                    'gender'        => $gender,
+                    'country'       => $user->place_of_living,
+                    'course_name'   => $course_name,
+                    'course_price'  => $course_price
+                ];
+
+
+                Mail::send(['text'=>'mails.to-admin'], $data, function($message) use ($data) {
+                    $message->to('skenderi.e94@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
+                    $message->from($data['email'], $data['name'] );
+                });
+
+
+                Mail::send(['html'=>'mails.test-mail'], $data, function($message) use ($data) {
+                    $message->to($data['email'], 'Prijava na kurs')->subject ('Prijava na kurs')->replyTo($data['email']);
+                    $message->from($data['email'], $data['course_name'] );
+                });
             }else {
 
                 $validator = Validator::make($request->all(), [
                     "name"      => "required",
                     "yob"       => "required",
+                    "password"  => "required",
                     "email"     => "required|unique:users,email",
 
                 ],
                 [
-                    "name.required"               => "Polje 'Ime i Prezime ' je obavezno!",
+                    "name.required"               => "Polje 'Ime i Prezime' je obavezno!",
+                    "password.required"           => "Polje 'Lozinka' je obavezno!",
                     "yob.required"                => "Molimo izaberite godinu rodjenja",
-                    "email.required"              => "Polje 'E-mail ' je obavezno!",
+                    "email.required"              => "Polje 'E-mail' je obavezno!",
                     "email.unique"                => "Uneta e-mail adresa vec postoji. Ulogujte se i probajte ponovo sa prijavom.",
 
 
@@ -116,11 +146,12 @@ class CourseController extends Controller
                     $user->email            = $email;
                     $user->birth_year       = $yob;
                     //posebno za pass
-                    $user->password         = Hash::make("12345678");
+                    $user->password         = Hash::make($request->input('password'));
                     $user->mobile_phone     = $phone;
                     $user->relationship     = $relationship;
                     $user->place_of_living  = $country;
-                    //profession is forgoten
+                    $user->proffesion       = $profession;
+                    $user->gender           = $gender;
                     $user->ip_address       = $user_ip;
                     $user->device_id        = $device_id;
 
@@ -166,13 +197,15 @@ class CourseController extends Controller
 
                 // return redirect(url()->previous().'#form-apply')->with('success','Uspesno ste se prijavili na kurs!');
 
-                return view('success-apply', [
-                    'user' => $name,
-                    'course' => $course_name,
-                    'gender' => $gender
-                ]);
             }
 
+
+            return view('success-apply', [
+                'anchor' => 'success',
+                'user'   => $name,
+                'course' => $course_name,
+                'gender' => $gender
+            ]);
 
         }
 

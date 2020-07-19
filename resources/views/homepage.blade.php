@@ -34,8 +34,9 @@ Početna
 								<span class="fa fa-play"></span>
 							</span>
 						</a>
-						<a href="#" onclick=goToCourse({{$course->id}})><img
-								src="assets/images/banners/main-banner2.jpg" class="img-fluid" alt=""></a>
+						<a href="#" onclick=goToCourse({{$course->id}})>
+							<img src="{{ $course->cover_img !=null ? $course->cover_img : 'assets/images/banners/main-banner2.jpg' }}" class="img-fluid" alt="">	
+						</a>
 						<div class="course-content">
 							<div class="course-info">
 								<h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>

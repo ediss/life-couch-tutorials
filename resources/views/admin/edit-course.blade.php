@@ -1,4 +1,7 @@
 @extends('layout.admin-dashboard')
+@section('page-title')
+    Izmena kursa
+@endsection
 
 @section('content')
 <form action="{{ route("admin.edit.course", ['course_id' => $course->id]) }}" method="POST" enctype="multipart/form-data">
@@ -21,6 +24,22 @@
       <div class="col-3">
         <label>Kurs Url</label>
           <input type="text" class="form-control" name="course_url" value="{{$course->course_url}} ">
+      </div>
+
+      <div class="col-3">
+        <div class="form-group">
+          <div class="row">
+              <div class="col-md-6">
+                  
+                  <p><img src="{{ url($course->cover_img) }}" style="max-width: 50%"></p>
+              </div>
+              <div class="col-md-6">
+                  <label class="form-control-label"><b>Naslovna fotografija </b></label>
+                  <p><input type="file" name="cover_img" id="cover_img" /></p>
+              </div>
+          
+          </div>
+      </div>
       </div>
       {{-- <div class="col-3">
         <div class="form-group">
@@ -72,6 +91,19 @@
         </textarea>
       </div>
 
+      <div class="col-6 text-center">
+        <label>Prijava aktivna do: </label>
+        <input type="date" class="form-control" name='course_available' value="{{$course->course_available}}">
+
+      </div>
+
+      <div class="col-6 text-center">
+        <div class="form-group">
+          <label>Kurs je aktivan do: </label>
+          <input type="date" class="form-control" name='course_application_to' value="{{$course->course_application_to}}">
+        </div>
+
+      </div>
       <div class="col-12 text-center">
           <label> <h1>Cenovnik</h1></label>
       </div>

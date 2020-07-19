@@ -21,143 +21,166 @@
                         <div class="row">
                             @if(Auth::user())
 
-                            @if(count($user_assigned_to_course) > 0)
+                                @if(count($user_assigned_to_course) > 0)
 
-                            @if($device == Auth::user()->device_id || $device == Auth::user()->device_id_2)
-                            <div class="col-lg-10 offset-1 welcome-image">
-                                <!-- <img src="assets/images/ab.jpg" class="img-fluid" alt="" /> -->
-                                <div style='padding:56.25% 0 0 0;position:relative;'>
-                                    <iframe src='{{ $course->course_url }}' allowfullscreen frameborder='0'
-                                        style='position:absolute;top:0;left:0;width:100%;height:100%;'>
-                                    </iframe>
-                                </div>
-                                <div class="mt-3 course-content">
-                                    {!! $course->course_content !!}
-                                </div>
-                            </div>
-                            @else
+                                    @if($device == Auth::user()->device_id || $device == Auth::user()->device_id_2)
 
-                            <div class="col-8 offset-2">
-                                <div class="alert alert-danger text-center" role="alert">
-                                    Pokusavate da pristupite kursu sa trece ip adrese. Pristup je dozvoljen samo sa 2 ip
-                                    adrese!
-                                </div>
-                            </div>
-
-                            <div class="col-8 offset-2 text-center">
-                                <h1>FORMA ZA POMOC UKOLIKO MISLI DA JE DOSLO DO GRESKE</h1>
-                            </div>
-
-                            @endif
-                            @else
-                            {{-- <div class="col-12">
-                                    <h1>LOGOVAN ALI NEMA PRISTUP</h1>
-                                </div> --}}
-
-                            <div class="col-lg-6 welcome-image">
-                                <!-- <img src="assets/images/ab.jpg" class="img-fluid" alt="" /> -->
-                                <div style='padding:56.25% 0 0 0;position:relative;'>
-                                    <iframe src='{{ $course->intro_url }}' allowfullscreen frameborder='0'
-                                        style='position:absolute;top:0;left:0;width:100%;height:100%;'>
-                                    </iframe>
-                                </div>
-
-                                <div class="mt-3 course-content">
-                                    {!! $course->course_content !!}
-                                </div>
-
-                                <div class="mt-2">
-                                    <form action="{{route('course.subscription', ['course_id' => $course->id])}}"
-                                        method="POST">
-                                        @csrf
-                                        <input type="submit" class="btn btn-success btn-lg w-100" name=""
-                                            value="Prijavi me">
-                                    </form>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 mb-lg-0 mb-5">
-                                <!-- <h6>About Us</h6> -->
-
-                                <div class="course-desc">
-                                    <h3 class="hny-title">
-                                        {{$course->name}}
-                                    </h3>
-                                    <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
-                                                role="tab" aria-controls="home" aria-selected="true">Opis Kursa</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
-                                                role="tab" aria-controls="profile" aria-selected="false">Program
-                                                Kursa</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" id="price-tab" data-toggle="tab" href="#price"
-                                                role="tab" aria-controls="price" aria-selected="false">Cena</a>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="modal" data-target="#uplatnicaModalUser">Primer
-                                                Uplatnice</a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-content" id="myTabContent">
-
-                                        <div class="tab-pane fade show active my-4" id="home" role="tabpanel"
-                                            aria-labelledby="home-tab">
-                                            {!! $course->description !!}
+                                        @if(\Carbon\Carbon::now()->toDateString() > $course->course_available)
+                                            
+                                        <div class="col-12">
+                                            <div class="alert alert-danger text-center">
+                                                Kurs je istekao
+                                            </div>
                                         </div>
-                                        <div class="tab-pane fade my-4" id="profile" role="tabpanel"
-                                            aria-labelledby="profile-tab">
-                                            {!! $course->plan_and_program !!}
+                                            
+                                        <div class="col-lg-10 offset-1 welcome-image">
+                                            <!-- <img src="assets/images/ab.jpg" class="img-fluid" alt="" /> -->
+                                            <div style='padding:56.25% 0 0 0;position:relative;'>
+                                                <iframe src='{{ $course->intro_url }}' allowfullscreen frameborder='0'
+                                                    style='position:absolute;top:0;left:0;width:100%;height:100%;'>
+                                                </iframe>
+                                            </div>
+                                            <div class="mt-3 course-content">
+                                                {!! $course->course_content !!}
+                                            </div>
                                         </div>
-                                        <div class="tab-pane fade " id="price" role="tabpanel"
-                                            aria-labelledby="price-tab">
+                                        
+                                        
+                                        @else
+                                            <div class="col-lg-10 offset-1 welcome-image">
+                                                <!-- <img src="assets/images/ab.jpg" class="img-fluid" alt="" /> -->
+                                                <div style='padding:56.25% 0 0 0;position:relative;'>
+                                                    <iframe src='{{ $course->course_url }}' allowfullscreen frameborder='0'
+                                                        style='position:absolute;top:0;left:0;width:100%;height:100%;'>
+                                                    </iframe>
+                                                </div>
+                                                <div class="mt-3 course-content">
+                                                    {!! $course->course_content !!}
+                                                </div>
+                                            </div>
+                                        @endif
+                                    
+                                    @else
 
-                                            <p class="my-4">
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">U celini</th>
-                                                            <th scope="col">Iz inostranstva</th>
-                                                            <th scope="col">Premium paket</th>
-                                                            <th scope="col">Prijava do
-                                                                {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}
-                                                            </th>
-                                                            <th scope="col">U {{ $course_price->number_of_rate }} rata
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>{{ $course_price->payment_in_full }}</td>
-                                                            <td>{{ $course_price->payment_from_foreign_countries }}</td>
-                                                            <td>{{ $course_price->premium_package }}</td>
-                                                            <td>{{ $course_price->aplication_to_and_payfull }}</td>
-                                                            <td>{{ $course_price->price_in_rate }}</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </p>
-                                        </div>
-                                        <div class="tab-pane fade my-4" id="payment-slip" role="tabpanel"
-                                            aria-labelledby="uplatnica-tab">
-
+                                    <div class="col-8 offset-2">
+                                        <div class="alert alert-danger text-center" role="alert">
+                                            Pokusavate da pristupite kursu sa trece ip adrese. Pristup je dozvoljen samo sa 2 ip
+                                            adrese!
                                         </div>
                                     </div>
 
+                                    <div class="col-8 offset-2 text-center">
+                                        <h1>FORMA ZA POMOC UKOLIKO MISLI DA JE DOSLO DO GRESKE</h1>
+                                    </div>
 
+                                    @endif
+                                @else
+                                {{-- <div class="col-12">
+                                    <h1>LOGOVAN ALI NEMA PRISTUP</h1>
+                                </div> --}}
 
-                                    <!-- <div class="button-4-pink">
-                                                                        <div class="eff-4-pink"></div>
-                                                                        <a href="#"> Procitaj vise</a>
-                                                                    </div> -->
+                                <div class="col-lg-6 welcome-image">
+                                    <!-- <img src="assets/images/ab.jpg" class="img-fluid" alt="" /> -->
+                                    <div style='padding:56.25% 0 0 0;position:relative;'>
+                                        <iframe src='{{ $course->intro_url }}' allowfullscreen frameborder='0'
+                                            style='position:absolute;top:0;left:0;width:100%;height:100%;'>
+                                        </iframe>
+                                    </div>
+
+                                    <div class="mt-3 course-content">
+                                        {!! $course->course_content !!}
+                                    </div>
+
+                                    <div class="mt-2">
+
+                                        @if(\Carbon\Carbon::now()->toDateString() > $course->course_application_to)
+                                            <a href="#" class="btn btn-success btn-lg w-100">Prijava za kurs je istekla!</a>
+                                        @else
+                                        <form action="{{route('course.subscription', ['course_id' => $course->id])}}"
+                                            method="POST">
+                                            @csrf
+                                            <input type="submit" class="btn btn-success btn-lg w-100" name=""
+                                                value="Prijavi me">
+                                        </form>
+                                        @endif
+                                    </div>
                                 </div>
 
-                            </div>
-                            @endif
+                                <div class="col-lg-6 mb-lg-0 mb-5">
+                                    <!-- <h6>About Us</h6> -->
+
+                                    <div class="course-desc">
+                                        <h3 class="hny-title">
+                                            {{$course->name}}
+                                        </h3>
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home"
+                                                    role="tab" aria-controls="home" aria-selected="true">Opis Kursa</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+                                                    role="tab" aria-controls="profile" aria-selected="false">Program
+                                                    Kursa</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="price-tab" data-toggle="tab" href="#price"
+                                                    role="tab" aria-controls="price" aria-selected="false">Cena</a>
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="modal" data-target="#uplatnicaModalUser">Primer
+                                                    Uplatnice</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content" id="myTabContent">
+
+                                            <div class="tab-pane fade show active my-4" id="home" role="tabpanel"
+                                                aria-labelledby="home-tab">
+                                                {!! $course->description !!}
+                                            </div>
+                                            <div class="tab-pane fade my-4" id="profile" role="tabpanel"
+                                                aria-labelledby="profile-tab">
+                                                {!! $course->plan_and_program !!}
+                                            </div>
+                                            <div class="tab-pane fade " id="price" role="tabpanel"
+                                                aria-labelledby="price-tab">
+
+                                                <p class="my-4">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th scope="col">U celini</th>
+                                                                <th scope="col">Iz inostranstva</th>
+                                                                <th scope="col">Premium paket</th>
+                                                                <th scope="col">Prijava do
+                                                                    {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}
+                                                                </th>
+                                                                <th scope="col">U {{ $course_price->number_of_rate }} rata
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>{{ $course_price->payment_in_full }} RSD</td>
+                                                                <td>{{ $course_price->payment_from_foreign_countries }} &euro;</td>
+                                                                <td>{{ $course_price->premium_package }} RSD</td>
+                                                                <td>{{ $course_price->aplication_to_and_payfull }} RSD</td>
+                                                                <td>{{ $course_price->price_in_rate }} RSD</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </p>
+                                            </div>
+                                            <div class="tab-pane fade my-4" id="payment-slip" role="tabpanel"
+                                                aria-labelledby="uplatnica-tab">
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @endif
 
                             @else
                             <div class="col-lg-6 welcome-image">
@@ -173,8 +196,12 @@
                                 </div>
 
                                 <div class="mt-2">
+                                    @if(\Carbon\Carbon::now()->toDateString() > $course->course_application_to)
+                                    <a href="#" class="btn btn-success btn-lg w-100">Prijava za kurs je istekla!</a>
+                                    @else
                                     <a href="{{route('course.subscription', ['course_id' => $course->id])}}#form-apply"
                                         class="btn btn-success btn-lg w-100">Prijavi me</a>
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-lg-6 mb-lg-0 mb-5">
@@ -235,11 +262,11 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td>{{ $course_price->payment_in_full }}</td>
-                                                            <td>{{ $course_price->payment_from_foreign_countries }}</td>
-                                                            <td>{{ $course_price->premium_package }}</td>
-                                                            <td>{{ $course_price->aplication_to_and_payfull }}</td>
-                                                            <td>{{ $course_price->price_in_rate }}</td>
+                                                            <td>{{ $course_price->payment_in_full }} RSD</td>
+                                                            <td>{{ $course_price->payment_from_foreign_countries }} &euro;</td>
+                                                            <td>{{ $course_price->premium_package }} RSD</td>
+                                                            <td>{{ $course_price->aplication_to_and_payfull }} RSD</td>
+                                                            <td>{{ $course_price->price_in_rate }} RSD</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -451,17 +478,18 @@
 
 <!-- Modal AUTH USER-->
 @if(Auth::user())
-<div class="modal fade" id="uplatnicaModalUser" tabindex="-1" role="dialog" aria-labelledby="uplatnicaModalLabel"
+<div class="modal fade bd-example-modal-lg" id="uplatnicaModalUser" tabindex="-1" role="dialog" aria-labelledby="uplatnicaModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    PRIMER UPLATNICE
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div id="uplatnica">
+                <div id="uplatnica" class="mb-5">
                     <div id="levo">
                         <div id="uplatnicanaslov">уплатилац</div>
                         <div id="uplatilac">
@@ -539,17 +567,18 @@
 
 <!-- Modal WEB USER-->
 
-<div class="modal fade" id="uplatnicaModal" tabindex="-1" role="dialog" aria-labelledby="uplatnicaModalLabel"
+<div class="modal fade bd-example-modal-lg" id="uplatnicaModal" tabindex="-1" role="dialog" aria-labelledby="uplatnicaModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    PRIMER UPLATNICE
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <div id="uplatnica">
+                <div id="uplatnica" class="mb-5">
                     <div id="levo">
                         <div id="uplatnicanaslov">уплатилац</div>
                         <div id="uplatilac">

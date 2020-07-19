@@ -1,4 +1,7 @@
 @extends('layout.admin-dashboard')
+@section('page-title')
+    Dodeljivanje kursa korisniku
+@endsection
 
 @section('content')
 <form action="{{  route('admin.add.user.to.course', ['course_id'=> $course_id])  }}" method="POST" enctype="multipart/form-data">

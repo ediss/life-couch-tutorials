@@ -16,7 +16,9 @@ Uspešna Prijava
 @section('content')
 
 <div id="success">
-
+    @if (isset($anchor))
+        <input type="hidden" name="anchor" value="{{ $anchor }}">
+    @endif
 </div>
 
     <div class="row" style="margin-top:10%; margin-bottom:10%;">
@@ -77,13 +79,17 @@ Uspešna Prijava
         </div>
     </div>
 
+@endsection
 
+@section('footer-scripts')
 
+<script>
 
-
-
-
-
-
-
+$(function () {
+    if ( $( "[name='anchor']" ).length ) {
+        window.location = '#' + $( "[name='anchor']" ).val();
+    }
+});
+</script>
+    
 @endsection

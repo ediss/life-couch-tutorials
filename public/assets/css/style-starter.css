@@ -5264,7 +5264,17 @@ pre {
       max-width: 720px; } }
   @media (min-width: 992px) {
     .container {
-      max-width: 960px; } }
+      max-width: 960px; } 
+    
+    #uplatnicaModalUser .modal-lg, .modal-xl {
+        max-width: 900px !important;
+    }
+
+    #uplatnicaModal .modal-lg, .modal-xl {
+        max-width: 900px !important;
+    }
+    
+    }
   @media (min-width: 1200px) {
     .container {
       max-width: 1140px; } }
