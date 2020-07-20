@@ -39,35 +39,36 @@ Author URL: http://w3layouts.com
 				<!--/nav-->
 				<nav class="navbar navbar-expand-lg navbar-light fill">
 					<div class="container-fluid">
-
-						<button class="navbar-toggler" id="test-btn" type="button" data-toggle="collapse"
+						
+						<div class="col-2">
+							<button class="navbar-toggler" type="button" data-toggle="collapse"
 							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 							aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
+						</div>
+						
+						@if(Auth::user())
+						<div class="col-6 d-lg-none text-center">
+							<a class="nav-link ml-0 p-0 text-violet font-weight-bold"
+								href="{{ route('user.courses') }}">Moji Kursevi</a>
+
+						</div>
+						<div class="col-4 d-lg-none text-right">
+							<a class="nav-link ml-0 text-violet font-weight-bold"
+								href="{{ route("custom.logout") }}">Logout</a>
+						</div>
+						@else
+
+						<div class="col-8 text-right">
+							<a class="nav-link text-violet font-weight-bold" data-toggle="modal"
+								data-target="#loginModal" href="#">Logovanje</a>
+						</div>
+						@endif
+
 
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<div class="row">
-								@if(Auth::user())
 
-								<div class="col-6 d-lg-none">
-									<a class="nav-link ml-0 mt-4 text-violet font-weight-bold"
-										href="{{ route('user.courses') }}">Moji Kursevi</a>
-
-								</div>
-								<div class="col-6 d-lg-none text-right">
-
-									<a class="nav-link ml-0 mt-4 text-violet font-weight-bold"
-										href="{{ route("custom.logout") }}">Logout</a>
-
-									@else
-									<a class="nav-link mt-4 text-violet font-weight-bold" data-toggle="modal"
-										data-target="#loginModal" href="#">Logovanje</a>
-									
-
-								</div>
-								@endif
-							</div>
 							<ul class="navbar-nav mx-lg-auto ml-auto">
 								<li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
 									<a class="nav-link" href="{{url('/')}}">Početna</a>
