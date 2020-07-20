@@ -40,26 +40,25 @@ Kursevi
                                 </span>
                             </a>
                         <a href="#" onclick=goToCourse({{$course->id}})><img src="{{ $course->cover_img !=null ? $course->cover_img : 'assets/images/banners/main-banner2.jpg' }}" class="img-fluid" alt=""></a>
-                            <div class="course-content">
-                                <div class="course-info">
-                                    <h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
-                                    <a href="#" class="course-titlegulp-wrapper">
-                                        <h3 class="course-title">{{ $course->name }}</h3>
-                                    </a>
-                                </div>
-                                <div class="course-divider mb-5">
-                                    <div class="course-meta grid"><span class="course-students" title=""><span
-                                                class="fa fa-user" aria-hidden="true"></span> 46</span>
-                                        <span class="course-reviews" title=""><span class="fa fa-thumbs-o-up"
-                                                aria-hidden="true"></span> 14</span>
-    
-                                    </div>
-                                    <!-- <button class="price-course btn font-weight-bold">SAZNAJ VIŠE</button> -->
-                                </div>
-                                <a href="#" onclick=goToCourse({{$course->id}})><button class="price-course btn font-weight-bold w-100">SAZNAJ
-                                        VIŠE</button></a>
-    
-                            </div>
+                        <div class="course-content">
+							<div class="course-info mb-5">
+								<h6><a class="course-instructor" href="{{route('about')}}#about-me"> Maja Vučković</a></h6>
+								<a href="#" class="course-titlegulp-wrapper">
+									<h3 class="course-title">{{ $course->name }}</h3>
+								</a>
+							</div>
+
+							<a href="#" onclick=goToCourse({{$course->id}})><button
+									class="price-course btn font-weight-bold w-100">SAZNAJ
+									VIŠE</button></a>
+
+						</div>
+						<div class="course-info">
+
+							<i class="fa fa-calendar" aria-hidden="true"></i> Prijava do:{{ date('d-M-Y', strtotime($course->course_application_to)) }}
+							<i class="fa fa-hourglass-half ml-4" aria-hidden="true"></i> Još: {{\Carbon\Carbon::now()->diffInDays($course->course_application_to)}} dana
+
+						</div>
                         </div>
     
                     </div>

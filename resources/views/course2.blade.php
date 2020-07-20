@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-
+{{-- @php dd(Request::input('course_id')); @endphp --}}
 <div id="course-content">
     <section class="w3l-wecome-content-6">
         <!-- /content-6-section -->
@@ -673,32 +673,6 @@
 
 
 
-<script>
-    var hash= '';
-        if (window.requestIdleCallback) {
-    requestIdleCallback(function () {
-        new Fingerprint2().get(function(result, components){
 
-           var device_id    = $("#device_id").val();
-           var device_id_2  = $("#device_id_2").val();
-           var device_id_3  = $("#device_id_subscription").val();
-
-            if(result != device_id )
-
-
-        });
-    })
-
-
-} else {
-    setTimeout(function () {
-        new Fingerprint2().get(function (result, components) {
-          console.log(components) // an array of components: {key: ..., value: ...}
-        })
-    }, 500)
-}
-
-
-</script>
 
 @endsection

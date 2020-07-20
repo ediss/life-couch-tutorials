@@ -41,17 +41,7 @@
           </div>
       </div>
       </div>
-      {{-- <div class="col-3">
-        <div class="form-group">
-          <label for="exampleInputFile">Naslovna Fotografija</label>
-          <div class="input-group">
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" name="cover_img">
-              <label class="custom-file-label" for="exampleInputFile">Izaberite</label>
-            </div>
-          </div>
-        </div>
-      </div> --}}
+
 
       <div class="col-12">
         <label>Opis kursa</label>
@@ -93,14 +83,14 @@
 
       <div class="col-6 text-center">
         <label>Prijava aktivna do: </label>
-        <input type="date" class="form-control" name='course_available' value="{{$course->course_available}}">
+        <input type="date" class="form-control" name='course_application_to' value="{{$course->course_application_to}}">
 
       </div>
 
       <div class="col-6 text-center">
         <div class="form-group">
           <label>Kurs je aktivan do: </label>
-          <input type="date" class="form-control" name='course_application_to' value="{{$course->course_application_to}}">
+          <input type="date" class="form-control" name='course_available' value="{{$course->course_available}}">
         </div>
 
       </div>

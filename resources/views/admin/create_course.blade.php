@@ -68,14 +68,14 @@ Dodavanje kursa
 
       <div class="col-6 text-center">
         <label>Prijava aktivna do: </label>
-        <input type="date" class="form-control" name='course_available'>
+        <input type="date" class="form-control" name='course_application_to'>
 
       </div>
 
       <div class="col-6 text-center">
         <div class="form-group">
           <label>Kurs je aktivan do: </label>
-          <input type="date" class="form-control" name='course_application_to'>
+          <input type="date" class="form-control" name='course_available'>
         </div>
 
       </div>

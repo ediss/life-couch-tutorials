@@ -161,6 +161,8 @@ class AdminController extends Controller
             $course_name         = $request->input("course_name");
             $course_content      = $request->input("course_content");
             $course_program      = $request->input("course_program");
+            $course_application  = $request->input("course_application_to");
+            $course_available    = $request->input("course_available");
             $course_organisation = $request->input("course_organisation");
 
             if ($request->hasFile('cover_img')) {
@@ -179,14 +181,16 @@ class AdminController extends Controller
             $payment_from_foreign_countries      = $request->input("payment_from_foreign_countries");
             $aplication_to_and_payfull           = $request->input("aplication_to_and_payfull");
 
-            $course->name                = $course_name;
-            $course->intro_url           = $intro_url;
-            $course->cover_img           = (isset($cover_img_path)) ? $cover_img_path : $course->cover_img;
-            $course->course_url          = $course_url;
-            $course->description         = $course_desc;
-            $course->course_content      = $course_content;
-            $course->plan_and_program    = $course_program;
-            $course->course_available    = Carbon::now()->addMonth(3);
+            $course->name                   = $course_name;
+            $course->intro_url              = $intro_url;
+            $course->cover_img              = (isset($cover_img_path)) ? $cover_img_path : $course->cover_img;
+            $course->course_url             = $course_url;
+            $course->description            = $course_desc;
+            $course->course_content         = $course_content;
+            $course->plan_and_program       = $course_program;
+            $course->course_available       = $course_available;
+            $course->course_application_to  = $course_application;
+
             $course->course_organisation = $course_organisation;
 
             if($course->save()) {

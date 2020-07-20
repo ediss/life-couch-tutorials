@@ -37,7 +37,7 @@ Author URL: http://w3layouts.com
 		<div class="breadcrumb-infhny">
 			<header class="top-headerhny" id="topheader">
 				<!--/nav-->
-				<nav class="navbar navbar-expand-md navbar-light fill">
+				<nav class="navbar navbar-expand-lg navbar-light fill">
 					<div class="container-fluid">
 
 						<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -47,6 +47,36 @@ Author URL: http://w3layouts.com
 						</button>
 
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<div class="row d-md-none">
+								<div class="col-6"></div>
+								<div class="col-6 text-right">
+									<button class="navbar-toggler btn-close-menu" type="button" data-toggle="collapse"
+									data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+									aria-expanded="false" aria-label="Toggle navigation">
+									<span class="">x</span>
+								</button>
+								</div>
+								
+							</div>
+							<div class="row">
+								<div class="col-6 d-md-none">
+									<a class="nav-link ml-0 mt-4 text-violet font-weight-bold"
+										href="{{ route('user.courses') }}">Moji Kursevi</a>
+
+								</div>
+								<div class="col-6 d-md-none text-right">
+
+									@if(Auth::user())
+									<a class="nav-link ml-0 mt-4 text-violet font-weight-bold"
+										href="{{ route("custom.logout") }}">Logout</a>
+
+									@else
+									<a class="nav-link mt-4 text-violet font-weight-bold" data-toggle="modal"
+										data-target="#loginModal" href="#">Logovanje</a>
+									@endif
+
+								</div>
+							</div>
 							<ul class="navbar-nav mx-lg-auto ml-auto">
 								<li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
 									<a class="nav-link" href="{{url('/')}}">Početna</a>
@@ -63,22 +93,7 @@ Author URL: http://w3layouts.com
 									<a class="nav-link" href="{{route('contact')}}#contact">Kontakt</a>
 								</li>
 
-								<li class="nav-item d-md-none">
-									@if(Auth::user())
-									<div class="dropdown">
-										<button class="dropbtn">{{ Auth::user()->name }}</button>
-										<div class="dropdown-content">
-											<a class="nav-link ml-0" href="{{ route("custom.logout") }}">Logout</a>
-											<a class="nav-link ml-0" href="{{ route('user.courses') }}">Moji Kursevi</a>
 
-										</div>
-									</div>
-
-									@else
-									<a class="nav-link " data-toggle="modal" data-target="#loginModal"
-										href="#">Logovanje</a>
-									@endif
-								</li>
 
 								<li class="nav-item login-link d-none d-md-block">
 
@@ -338,11 +353,12 @@ Author URL: http://w3layouts.com
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.8.2/fingerprint2.min.js"></script>
 
 	{{-- <script src="{{ asset("assets/js/bootstrap.min.js") }}"></script> --}}
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+	</script>
 
 
 	<script>
-
 		// When the user scrolls down 20px from the top of the document, show the button
 		window.onscroll = function () {
 			scrollFunction()
@@ -412,21 +428,18 @@ Author URL: http://w3layouts.com
 
 	<script>
 		var hash= '';
-			if (window.requestIdleCallback) {
+	if (window.requestIdleCallback) {
 		requestIdleCallback(function () {
 			new Fingerprint2().get(function(result, components){
 
-			   hash = result;
+				console.log(components);
+				hash = result;
 
-			   $("#device_id").val(result);
-			   $("#device_id_login").val(result);
-			   $("#device_id_subscription").val(result);
-
-
+			   	$("#device_id").val(result);
+			   	$("#device_id_login").val(result);
+			   	$("#device_id_subscription").val(result);
 			});
 		})
-
-
 	} else {
 		setTimeout(function () {
 			new Fingerprint2().get(function (result, components) {
@@ -465,12 +478,7 @@ Author URL: http://w3layouts.com
 
 
             success: function(response){
-
-
                 window.location.replace(response);
-
-
-
             },
             error: function (request, status, error) {
                 alert(error);
@@ -488,12 +496,12 @@ Author URL: http://w3layouts.com
 
 		// makes sure the whole site is loaded
 
-	$(window).on('load', function(){ 
+	$(window).on('load', function(){
 		$("#status").fadeOut();
         // will fade out the whole DIV that covers the website.
     $("#preloader").delay(1000).fadeOut("slow");
 	});
-	
+
 
 
 	</script>
