@@ -40,31 +40,20 @@ Author URL: http://w3layouts.com
 				<nav class="navbar navbar-expand-lg navbar-light fill">
 					<div class="container-fluid">
 
-						<button class="navbar-toggler" type="button" data-toggle="collapse"
+						<button class="navbar-toggler" id="test-btn" type="button" data-toggle="collapse"
 							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 							aria-expanded="false" aria-label="Toggle navigation">
 							<span class="navbar-toggler-icon"></span>
 						</button>
 
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
-							<div class="row d-md-none">
-								<div class="col-6"></div>
-								<div class="col-6 text-right">
-									<button class="navbar-toggler btn-close-menu" type="button" data-toggle="collapse"
-									data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-									aria-expanded="false" aria-label="Toggle navigation">
-									<span class="">x</span>
-								</button>
-								</div>
-								
-							</div>
 							<div class="row">
-								<div class="col-6 d-md-none">
+								<div class="col-6 d-lg-none">
 									<a class="nav-link ml-0 mt-4 text-violet font-weight-bold"
 										href="{{ route('user.courses') }}">Moji Kursevi</a>
 
 								</div>
-								<div class="col-6 d-md-none text-right">
+								<div class="col-6 d-lg-none text-right">
 
 									@if(Auth::user())
 									<a class="nav-link ml-0 mt-4 text-violet font-weight-bold"
@@ -95,7 +84,7 @@ Author URL: http://w3layouts.com
 
 
 
-								<li class="nav-item login-link d-none d-md-block">
+								<li class="nav-item login-link d-none d-lg-block">
 
 									@if(Auth::user())
 									<div class="dropdown">
@@ -501,7 +490,6 @@ Author URL: http://w3layouts.com
         // will fade out the whole DIV that covers the website.
     $("#preloader").delay(1000).fadeOut("slow");
 	});
-
 
 
 	</script>

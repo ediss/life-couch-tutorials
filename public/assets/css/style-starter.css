@@ -2761,11 +2761,11 @@ h3.hny-title.two {
       overflow: auto;  */
 
       background: #fff;
-      position: absolute;
+      position: relative;
       top: 0;
       left: 0;
       overflow: auto;
-      height: 100vh;
+      min-height: 100vh;
       width: 100%;
     }
     .w3l-banner-slider-main div#navbarSupportedContent:before {
@@ -2785,10 +2785,7 @@ h3.hny-title.two {
       overflow: inherit; } 
     
       .w3l-banner-slider-main nav ul {
-        /* list-style: none;
-        text-align: center;  */
-        position:absolute;
-        top:25%;
+        margin-top: 25%;
         width: 100%;
       }
     }
