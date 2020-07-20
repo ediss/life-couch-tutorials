@@ -48,6 +48,8 @@ Author URL: http://w3layouts.com
 
 						<div class="collapse navbar-collapse" id="navbarSupportedContent">
 							<div class="row">
+								@if(Auth::user())
+
 								<div class="col-6 d-lg-none">
 									<a class="nav-link ml-0 mt-4 text-violet font-weight-bold"
 										href="{{ route('user.courses') }}">Moji Kursevi</a>
@@ -55,16 +57,16 @@ Author URL: http://w3layouts.com
 								</div>
 								<div class="col-6 d-lg-none text-right">
 
-									@if(Auth::user())
 									<a class="nav-link ml-0 mt-4 text-violet font-weight-bold"
 										href="{{ route("custom.logout") }}">Logout</a>
 
 									@else
 									<a class="nav-link mt-4 text-violet font-weight-bold" data-toggle="modal"
 										data-target="#loginModal" href="#">Logovanje</a>
-									@endif
+									
 
 								</div>
+								@endif
 							</div>
 							<ul class="navbar-nav mx-lg-auto ml-auto">
 								<li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
