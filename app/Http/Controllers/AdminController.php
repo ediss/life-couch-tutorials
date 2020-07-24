@@ -152,64 +152,83 @@ class AdminController extends Controller
         $course_price   = CoursePrice::where('course_id', '=', $course_id)->first();
 
         if ($request->isMethod('post')) {
-            //update and return with session message
 
-            $intro_url           = $request->input("intro_url");
-            //    $cover_img           = $request->input("cover_img");
-            $course_url          = $request->input("course_url");
-            $course_desc         = $request->input("course_desc");
-            $course_name         = $request->input("course_name");
-            $course_content      = $request->input("course_content");
-            $course_program      = $request->input("course_program");
-            $course_application  = $request->input("course_application_to");
-            $course_available    = $request->input("course_available");
-            $course_organisation = $request->input("course_organisation");
 
-            if ($request->hasFile('cover_img')) {
-                $cover_img        = $request->file('cover_img');
-                $cover_img_name   = $course_name.time().'.'.$cover_img->getClientOriginalExtension();
-                $cover_img_path   = $cover_img ? $cover_img->move('images/courses/', $cover_img_name) : null;
+            $validator = Validator::make($request->all(), [
+                "course_name"           => "required",
+                "intro_url"             => "required",
+                "course_url"            => "required",
+                "course_desc"           => "required",
+                "course_program"        => "required",
+                "course_content"        => "required",
+                "course_organisation"   => "required",
+
+            ]);
+
+            if ($validator->passes()){
+                $intro_url           = $request->input("intro_url");
+                //    $cover_img           = $request->input("cover_img");
+                $course_url          = $request->input("course_url");
+                $course_desc         = $request->input("course_desc");
+                $course_name         = $request->input("course_name");
+                $course_content      = $request->input("course_content");
+                $course_program      = $request->input("course_program");
+                $course_application  = $request->input("course_application_to");
+                $course_available    = $request->input("course_available");
+                $course_organisation = $request->input("course_organisation");
+
+                if ($request->hasFile('cover_img')) {
+                    $cover_img        = $request->file('cover_img');
+                    $cover_img_name   = $course_name.time().'.'.$cover_img->getClientOriginalExtension();
+                    $cover_img_path   = $cover_img ? $cover_img->move('images/courses/', $cover_img_name) : null;
+                }
+
+                   //prices
+                $payment_in_full     = $request->input("payment_in_full");
+                $premium_package     = $request->input("premium_package");
+                $aplication_to       = $request->input("aplication_to");
+                $number_of_rate      = $request->input("number_of_rate");
+                $price_in_rate       = $request->input("price_in_rate");
+
+                $payment_from_foreign_countries      = $request->input("payment_from_foreign_countries");
+                $aplication_to_and_payfull           = $request->input("aplication_to_and_payfull");
+
+                $course->name                   = $course_name;
+                $course->intro_url              = $intro_url;
+                $course->cover_img              = (isset($cover_img_path)) ? $cover_img_path : $course->cover_img;
+                $course->course_url             = $course_url;
+                $course->description            = $course_desc;
+                $course->course_content         = $course_content;
+                $course->plan_and_program       = $course_program;
+                $course->course_available       = $course_available;
+                $course->course_application_to  = $course_application;
+
+                $course->course_organisation = $course_organisation;
+
+                if($course->save()) {
+                    $course_price = CoursePrice::where("course_id", "=", $course_id)->first();
+
+                    $course_price->course_id = $course->id;
+                    $course_price->payment_in_full = $payment_in_full;
+                    $course_price->payment_from_foreign_countries = $payment_from_foreign_countries;
+                    $course_price->premium_package = $premium_package;
+                    $course_price->aplication_to = $aplication_to;
+                    $course_price->aplication_to_and_payfull = $aplication_to_and_payfull;
+                    $course_price->number_of_rate = $number_of_rate;
+                    $course_price->price_in_rate = $price_in_rate;
+
+                    $course_price->save();
+
+                    return back()->with('info','Uspesno ste izmenili kurs!');
+
+               }
+            }else{
+                return back()->withErrors($validator)->withInput();
             }
 
-               //prices
-            $payment_in_full     = $request->input("payment_in_full");
-            $premium_package     = $request->input("premium_package");
-            $aplication_to       = $request->input("aplication_to");
-            $number_of_rate      = $request->input("number_of_rate");
-            $price_in_rate       = $request->input("price_in_rate");
 
-            $payment_from_foreign_countries      = $request->input("payment_from_foreign_countries");
-            $aplication_to_and_payfull           = $request->input("aplication_to_and_payfull");
 
-            $course->name                   = $course_name;
-            $course->intro_url              = $intro_url;
-            $course->cover_img              = (isset($cover_img_path)) ? $cover_img_path : $course->cover_img;
-            $course->course_url             = $course_url;
-            $course->description            = $course_desc;
-            $course->course_content         = $course_content;
-            $course->plan_and_program       = $course_program;
-            $course->course_available       = $course_available;
-            $course->course_application_to  = $course_application;
 
-            $course->course_organisation = $course_organisation;
-
-            if($course->save()) {
-                $course_price = CoursePrice::where("course_id", "=", $course_id)->first();
-
-                $course_price->course_id = $course->id;
-                $course_price->payment_in_full = $payment_in_full;
-                $course_price->payment_from_foreign_countries = $payment_from_foreign_countries;
-                $course_price->premium_package = $premium_package;
-                $course_price->aplication_to = $aplication_to;
-                $course_price->aplication_to_and_payfull = $aplication_to_and_payfull;
-                $course_price->number_of_rate = $number_of_rate;
-                $course_price->price_in_rate = $price_in_rate;
-
-                $course_price->save();
-
-                return back()->with('info','Uspesno ste izmenili kurs!');
-
-           }
         }
 
         return view('admin.edit-course',[
