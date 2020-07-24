@@ -369,14 +369,14 @@
                                         <div class="mission-sec-gd">
                                             <img src="{{ asset("assets/images/p1.jpg") }}" alt="" class="img-fluid" />
                                         </div>
-                                        <div class="mission-sec-gd">
+                                        {{-- <div class="mission-sec-gd">
                                             <img src="{{ asset("assets/images/p2.jpg") }}" alt="" class="img-fluid" />
-                                        </div>
+                                        </div> --}}
 
                                     </div>
                                     <div class="sub-mission">
                                         <div class="mission-sec-gd">
-                                            <img src="{{ asset("assets/images/p6.jpg") }}" alt="" class="img-fluid" />
+                                            <img src="{{ asset("assets/images/p2.jpg") }}" alt="" class="img-fluid" />
                                         </div>
                                         <div class="mission-sec-gd">
                                             <img src="{{ asset("assets/images/p4.jpg") }}" alt="" class="img-fluid" />

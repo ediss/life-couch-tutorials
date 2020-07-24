@@ -133,34 +133,9 @@ Početna
 			</div>
 
 			<!-- /pagination-->
-			<div class="pagination p1" data-aos="zoom-in" data-aos-offset="100" data-aos-delay="300"
-				data-aos-duration="400">
-				<ul>
-					<a href="#">
-						<li> <span class="fa fa-angle-double-left" aria-hidden="true"></span></li>
-					</a>
-					<a class="is-active" href="#">
-						<li>1</li>
-					</a>
-					<a href="#">
-						<li>2</li>
-					</a>
-					<a href="#">
-						<li>3</li>
-					</a>
-					<a href="#">
-						<li>4</li>
-					</a>
-					<a href="#">
-						<li>5</li>
-					</a>
-					<a href="#">
-						<li>6</li>
-					</a>
-					<a href="#">
-						<li><span class="fa fa-angle-double-right" aria-hidden="true"></span></li>
-					</a>
-				</ul>
+			<div class="button-4-pink col-4 offset-4 mt-4">
+				<div class="eff-4-pink"></div>
+				<a href="{{ route('all-courses') }}#all-courses"> Svi kursevi</a>
 			</div>
 			<!-- //pagination-->
 		</div>
@@ -195,14 +170,17 @@ Početna
 						<div class="p-xl-4 p-0 video-wrap">
 							<h3 class="hny-title text-left">
 								Maja Vučković</h3>
-							<p>Zdravo i hvala ti što si ovde!</p>
-							<p>Ako tražiš podršku na svom putu ka ispunjenom životu, ličnom i profesionalnom, ako si
-								na životnoj raskrsnici ili ti se sav teret ovoga sveta sručio na leđa, ako se osećaš
-								kao da te vrtlog neraspoloženja i neuspeha vuče ka dnu sve više, da ti nedostaje
-								usmerenje ili neko ko će da ti pomogne da sav taj haos u glavi pretočiš u jasne
-								misli i uspešne akcije - nastavi sa čitanjem, na pravom si mestu. Zovem se Maja, ja
-								sam doktor medicine, psihoterapeut i life coach, majka jednog tinejdžera i tetka
-								jedne 6-godišnjakinje. Ovo su važne stvari u mom životu.</p>
+							<p>Dobro došli na moju stranicu namenjenu onlajn treninzima!</p>
+							<p class="mt-4">
+								Ja sam <b>Maja Vučković, doktor medicine, akreditovani psihoterapeut i lajf kouč.</b> Iza sebe imam godine radnog staža u psihoterapeutskoj i lekarskoj praksi, u marketingu i prodaji, u edukacijama i treninzima. 
+							</p>
+							<p>
+								Godinama se moj život odvijao na relaciji Niš-Beograd, a od skoro živim i u Kijevu. Na sreću, zahvaljujući tehnologiji, uprkos nestalnom mestu boravka, mogu da imam stalne klijente: radim uglavnom onlajn, preko bilo koje aplikacije sa opcijom video-poziva.
+							</p>
+
+							<p>
+								<b>Osnivač sam i predsednik udruženja „Life Leaf“ </b>koje se bavi psihološkom pomoći ljudima sa smanjenim učešćem u socijalnom životu, zbog bolesti, invaliditeta i slično.
+							</p>
 							<div class="button-4-pink">
 								<div class="eff-4-pink"></div>
 								<a href="{{ route('about') }}#about-me"> Vidi više</a>

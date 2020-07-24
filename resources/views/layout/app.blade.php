@@ -16,8 +16,14 @@ Author URL: http://w3layouts.com
 	<!-- Template CSS -->
 	<link href="//fonts.googleapis.com/css?family=Muli:300,300i,400,500,600,700,800,900&display=swap" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700,900&display=swap" rel="stylesheet">
+
+	
+
 	<!-- Template CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+	<script src="https://kit.fontawesome.com/fcb04e2a3d.js" crossorigin="anonymous"></script>
+
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
@@ -40,7 +46,7 @@ Author URL: http://w3layouts.com
 				<nav class="navbar navbar-expand-lg navbar-light fill">
 					<div class="container-fluid">
 						
-						<div class="col-2">
+						<div class="col-2 d-lg-none">
 							<button class="navbar-toggler" type="button" data-toggle="collapse"
 							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 							aria-expanded="false" aria-label="Toggle navigation">
@@ -60,7 +66,7 @@ Author URL: http://w3layouts.com
 						</div>
 						@else
 
-						<div class="col-8 text-right">
+						<div class="col-8 d-lg-none text-right">
 							<a class="nav-link text-violet font-weight-bold" data-toggle="modal"
 								data-target="#loginModal" href="#">Logovanje</a>
 						</div>
