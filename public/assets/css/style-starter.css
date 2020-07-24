@@ -1984,11 +1984,12 @@ span.fa.fa-play {
       min-height: 200px; } }
 
 .w3l-content-5 .content-5-main {
-  background: url(../images/bg3.jpg) no-repeat bottom;
+  background: url(../images/bg03.jpg) no-repeat center;
   background-size: cover;
   z-index: 0;
   position: relative;
-  padding: 100px 0; }
+  padding: 140px 0;
+}
 
 .w3l-content-5 .content-5-main::before {
   content: "";

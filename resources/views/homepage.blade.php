@@ -40,7 +40,7 @@ Početna
 						<div class="course-content">
 							<div class="course-info mb-5">
 								<h6><a class="course-instructor" href="{{route('about')}}#about-me"> Maja Vučković</a></h6>
-								<a href="#" class="course-titlegulp-wrapper">
+								<a href="#" class="course-titlegulp-wrapper" onclick=goToCourse({{$course->id}})>
 									<h3 class="course-title">{{ $course->name }}</h3>
 								</a>
 							</div>
@@ -61,75 +61,6 @@ Početna
 				</div>
 				@endforeach
 
-				<div class="col-lg-4 col-md-6 course-grid" data-aos="fade-right" data-aos-offset="0"
-					data-aos-delay="200" data-aos-duration="200">
-					<div class="course-grid-inf box-shadow">
-
-						<a href="course.html" class="popup-with-zoom-anim play-view text-center position-absolute">
-							<span class="video-play-icon">
-								<span class="fa fa-play"></span>
-							</span>
-						</a>
-						<a href="course.html"><img src="assets/images/banners/main-banner2.jpg" class="img-fluid" alt=""></a>
-						<div class="course-content">
-							<div class="course-info">
-								<h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
-								<a href="#" class="course-titlegulp-wrapper">
-									<h3 class="course-title">Design Thinking &#8211; Design Research and Analysis
-									</h3>
-								</a>
-							</div>
-							<div class="course-divider mb-5">
-								<div class="course-meta grid"><span class="course-students" title=""><span
-											class="fa fa-user" aria-hidden="true"></span> 46</span>
-									<span class="course-reviews" title=""><span class="fa fa-thumbs-o-up"
-											aria-hidden="true"></span> 14</span>
-
-								</div>
-								<!-- <button class="price-course btn font-weight-bold">SAZNAJ VIŠE</button> -->
-							</div>
-							<a href="course.html"><button class="price-course btn font-weight-bold w-100">SAZNAJ
-									VIŠE</button></a>
-
-						</div>
-					</div>
-
-				</div>
-
-				<div class="col-lg-4 col-md-6 course-grid" data-aos="fade-right" data-aos-offset="0"
-					data-aos-delay="100" data-aos-duration="250">
-					<div class="course-grid-inf box-shadow">
-
-						<a href="course.html" class="popup-with-zoom-anim play-view text-center position-absolute">
-							<span class="video-play-icon">
-								<span class="fa fa-play"></span>
-							</span>
-						</a>
-						<a href="course.html"><img src="assets/images/banners/main-banner2.jpg" class="img-fluid" alt=""></a>
-						<div class="course-content">
-							<div class="course-info">
-								<h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
-								<a href="#" class="course-titlegulp-wrapper">
-									<h3 class="course-title">Design Thinking &#8211; Design Research and Analysis
-									</h3>
-								</a>
-							</div>
-							<div class="course-divider mb-5">
-								<div class="course-meta grid"><span class="course-students" title=""><span
-											class="fa fa-user" aria-hidden="true"></span> 46</span>
-									<span class="course-reviews" title=""><span class="fa fa-thumbs-o-up"
-											aria-hidden="true"></span> 14</span>
-
-								</div>
-								<!-- <button class="price-course btn font-weight-bold">SAZNAJ VIŠE</button> -->
-							</div>
-							<a href="course.html"><button class="price-course btn font-weight-bold w-100">SAZNAJ
-									VIŠE</button></a>
-
-						</div>
-					</div>
-
-				</div>
 			</div>
 
 			<!-- /pagination-->
