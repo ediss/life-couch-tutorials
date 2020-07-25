@@ -1915,6 +1915,10 @@ span.fa.fa-play {
     .w3l-footer-16 .subscribe button {
       padding: 12px 10px; } }
   @media screen and (max-width: 420px) {
+    .w3l-inner-page-main .breadcrumb-infhny {
+      /* border: 3px solid red; */
+      min-height: 200px !important;
+    }
     .w3l-footer-16 .w3l-footer-16-main {
       padding: 2em 0; }
     .w3l-footer-16 .grid {
