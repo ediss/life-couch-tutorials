@@ -12,7 +12,7 @@ Author URL: http://w3layouts.com
 	<title>@yield('title')</title>
 	<!-- Template CSS -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="{{ asset("assets/css/style-starter.css")}}">
+	<link rel="stylesheet" href="{{ asset("assets/css/style-starter.min.css")}}">
 	<!-- Template CSS -->
 	<link href="//fonts.googleapis.com/css?family=Muli:300,300i,400,500,600,700,800,900&display=swap" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700,900&display=swap" rel="stylesheet">
