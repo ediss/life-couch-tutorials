@@ -953,7 +953,7 @@ h3.hny-title.two {
 @media all and (max-width: 600px) {
   .w3l-inner-page-main .breadcrumb-infhny {
     /* border: 3px solid red; */
-    min-height: 200px !important;
+    min-height: 260px !important;
   }
   .w3l-features-1 .counter-grids-info h6 {
     font-size: 40px;
