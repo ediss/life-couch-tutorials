@@ -7,7 +7,7 @@
  E-mail: {{$email}}
  Godina rodjenja: {{$birth_year}}
  Pol: {{$gender == 'male' ? "muski" : "zenski"}}
- Broj telefona: {{$phone}}
+ Broj telefona: {{$country_code}} / {{$phone}}
  Status veze: {{$relationship}}
  Zanimanje: {{$profession}}
  Lokacija: {{$country}}

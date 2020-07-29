@@ -125,6 +125,7 @@ class CourseController extends Controller
                     $yob            = $request->input("yob");
                     $email          = $request->input("email");
                     $password       = $request->input("password");
+                    $country_code   = $request->input("country_code");
                     $phone          = $request->input("phone");
                     $reason         = $request->input("reason");
                     $country        = $request->input("country");
@@ -164,6 +165,7 @@ class CourseController extends Controller
                             'email'         => $email,
                             'birth_year'    => $yob,
                             'gender'        => $gender,
+                            'country_code'  => $country_code,
                             'phone'         => $phone,
                             'relationship'  => $relationship,
                             'profession'    => $profession,

@@ -98,7 +98,12 @@ Prijava za kurs <br>
 
                 <div class="form-group">
                     <label>Kontakt telefon:</label>
-                    <input type="text" class="form-control" name="phone" placeholder="Vas broj telefona">
+                    <div class="form-group form-inline">
+                        <label>Poziv na broj:</label>
+                        <input type="text" class="form-control" name="country_code" placeholder="+381" required>
+                        <label>Telefon:</label>
+                        <input type="text" class="form-control" name="phone" placeholder="Vas broj telefona" required>
+                    </div>
                 </div>
 
                 <div class="modal-footer">
