@@ -92,7 +92,7 @@ class CourseController extends Controller
 
 
                 Mail::send(['text'=>'mails.to-admin'], $data, function($message) use ($data) {
-                    $message->to('skenderi.e94@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
+                    $message->to('psihohorizont@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
                     $message->from($data['email'], $data['name'] );
                 });
 
@@ -148,7 +148,7 @@ class CourseController extends Controller
                     $user->birth_year       = $yob;
                     //posebno za pass
                     $user->password         = Hash::make($request->input('password'));
-                    $user->mobile_phone     = $phone;
+                    $user->mobile_phone     = $country_code.'/'.$phone;
                     $user->relationship     = $relationship;
                     $user->place_of_living  = $country;
                     $user->proffesion       = $profession;

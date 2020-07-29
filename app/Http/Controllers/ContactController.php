@@ -23,7 +23,7 @@ class ContactController extends Controller
             ];
 
             Mail::send(['text'=>'mails.contact'], $data, function($message) use ($data) {
-                $message->to('skenderi.e94@gmail.com', 'Kontakt')->subject ('Kontakt')->replyTo($data['email']);
+                $message->to('psihohorizont@gmail.com', 'Kontakt')->subject ('Kontakt')->replyTo($data['email']);
                 $message->from($data['email'], $data['name'] );
             });
 
