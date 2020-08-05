@@ -72,13 +72,22 @@ Prijava za kurs <br>
                 </div>
 
                 <div class="form-group">
-                    <label>Zivim u:</label>
-                    <div class="radio">
-                        <label class=""><input type="radio" name="country" value="U Srbiji" checked> Srbiji</label>
-                    </div>
+                    <label>Zemlja</label>
 
-                    <div class="radio">
-                        <label class=""><input type="radio" name="country" value="van Srbije"> Van Srbije</label>
+
+                        <select name="countries" class="form-control" id="countries">
+                            @foreach($countries as $country)
+                                <option value="{{$country['name']}}" {{$country['name'] == 'Serbia' ? 'selected' : '' }}>{{$country['name']}}</option>
+                            @endforeach
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Kontakt telefon:</label>
+                    <div class="form-group form-inline">
+
+                        <input type="text" class="form-control input-sm" name="country_code" placeholder="+381" disabled id="phone_code">
+                        <input type="text" class="form-control" name="phone" placeholder="Vas broj telefona" required>
                     </div>
                 </div>
 
@@ -96,19 +105,11 @@ Prijava za kurs <br>
                         placeholder="*******">
                 </div>
 
-                <div class="form-group">
-                    <label>Kontakt telefon:</label>
-                    <div class="form-group form-inline">
-                        <label>Poziv na broj:</label>
-                        <input type="text" class="form-control" name="country_code" placeholder="+381" required>
-                        <label>Telefon:</label>
-                        <input type="text" class="form-control" name="phone" placeholder="Vas broj telefona" required>
-                    </div>
-                </div>
+
 
                 <div class="modal-footer">
-                 <a href="{{ url()->previous() }}" class="btn btn-secondary">Odustani</a>
-                    <button type="submit" class="btn btn-success">Prijavi me</button>
+                 <a href="{{ url()->previous() }}" class="btn btn-secondary btn-lg">Odustani</a>
+                    <button type="submit" class="btn btn-success btn-lg">Prijavi me</button>
                 </div>
 
             </form>
@@ -140,7 +141,7 @@ Prijava za kurs <br>
            var device_id_2  = $("#device_id_2").val();
            var device_id_3  = $("#device_id_subscription").val();
 
-            if(result != device_id )
+
 
 
         });
@@ -156,5 +157,27 @@ Prijava za kurs <br>
 }
 
 </script>
+<script type="text/javascript">
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $('#countries').on('change', function(){
+     var country = $(this).val();
+     $.ajax({
+           type:'POST',
+           url:"{{ route('get.phone.code') }}",
+           data:{country:country},
+           success:function(data){
+              
+              $("#phone_code").val(data.success);
+           }
+        });
+    });
+</script>
+
 
 @endsection

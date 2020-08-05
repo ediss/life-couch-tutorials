@@ -547,7 +547,7 @@ h3.hny-title.two {
     position: relative;
     z-index: 1; }
   .w3l-banner-slider-main {
-    background: url("../images/banners/main-banner2.jpg") no-repeat;
+    background: url("../images/banners/background.png") no-repeat;
     background-size: contain;
     -webkit-background-size: contain;
     -o-background-size: contain;
@@ -10372,4 +10372,8 @@ a.text-dark:hover, a.text-dark:focus {
 .popup-container .popup-close:hover:after {
   background-color:#35a785;
   transition:300ms all;
+}
+
+#phone_code {
+  width: 12%;
 }

@@ -32,6 +32,7 @@ Route::get('courses',                                   'CourseController@index'
 Route::get('prepare-course/{id}/{device?}',             'CourseController@preparingCourse')         ->name("prepare-course");
 Route::get('course/{id}/{device?}',                     'CourseController@singleCourse')            ->name("single-course");
 Route::any('course-subscription/{course_id?}',          'CourseController@courseSubscription')      ->name("course.subscription");
+Route::any('get-phone-code',                            'CourseController@getPhoneCode')            ->name("get.phone.code");
 Route::get('About-me',                                  'HomeController@about')                     ->name("about");
 Route::any('contact',                                   'ContactController@index')                  ->name("contact");
 

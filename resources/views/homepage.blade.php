@@ -52,9 +52,16 @@ Početna
 						</div>
 						<div class="course-info">
 
-							<i class="fa fa-calendar" aria-hidden="true"></i> Prijava do:{{ date('d-M-Y', strtotime($course->course_application_to)) }}
-							<i class="fa fa-hourglass-half ml-4" aria-hidden="true"></i> Još: {{\Carbon\Carbon::now()->diffInDays($course->course_application_to)}} dana
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+							@if(\Carbon\Carbon::now() <= $course->course_application_to)
+								Prijava do: {{ date('d-M-Y', strtotime($course->course_application_to)) }}
+								<br>
+								<i class="fa fa-hourglass-half" aria-hidden="true"></i>
 
+								Još: {{\Carbon\Carbon::now()->diffInDays($course->course_application_to)}} dana
+							@else
+								Prijava je istekla
+							@endif
 						</div>
 					</div>
 
@@ -64,10 +71,15 @@ Početna
 			</div>
 
 			<!-- /pagination-->
-			<div class="button-4-pink col-4 offset-4 mt-4">
-				<div class="eff-4-pink"></div>
-				<a href="{{ route('all-courses') }}#all-courses"> Svi kursevi</a>
+			<div class="row">
+				<div class="col-12">
+					<div class="button-4-pink col-md-4 offset-md-4 mt-4">
+						<div class="eff-4-pink"></div>
+						<a href="{{ route('all-courses') }}#all-courses"> Svi kursevi</a>
+					</div>
+				</div>
 			</div>
+			
 			<!-- //pagination-->
 		</div>
 	</div>
@@ -103,7 +115,7 @@ Početna
 								Maja Vučković</h3>
 							<p>Dobro došli na moju stranicu namenjenu onlajn treninzima!</p>
 							<p class="mt-4">
-								Ja sam <b>Maja Vučković, doktor medicine, akreditovani psihoterapeut i lajf kouč.</b> Iza sebe imam godine radnog staža u psihoterapeutskoj i lekarskoj praksi, u marketingu i prodaji, u edukacijama i treninzima. 
+								Ja sam <b>Maja Vučković, doktor medicine, akreditovani psihoterapeut i lajf kouč.</b> Iza sebe imam godine radnog staža u psihoterapeutskoj i lekarskoj praksi, u marketingu i prodaji, u edukacijama i treninzima.
 							</p>
 							<p>
 								Godinama se moj život odvijao na relaciji Niš-Beograd, a od skoro živim i u Kijevu. Na sreću, zahvaljujući tehnologiji, uprkos nestalnom mestu boravka, mogu da imam stalne klijente: radim uglavnom onlajn, preko bilo koje aplikacije sa opcijom video-poziva.

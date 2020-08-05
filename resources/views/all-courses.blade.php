@@ -53,11 +53,18 @@ Kursevi
 									VIŠE</button></a>
 
 						</div>
-						<div class="course-info">
+                        <div class="course-info">
 
-							<i class="fa fa-calendar" aria-hidden="true"></i> Prijava do:{{ date('d-M-Y', strtotime($course->course_application_to)) }}
-							<i class="fa fa-hourglass-half ml-4" aria-hidden="true"></i> Još: {{\Carbon\Carbon::now()->diffInDays($course->course_application_to)}} dana
+							<i class="fa fa-calendar" aria-hidden="true"></i>
+							@if(\Carbon\Carbon::now() <= $course->course_application_to)
+								Prijava do: {{ date('d-M-Y', strtotime($course->course_application_to)) }}
+								<br>
+								<i class="fa fa-hourglass-half" aria-hidden="true"></i>
 
+								Još: {{\Carbon\Carbon::now()->diffInDays($course->course_application_to)}} dana
+							@else
+								Prijava je istekla
+							@endif
 						</div>
                         </div>
     

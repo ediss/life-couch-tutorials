@@ -23,6 +23,7 @@ use Carbon\Carbon;
 class CourseController extends Controller
 {
     public function index() {
+
         $courses = Course::all();
 
         return view('all-courses', ['courses' => $courses]);
@@ -66,6 +67,9 @@ class CourseController extends Controller
         $course_name    = Course::where('id', $course_id)->first('name');
         $course_price   = CoursePrice::where("course_id", '=', $course_id)->first();
 
+        $path = storage_path() . "/json/countries.json";
+
+        $countries = json_decode(file_get_contents($path), true);
 
         if ($request->isMethod('post')) {
 
@@ -213,7 +217,25 @@ class CourseController extends Controller
 
         return view('form-for-apply', [
             'course_name' => $course_name->name,
-            'course_id'   => $course_id
+            'course_id'   => $course_id,
+            'countries'   => $countries
         ]);
+    }
+
+    public function getPhoneCode(Request $request) {
+
+        $path = storage_path() . "/json/countries.json";
+
+        $countries = json_decode(file_get_contents($path), true);
+
+        $countries = array_filter($countries);
+
+        $country = collect($countries)->where("name","=","$request->country")->first();
+
+        $country_phone_code = $country['dial_code'];
+
+
+
+        return response()->json(['success'=>$country_phone_code]);
     }
 }
