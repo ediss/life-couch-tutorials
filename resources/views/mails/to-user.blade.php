@@ -216,13 +216,15 @@ Zdravo,  {{ $name }} uspesno si se prijavio useru!
         <div id="levo">
             <div id="uplatnicanaslov">уплатилац</div>
             <div id="uplatilac"><span style="font-size: 16px; margin: 10px">
-                    Pera Peric </span>pera@gmail.com</div>
+                    {{$name}} </span>{{$email}}</div>
             <div id="svrhauplatenaslov">сврха уплате</div>
             <div id="svrhauplate"> <span style="margin: 10px; font-size: 16px">
-                    {{$course_name}} </span></div>
+				Kotizacija za  {{$course_name}} </span></div>
             <div id="primalacnaslov">прималац</div>
             <div id="primalac"><span style="margin: 10px; font-size: 16px">
-                    Maja Vučković </span> </div>
+				List zivota
+				Vojvode Mišića 61/7
+				18000 Niš</span> </div>
         </div>
         <div id="desno">
             <!-- naslov -->
@@ -238,7 +240,7 @@ Zdravo,  {{ $name }} uspesno si se prijavio useru!
                     <div id="kolonaiznosunos">
                         <!-- unos podataka -->
                         <div id="sifraplacanjaunos"> </div>
-                        <div id="valutaunos">RSD </div>
+                        <div id="valutaunos"> {{$course_price}} RSD </div>
                         <div id="iznosunos">
                             
                         </div>
@@ -249,7 +251,7 @@ Zdravo,  {{ $name }} uspesno si se prijavio useru!
                 <!-- početak srednje kolone -->
                 <div id="racunprimaoca">
                     <div id="racunprimaocanaslov">рачун примаоца</div>
-                    <div id="racunprimaocaunos"> </div>
+                    <div id="racunprimaocaunos"> 330-3003222-74 </div>
                 </div>
                 <!-- kraj srednje kolone -->
                 <!-- početak donje kolone -->
@@ -258,7 +260,8 @@ Zdravo,  {{ $name }} uspesno si se prijavio useru!
                         (одобрење)</div>
                     <div id="modelipozivunos">
                         <div id="modelunos"> </div>
-                        <div id="pozivbrunos"> </div>
+                        <div id="pozivbrunos">Vaša mail adresa sa koje ćete pristupati
+						</div>
                     </div>
                 </div>
             </div>
@@ -273,4 +276,3 @@ Zdravo,  {{ $name }} uspesno si se prijavio useru!
 </body>
 </html>
 
-Hi,  {{ $name }} uspesno si se prijavio useru!
