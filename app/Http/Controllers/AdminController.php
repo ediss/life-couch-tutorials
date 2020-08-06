@@ -66,6 +66,8 @@ class AdminController extends Controller
                $price_in_rate       = $request->input("price_in_rate");
 
                $payment_from_foreign_countries      = $request->input("payment_from_foreign_countries");
+               $payment_from_foreign_countries_in_rate = $request->input("payment_from_foreign_countries_in_rate");
+
                $aplication_to_and_payfull           = $request->input("aplication_to_and_payfull");
 
 
@@ -93,6 +95,8 @@ class AdminController extends Controller
                    $course_price->aplication_to_and_payfull = $aplication_to_and_payfull;
                    $course_price->number_of_rate = $number_of_rate;
                    $course_price->price_in_rate = $price_in_rate;
+                   $course_price->payment_from_foreign_countries_in_rate   = $payment_from_foreign_countries_in_rate;
+
 
                     $course_price->save();
 
