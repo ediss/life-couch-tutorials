@@ -98,19 +98,26 @@ Dodavanje kursa
       </div>
 
       <div class="col-4">
-        <label>Premium paket</label>
-        <input type="text" class="form-control" name="premium_package">
+        <label>Iz inostranstva (u ratama)</label>
+        <input type="text" class="form-control" name="payment_from_foreign_countries_in_rate">
+
       </div>
+
+
 
 
       <div class="col-12 mt-5">
         <div class="row">
-          <div class="col-6">
+          <div class="col-4">
+            <label>Premium paket</label>
+            <input type="text" class="form-control" name="premium_package">
+          </div>
+          <div class="col-4">
             <label>Rana prijava do <input type="date" name="aplication_to"> i placanje u celini</label>
             <input type="text" class="form-control" name="aplication_to_and_payfull">
 
           </div>
-          <div class="col-6">
+          <div class="col-4">
             <label>U <input type="number" name="number_of_rate"> rata</label>
             <input type="text" class="form-control" name="price_in_rate">
           </div>

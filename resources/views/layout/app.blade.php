@@ -467,11 +467,8 @@ Author URL: http://w3layouts.com
         });
         $.ajax({
 			// url: route,
-			url: "prepare-course/"+id+"/"+device_id,
+			url: "{{route('prepare-course')}}",
             method: 'GET',
-            contentType: false,
-            processData: false,
-            cache: false,
             data: {course_id: id, device_id: device_id},
 
 

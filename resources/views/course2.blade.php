@@ -174,6 +174,22 @@
                                                 <div class="col-4">
                                                     <div class="card text-white btn-success mb-3 h-100">
                                                         <div class="card-header text-center">
+                                                            <h3> Iz inostranstva (u ratama)</h3>
+                                                        </div>
+                                                        <div class="card-body text-center"> 
+                                                            <h5 class="card-title">{{ $course_price->payment_from_foreign_countries_in_rate }}
+                                                                &euro;
+                                                            </h5>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                             
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-4">
+                                                    <div class="card text-white btn-success mb-3 h-100">
+                                                        <div class="card-header text-center">
                                                             <h3>Premium paket</h3>
                                                         </div>
                                                         <div class="card-body text-center"> 
@@ -182,9 +198,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <div class="col-6">
+                                                <div class="col-4">
                                                     <div class="card text-white btn-success mb-3 h-100">
                                                         <div class="card-header text-center">
                                                             <h3> Prijava do
@@ -195,7 +209,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-6">
+                                                <div class="col-4">
                                                     <div class="card text-white btn-success mb-3 h-100">
                                                         <div class="card-header text-center">
                                                             <h3> U {{ $course_price->number_of_rate }} rata</h3>
@@ -207,32 +221,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p class="my-4">
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">U celini</th>
-                                                            <th scope="col">Iz inostranstva</th>
-                                                            <th scope="col">Premium paket</th>
-                                                            <th scope="col">Prijava do
-                                                                {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}
-                                                            </th>
-                                                            <th scope="col">U {{ $course_price->number_of_rate }} rata
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>{{ $course_price->payment_in_full }} RSD</td>
-                                                            <td>{{ $course_price->payment_from_foreign_countries }}
-                                                                &euro;</td>
-                                                            <td>{{ $course_price->premium_package }} RSD</td>
-                                                            <td>{{ $course_price->aplication_to_and_payfull }} RSD</td>
-                                                            <td>{{ $course_price->price_in_rate }} RSD</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </p>
                                         </div>
                                         <div class="tab-pane fade my-4" id="payment-slip" role="tabpanel"
                                             aria-labelledby="uplatnica-tab">
@@ -306,45 +294,85 @@
                                             aria-labelledby="profile-tab">
                                             {!! $course->plan_and_program !!}
                                         </div>
-                                        <div class="tab-pane fade" id="contact" role="tabpanel"
-                                            aria-labelledby="contact-tab">
+                                        <div class="tab-pane fade " id="contact" role="tabpanel"
+                                        aria-labelledby="price-tab">
+                                        <div class="row mt-4">
+                                            <div class="col-4">
+                                                <div class="card text-white btn-success mb-3 h-100">
+                                                    <div class="card-header text-center">
+                                                        <h3> U celini</h3>
+                                                    </div>
+                                                    <div class="card-body text-center">
+                                                        <h5 class="card-title">{{ $course_price->payment_in_full }}
+                                                            RSD</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="card text-white btn-success mb-3 h-100">
+                                                    <div class="card-header text-center">
+                                                        <h3> Iz inostranstva </h3>
+                                                    </div>
+                                                    <div class="card-body text-center"> 
+                                                        <h5 class="card-title">{{ $course_price->payment_from_foreign_countries }}
+                                                            &euro;
+                                                        </h5>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                            <div class="row">
-                                                <div class="col-4">1</div>
-                                                <div class="col-4">2</div>
-                                                <div class="col-4">3</div>
+                                            <div class="col-4">
+                                                <div class="card text-white btn-success mb-3 h-100">
+                                                    <div class="card-header text-center">
+                                                        <h3> Iz inostranstva (u ratama)</h3>
+                                                    </div>
+                                                    <div class="card-body text-center"> 
+                                                        <h5 class="card-title">{{ $course_price->payment_from_foreign_countries_in_rate }}
+                                                            &euro;
+                                                        </h5>
+                                                        
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-6">4</div>
-                                                <div class="col-6">5</div>
-                                            </div>
-                                            <p class="my-4">
-                                                <table class="table table-hover">
-                                                    <thead>
-                                                        <tr>
-                                                            <th scope="col">U celini</th>
-                                                            <th scope="col">Iz inostranstva</th>
-                                                            <th scope="col">Premium paket</th>
-                                                            <th scope="col">Prijava do
-                                                                {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}
-                                                            </th>
-                                                            <th scope="col">U {{ $course_price->number_of_rate }} rata
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>{{ $course_price->payment_in_full }} RSD</td>
-                                                            <td>{{ $course_price->payment_from_foreign_countries }}
-                                                                &euro;</td>
-                                                            <td>{{ $course_price->premium_package }} RSD</td>
-                                                            <td>{{ $course_price->aplication_to_and_payfull }} RSD</td>
-                                                            <td>{{ $course_price->price_in_rate }} RSD</td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </p>
+                             
                                         </div>
+                                        <div class="row mt-3">
+                                            <div class="col-4">
+                                                <div class="card text-white btn-success mb-3 h-100">
+                                                    <div class="card-header text-center">
+                                                        <h3>Premium paket</h3>
+                                                    </div>
+                                                    <div class="card-body text-center"> 
+                                                        <h5 class="card-title">{{ $course_price->premium_package }} RSD</h5>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="card text-white btn-success mb-3 h-100">
+                                                    <div class="card-header text-center">
+                                                        <h3> Prijava do
+                                                            {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}</h3>
+                                                    </div> 
+                                                    <div class="card-body text-center">
+                                                        <h5 class="card-title">{{ $course_price->aplication_to_and_payfull }} RSD</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-4">
+                                                <div class="card text-white btn-success mb-3 h-100">
+                                                    <div class="card-header text-center">
+                                                        <h3> U {{ $course_price->number_of_rate }} rata</h3>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title  text-center">{{ $course_price->price_in_rate }} RSD</h5>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                         <div class="tab-pane fade my-4" id="payment-slip" role="tabpanel"
                                             aria-labelledby="uplatnica-tab">

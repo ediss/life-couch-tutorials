@@ -30,9 +30,13 @@ class CourseController extends Controller
     }
 
 
-    public function preparingCourse($id, $device){
+    public function preparingCourse(Request $request){
+        $id = $request->input('course_id');
+        $device_id = $request->input("device_id");
+        // if($device_id != (Auth::user()->device_id || Auth::user()->device_id_2)) {
 
-        $route = route('single-course',['id'=>$id, 'device'=>$device])."#course-content";
+        // }
+        $route = route('single-course',['id'=>$id, 'device'=>$device_id])."#course-content";
         return $route;
     }
 
@@ -91,7 +95,8 @@ class CourseController extends Controller
                     'gender'        => $gender,
                     'country'       => $user->place_of_living,
                     'course_name'   => $course_name,
-                    'course_price'  => $course_price
+                    'course_price'  => $course_price,
+                    'country_code'  => false
                 ];
 
 
@@ -132,7 +137,7 @@ class CourseController extends Controller
                     $country_code   = $request->input("country_code");
                     $phone          = $request->input("phone");
                     $reason         = $request->input("reason");
-                    $country        = $request->input("country");
+                    $country        = $request->input("countries");
                     $profession     = $request->input("profession");
                     $relationship   = $request->input("relationship");
 
