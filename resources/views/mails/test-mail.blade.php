@@ -812,7 +812,7 @@
                     <div id="kolonaiznosunos">
                         <!-- unos podataka -->
                         <div id="sifraplacanjaunos"> </div>
-                        <div id="valutaunos"> {{$course_price}} RSD </div>
+                        <div id="valutaunos"> {{$course_price->payment_in_full}} RSD </div>
                         <div id="iznosunos">
                             
                         </div>
