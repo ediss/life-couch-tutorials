@@ -145,7 +145,7 @@ Početna
 		</div>
 		<form action="{{ route('contact') }}" method="POST">
 
-			@crsf
+			@csrf
 			<h3>Kontaktirajte Me!</h3>
 			<div class="row">
 				<div class="col-12 col-md-6">
