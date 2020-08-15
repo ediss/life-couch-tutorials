@@ -142,6 +142,9 @@ Početna
 		<div class="contact-image">
 			<i class="fa fa-paper-plane fa-5x"></i>
 			<!-- <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" /> -->
+			<div class="m-5">
+                @include('flash-message')
+            </div>
 		</div>
 		<form action="{{ route('contact') }}" method="POST">
 
