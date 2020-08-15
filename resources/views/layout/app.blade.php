@@ -219,20 +219,42 @@ Author URL: http://w3layouts.com
 					<div class="mb-5 flex-center">
 
 						<!-- Facebook -->
-						<a class="fb-ic">
+						<a class="fb-ic" target="_blank" href="https://www.facebook.com/lifeleafgreen">
 							<i class="fa fa-facebook-f fa-lg white-text mr-4 fa-2x"> </i>
 						</a>
-						<!-- Twitter -->
-						<a class="tw-ic">
-							<i class="fa fa-twitter fa-lg white-text mr-4 fa-2x"> </i>
-						</a>
-						<!-- Google +-->
-
 
 						<!--Instagram-->
-						<a class="ins-ic">
+						<a class="ins-ic" target="_blank" href="https://www.instagram.com/maja_lifeleaf/">
 							<i class="fa fa-instagram fa-lg white-text mr-4 fa-2x"> </i>
 						</a>
+
+						<!-- Youtube +-->
+
+						<a target="_blank" href="https://www.youtube.com/channel/UCf6c8WhzvISVJQs466ajQ7Q">
+							<i class="fab fa-youtube fa-2x mr-4"></i>
+						</a>
+
+						<!-- BLOG-->
+						<a target="_blank" href="https://life-leaf.com/blog">
+							<i class="fab fa-blogger-b fa-2x mr-4"></i>
+						</a>
+
+						
+						<!-- Twitter -->
+						<a class="tw-ic" target="_blank" href="https://twitter.com/sunhorizons">
+							<i class="fa fa-twitter fa-lg white-text mr-4 fa-2x"> </i>
+						</a>
+					
+
+						<a target="_blank" href="https://www.linkedin.com/in/maja-vuckovic-3b63b015/">
+							<i class="fab fa-linkedin fa-2x mr-4"></i>
+						</a>
+
+						
+						
+
+
+				
 						<!--Pinterest-->
 
 

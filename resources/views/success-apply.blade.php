@@ -72,6 +72,10 @@ Uspešna Prijava
                 </h3>
             </p>
 
+            <p>
+                P.S. Posle prijave proverite mail. Obavezno pogledajte i spam folder
+            </p>
+
             <p class="text-center">
                 <a href="{{ route('all-courses') }}" class="btn btn-success text-center btn-large mt-5 w-100">Nazad na kurseve</a>
             </p>
