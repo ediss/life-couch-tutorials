@@ -143,7 +143,9 @@ Početna
 			<i class="fa fa-paper-plane fa-5x"></i>
 			<!-- <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" /> -->
 		</div>
-		<form method="post">
+		<form action="{{ route('contact') }}" method="POST">
+
+			@crsf
 			<h3>Kontaktirajte Me!</h3>
 			<div class="row">
 				<div class="col-12 col-md-6">

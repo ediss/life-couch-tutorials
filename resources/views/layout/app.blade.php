@@ -202,7 +202,7 @@ Author URL: http://w3layouts.com
 
 				<!-- Grid column -->
 				<div class="col-md-8 col-12 mt-5">
-					<p style="line-height: 1.7rem"> <i> &rdquo; NEKI CITAT U 2 RECENICE &rdquo;</i> </p>
+					<p style="line-height: 1.7rem" >  <b class="text-white"> Stay tuned </b>  &#128521; </p>
 				</div>
 				<!-- Grid column -->
 
