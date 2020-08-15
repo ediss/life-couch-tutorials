@@ -101,7 +101,7 @@ class CourseController extends Controller
 
 
                 Mail::send(['text'=>'mails.to-admin'], $data, function($message) use ($data) {
-                    $message->to('psihohorizont@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
+                    $message->to('prijava.kursevi@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
                     $message->from($data['email'], $data['name'] );
                 });
 
@@ -183,7 +183,7 @@ class CourseController extends Controller
                             'course_price'  => $course_price
                         ];
                         Mail::send(['text'=>'mails.to-admin'], $data, function($message) use ($data) {
-                            $message->to('psihohorizont@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
+                            $message->to('prijava.kursevi@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
                             $message->from($data['email'], $data['name'] );
                         });
 
