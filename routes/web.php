@@ -16,6 +16,10 @@ Route::get('/login', 'Auth\CustomLoginController@showLoginForm')->name('login')-
 Route::post('/login', 'Auth\CustomLoginController@login')->name('custom.login.submit');
 Route::any('/logout', 'Auth\CustomLoginController@logout')->name('custom.logout');
 
+Route::view('/not-allowed', 'access-not-allowed')->name('access.not.allowed');
+
+
+
 
 //admin routes
 Route::prefix("admin/")->middleware(['auth','admin'])->group(function(){
@@ -29,8 +33,8 @@ Route::prefix("admin/")->middleware(['auth','admin'])->group(function(){
 
 //end of admin routes
 Route::get('courses',                                   'CourseController@index')                   ->name("all-courses");
-Route::any('prepare-course',             'CourseController@preparingCourse')         ->name("prepare-course");
-Route::get('course/{id}/{device?}',                     'CourseController@singleCourse')            ->name("single-course");
+// Route::any('prepare-course',                            'CourseController@preparingCourse')         ->name("prepare-course");
+Route::get('course/{id}',                               'CourseController@singleCourse')            ->name("single-course");
 Route::any('course-subscription/{course_id?}',          'CourseController@courseSubscription')      ->name("course.subscription");
 Route::any('get-phone-code',                            'CourseController@getPhoneCode')            ->name("get.phone.code");
 Route::get('About-me',                                  'HomeController@about')                     ->name("about");

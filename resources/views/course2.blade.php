@@ -128,11 +128,11 @@
                                                 role="tab" aria-controls="price" aria-selected="false">Cena</a>
                                         </li>
 
-                                        <li class="nav-item d-none d-md-block">
+                                        {{-- <li class="nav-item d-none d-md-block">
                                             <a class="nav-link" data-toggle="modal"
                                                 data-target="#uplatnicaModalUser">Primer
                                                 Uplatnice</a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                     <div class="tab-content" id="myTabContent">
 
@@ -279,11 +279,11 @@
                                                 role="tab" aria-controls="contact" aria-selected="false">Cena</a>
                                         </li>
 
-                                        <li class="nav-item">
+                                        {{-- <li class="nav-item">
                                             <a class="nav-link d-none d-md-block" data-toggle="modal"
                                                 data-target="#uplatnicaModal">Primer
                                                 Uplatnice</a>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                     <div class="tab-content" id="myTabContent">
                                         <div class="tab-pane fade show active my-4" id="home" role="tabpanel"

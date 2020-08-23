@@ -30,6 +30,7 @@ class CourseController extends Controller
     }
 
 
+    /*this method is not used anymore*/
     public function preparingCourse(Request $request){
         $id = $request->input('course_id');
         $device_id = $request->input("device_id");
@@ -40,8 +41,7 @@ class CourseController extends Controller
         return $route;
     }
 
-    public function singleCourse($id, $device) {
-
+    public function singleCourse($id) {
 
 
         $course = Course::findOrFail($id);
@@ -59,11 +59,10 @@ class CourseController extends Controller
         //checking if user attempts to watch course from 3td device
 
 
-        return view('course2', [
+        return view('course3', [
             "course" => $course,
             "user_assigned_to_course" => $user_assigned_to_course,
             "course_price"  => $course_price,
-            'device' => $device
         ]);
     }
 

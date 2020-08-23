@@ -17,7 +17,7 @@ Author URL: http://w3layouts.com
 	<link href="//fonts.googleapis.com/css?family=Muli:300,300i,400,500,600,700,800,900&display=swap" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700,900&display=swap" rel="stylesheet">
 
-	
+
 
 	<!-- Template CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -31,7 +31,7 @@ Author URL: http://w3layouts.com
 </head>
 
 <body>
-	<input type="hidden" id="device_id" name="device_id">
+	
 
 	<div id="preloader">
 		<div id="status"></div>
@@ -45,15 +45,15 @@ Author URL: http://w3layouts.com
 				<!--/nav-->
 				<nav class="navbar navbar-expand-lg navbar-light fill">
 					<div class="container-fluid">
-						
+
 						<div class="col-2 d-lg-none">
 							<button class="navbar-toggler" type="button" data-toggle="collapse"
-							data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-							aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
+								data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+								aria-expanded="false" aria-label="Toggle navigation">
+								<span class="navbar-toggler-icon"></span>
+							</button>
 						</div>
-						
+
 						@if(Auth::user())
 						<div class="col-6 d-lg-none text-center">
 							<a class="nav-link ml-0 p-0 text-violet font-weight-bold"
@@ -202,7 +202,7 @@ Author URL: http://w3layouts.com
 
 				<!-- Grid column -->
 				<div class="col-md-8 col-12 mt-5">
-					<p style="line-height: 1.7rem" >  <b class="text-white"> Stay tuned </b>  &#128521; </p>
+					<p style="line-height: 1.7rem"> <b class="text-white"> Stay tuned </b> &#128521; </p>
 				</div>
 				<!-- Grid column -->
 
@@ -239,22 +239,22 @@ Author URL: http://w3layouts.com
 							<i class="fab fa-blogger-b fa-2x mr-4"></i>
 						</a>
 
-						
+
 						<!-- Twitter -->
 						<a class="tw-ic" target="_blank" href="https://twitter.com/sunhorizons">
 							<i class="fa fa-twitter fa-lg white-text mr-4 fa-2x"> </i>
 						</a>
-					
+
 
 						<a target="_blank" href="https://www.linkedin.com/in/maja-vuckovic-3b63b015/">
 							<i class="fab fa-linkedin fa-2x mr-4"></i>
 						</a>
 
-						
-						
 
 
-				
+
+
+
 						<!--Pinterest-->
 
 
@@ -451,13 +451,8 @@ Author URL: http://w3layouts.com
 	if (window.requestIdleCallback) {
 		requestIdleCallback(function () {
 			new Fingerprint2().get(function(result, components){
-
-				console.log(components);
 				hash = result;
-
-			   	$("#device_id").val(result);
 			   	$("#device_id_login").val(result);
-			   	$("#device_id_subscription").val(result);
 			});
 		})
 	} else {
@@ -471,44 +466,10 @@ Author URL: http://w3layouts.com
 	</script>
 
 	<script>
-		function goToCourse(id) {
-		var course_id = id;
-		var device_id = $("#device_id").val();
-		var route = $("#route");
-
-		// var route = "{{  route('single-course', ["+course_id+", "+device_id+"]) }}";
-
-
-
-		// alert(route);
-
-		$.ajaxSetup({
-        	headers: {
-            	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-			// url: route,
-			url: "{{route('prepare-course')}}",
-            method: 'GET',
-            data: {course_id: id, device_id: device_id},
-
-
-            success: function(response){
-                window.location.replace(response);
-            },
-            error: function (request, status, error) {
-                alert(error);
-                //alert("error! Contact us!");
-            }
-        });
-	}
-
-
 	$( '#topheader .navbar-nav a' ).on( 'click', function () {
-	$( '#topheader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
-	$( this ).parent( 'li' ).addClass( 'active' );
-});
+		$( '#topheader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
+		$( this ).parent( 'li' ).addClass( 'active' );
+	});
 
 
 		// makes sure the whole site is loaded

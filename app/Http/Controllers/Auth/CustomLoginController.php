@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\User;
 use Session;
 use Auth;
+use URL;
+
 
 class CustomLoginController extends Controller
 {
@@ -42,9 +44,18 @@ class CustomLoginController extends Controller
                         $user->device_id_2 = $hash;
 
                         $user->save();
+
+                        return redirect()->intended(route('homepage'));
+                    }
+                    else {
+                        Auth::logout();
+
+                        $url = URL::route('access.not.allowed') . '#scroll-section';
+                        return redirect()->to($url);
+                        
                     }
 
-                    return redirect()->intended(route('homepage'));
+                    
 
                 }
 

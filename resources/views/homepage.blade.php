@@ -29,23 +29,23 @@ Početna
 					<div class="course-grid-inf box-shadow">
 
 						<input type="hidden" id="route" value="{{ route('contact') }}">
-						<a class="popup-with-zoom-anim play-view text-center position-absolute" onclick=goToCourse({{$course->id}})>
+						<a class="popup-with-zoom-anim play-view text-center position-absolute" href="{{route('single-course', ['id' => $course->id])}}#course-content">
 							<span class="video-play-icon">
 								<span class="fa fa-play"></span>
 							</span>
 						</a>
-						<a href="#" onclick=goToCourse({{$course->id}})>
+						<a href="{{route('single-course', ['id' => $course->id])}}#course-content" >
 							<img src="{{ $course->cover_img !=null ? $course->cover_img : 'assets/images/banners/main-banner2.jpg' }}" class="img-fluid" alt="">
 						</a>
 						<div class="course-content">
 							<div class="course-info mb-5">
 								<h6><a class="course-instructor" href="{{route('about')}}#about-me"> Maja Vučković</a></h6>
-								<a href="#" class="course-titlegulp-wrapper" onclick=goToCourse({{$course->id}})>
+								<a href="{{route('single-course', ['id' => $course->id])}}#course-content" class="course-titlegulp-wrapper" >
 									<h3 class="course-title">{{ $course->name }}</h3>
 								</a>
 							</div>
 
-							<a href="#" onclick=goToCourse({{$course->id}})><button
+							<a href="{{route('single-course', ['id' => $course->id])}}#course-content" ><button
 									class="price-course btn font-weight-bold w-100">SAZNAJ
 									VIŠE</button></a>
 
@@ -103,9 +103,9 @@ Početna
 							</a>
 
 							<!-- dialog itself, mfp-hide class is required to make dialog hidden -->
-							<!-- <div id="small-dialog" class="zoom-anim-dialog mfp-hide">
-								<iframe src="https://player.vimeo.com/video/279436396" frameborder="0" allow="autoplay; fullscreen" allowfullscreen=""></iframe>
-							</div> -->
+							<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
+								<iframe src="https://player.vimeo.com/video/444928412" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+							</div>
 							<!--//popup-->
 						</div>
 					</div>
