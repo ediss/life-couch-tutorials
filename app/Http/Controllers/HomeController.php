@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index() {
 
-        $courses = Course::all();
+        $courses = Course::take(6)->get();
 
         // dd($courses);
 

@@ -85,6 +85,9 @@ Početna
 	</div>
 </section>
 <!-- //content-6-section -->
+
+
+
 <section class="w3l-features-1" data-aos="zoom-out2" data-aos-offset="100" data-aos-delay="100" data-aos-duration="600"
 	id="about">
 	<!-- /features-1-->
@@ -104,7 +107,7 @@ Početna
 
 							<!-- dialog itself, mfp-hide class is required to make dialog hidden -->
 							<div id="small-dialog" class="zoom-anim-dialog mfp-hide">
-								<iframe src="https://player.vimeo.com/video/444928412" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+								<iframe src="https://player.vimeo.com/video/444928412" width="100%" height="auto" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
 							</div>
 							<!--//popup-->
 						</div>
@@ -177,4 +180,46 @@ Početna
 		</form>
 	</div>
 </section>
+@endsection
+
+@section('footer-scripts')
+
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('.popup-with-zoom-anim').magnificPopup({
+      type: 'inline',
+
+      fixedContentPos: false,
+      fixedBgPos: true,
+
+      overflowY: 'auto',
+
+      closeBtnInside: true,
+      preloader: false,
+
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-zoom-in'
+    });
+
+    $('.popup-with-move-anim').magnificPopup({
+      type: 'inline',
+
+      fixedContentPos: false,
+      fixedBgPos: true,
+
+      overflowY: 'auto',
+
+      closeBtnInside: true,
+      preloader: false,
+
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-slide-bottom'
+    });
+  });
+</script>
+
+	
 @endsection
