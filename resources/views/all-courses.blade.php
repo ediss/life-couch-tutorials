@@ -34,12 +34,12 @@ Kursevi
                         data-aos-delay="{{$delay}}" data-aos-duration="400">
                         <div class="course-grid-inf box-shadow">
     
-                            <a href="#"  class="popup-with-zoom-anim play-view text-center position-absolute" onclick=goToCourse({{$course->id}})>
+                            <a href="{{route('single-course', ['id' => $course->id])}}#course-content" class="popup-with-zoom-anim play-view text-center position-absolute" >
                                 <span class="video-play-icon">
                                     <span class="fa fa-play"></span>
                                 </span>
                             </a>
-                        <a href="#" onclick=goToCourse({{$course->id}})><img src="{{ $course->cover_img !=null ? $course->cover_img : 'assets/images/banners/main-banner2.jpg' }}" class="img-fluid" alt=""></a>
+                            <a href="{{route('single-course', ['id' => $course->id])}}#course-content" ><img src="{{ $course->cover_img !=null ? $course->cover_img : 'assets/images/banners/main-banner2.jpg' }}" class="img-fluid" alt=""></a>
                         <div class="course-content">
 							<div class="course-info mb-5">
 								<h6><a class="course-instructor" href="{{route('about')}}#about-me"> Maja Vučković</a></h6>
@@ -48,7 +48,7 @@ Kursevi
 								</a>
 							</div>
 
-							<a href="#" onclick=goToCourse({{$course->id}})><button
+							<a href="{{route('single-course', ['id' => $course->id])}}#course-content" ><button
 									class="price-course btn font-weight-bold w-100">SAZNAJ
 									VIŠE</button></a>
 
