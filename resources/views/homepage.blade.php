@@ -88,7 +88,7 @@ Početna
 
 
 
-<section class="w3l-features-1" data-aos="zoom-out2" data-aos-offset="100" data-aos-delay="100" data-aos-duration="600"
+<section class="w3l-features-1" data-aos="zoom-out2" data-aos-offset="100" data-aos-delay="100" data-aos-duration="300"
 	id="about">
 	<!-- /features-1-->
 	<div class="features-1-mian py-5">
