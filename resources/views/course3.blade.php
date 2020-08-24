@@ -334,8 +334,6 @@
     $(function () {
 
     $('.list-group li').each(function () {
-
-        $(this).append('<i class="fa fa-play-circle fa-2x float-right"></i>');
         $(this).addClass('list-group-item');
     });
 });
