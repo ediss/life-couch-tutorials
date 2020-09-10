@@ -140,6 +140,10 @@ h3.hny-title.two {
     padding-left: 15px; } }
 
 @media (max-width: 667px) {
+  #myTab h3.hny-title,
+  #myTab h3.hny-title.two {
+    font-size: 18px;
+    line-height: 18px; }
   h3.hny-title,
   h3.hny-title.two {
     font-size: 30px;
@@ -148,12 +152,23 @@ h3.hny-title.two {
     margin-top: 10px; } }
 
 @media (max-width: 480px) {
+
+
+  #myTab h3.hny-title,
+  #myTab h3.hny-title.two {
+    font-size: 18px;
+    line-height: 18px; }
+
   h3.hny-title,
   h3.hny-title.two {
     font-size: 28px;
     line-height: 38px; } }
 
 @media (max-width: 440px) {
+  #myTab h3.hny-title,
+  #myTab h3.hny-title.two {
+    font-size: 18px;
+    line-height: 18px; }
   h3.hny-title,
   h3.hny-title.two {
     font-size: 26px;
