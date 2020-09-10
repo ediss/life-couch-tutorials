@@ -17,184 +17,215 @@
                 <div class="welcome-grids">
 
                     <div class="col-10 offset-1">
-                        <h3 class="hny-title">
+                        <h3 class="hny-title pb-5 pt-5">
                             {{$course->name}}
                         </h3>
-                        <ul class="nav nav-tabs" id="myTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" id="course-video-tab" data-toggle="tab" href="#course-video" role="tab"
-                                    aria-controls="home" aria-selected="true">Kurs</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="course-desc-tab" data-toggle="tab" href="#course-desc" role="tab"
-                                    aria-controls="profile" aria-selected="false">Opis kursa</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="course-program-tab" data-toggle="tab" href="#course-program" role="tab"
-                                    aria-controls="contact" aria-selected="false">Program kursa</a>
-                            </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" id="course-content-tab" data-toggle="tab" href="#course-content2" role="tab"
-                                    aria-controls="contact" aria-selected="false">Sadrzaj kursa</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" id="course-price-tab" data-toggle="tab" href="#course-price" role="tab"
-                                    aria-controls="contact" aria-selected="false">Cena kursa</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content mt-5" id="myTabContent">
-                            <div class="tab-pane fade show active" id="course-video" role="tabpanel" aria-labelledby="course-video-tab">
+         
 
-                                <div class="row">
-                                    <div class="col-10 offset-1">
-                                        @if(\Carbon\Carbon::now()->toDateString() > $course->course_available)
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                @if(\Carbon\Carbon::now()->toDateString() > $course->course_available)
 
-                                        <div class="col-12">
-                                            <div class="alert alert-danger text-center">
-                                                Kurs je istekao
-                                            </div>
-                                        </div>
-
-
-                                            <!-- <img src="assets/images/ab.jpg" class="img-fluid" alt="" /> -->
-                                            <div style='padding:56.25% 0 0 0;position:relative;'>
-                                                <iframe src='{{ $course->intro_url }}' allowfullscreen frameborder='0'
-                                                    style='position:absolute;top:0;left:0;width:100%;height:100%;'>
-                                                </iframe>
-                                            </div>
-
-
-
-                                        @else
-                                        <div style='padding:56.25% 0 0 0;position:relative;'>
-                                            <iframe src='{{ (Auth::user() && count($user_assigned_to_course) > 0) ? $course->course_url : $course->intro_url  }}' allowfullscreen frameborder='0'
-                                                style='position:absolute;top:0;left:0;width:100%;height:100%;'>
-                                            </iframe>
-                                        </div>
-
-                                        <div class="mt-2">
-
-
-                                            @if(\Carbon\Carbon::now()->toDateString() > $course->course_application_to)
-                                            <a href="#" class="btn btn-success btn-lg w-100">Prijava za kurs je istekla!</a>
-                                            @else
-                                                @if(Auth::user())
-
-                                                <form action="{{route('course.subscription', ['course_id' => $course->id])}}"
-                                                    method="POST">
-                                                    @csrf
-                                                    <input type="submit" class="btn btn-success btn-lg w-100" name=""
-                                                        value="Prijavi me">
-                                                </form>
-                                                @else
-                                                <a href="{{route('course.subscription', ['course_id' => $course->id])}}#form-apply"
-                                                    class="btn btn-success btn-lg w-100">Prijavi me</a>
-                                                @endif
-                                            @endif
-                                        </div>
-                                        @endif
+                                <div class="col-12">
+                                    <div class="alert alert-danger text-center">
+                                        Kurs je istekao
                                     </div>
+                                </div>
+
+
+                                <!-- <img src="assets/images/ab.jpg" class="img-fluid" alt="" /> -->
+                                <div style='padding:56.25% 0 0 0;position:relative;'>
+                                    <iframe src='{{ $course->intro_url }}' allowfullscreen frameborder='0'
+                                        style='position:absolute;top:0;left:0;width:100%;height:100%;'>
+                                    </iframe>
+                                </div>
 
 
 
+                                @else
+                                <div style='padding:56.25% 0 0 0;position:relative;'>
+                                    <iframe
+                                        src='{{ (Auth::user() && count($user_assigned_to_course) > 0) ? $course->course_url : $course->intro_url  }}'
+                                        allowfullscreen frameborder='0'
+                                        style='position:absolute;top:0;left:0;width:100%;height:100%;'>
+                                    </iframe>
+                                </div>
+
+                                <div class="mt-2">
+
+
+                                    @if(\Carbon\Carbon::now()->toDateString() > $course->course_application_to)
+                                    <a href="#" class="btn btn-success btn-lg w-100">Prijava za kurs je istekla!</a>
+                                    @else
+                                    @if(Auth::user())
+
+                                    <form action="{{route('course.subscription', ['course_id' => $course->id])}}"
+                                        method="POST">
+                                        @csrf
+                                        <input type="submit" class="btn btn-success btn-lg w-100" name=""
+                                            value="Prijavi me">
+                                    </form>
+                                    @else
+                                    <a href="{{route('course.subscription', ['course_id' => $course->id])}}#form-apply"
+                                        class="btn btn-success btn-lg w-100">Prijavi me</a>
+                                    @endif
+                                    @endif
+                                </div>
+                                @endif
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="row mt-4">
+
+                            <div class="col-12 text-center">
+                                <h3 class="hny-title pt-4">
+                                    CENOVNIK
+                                </h3>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="card text-white btn-success mb-3 h-100">
+                                    <div class="card-header text-center">
+                                        <h3> U celini</h3>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $course_price->payment_in_full }}
+                                            RSD</h5>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="tab-pane fade" id="course-desc" role="tabpanel" aria-labelledby="course-desc-tab">
+                            <div class="col-4">
+                                <div class="card text-white btn-success mb-3 h-100">
+                                    <div class="card-header text-center">
+                                        <h3> Iz inostranstva </h3>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $course_price->payment_from_foreign_countries }}
+                                            &euro;
+                                        </h5>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card text-white btn-success mb-3 h-100">
+                                    <div class="card-header text-center">
+                                        <h3> Iz inostranstva (u ratama)</h3>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">
+                                            {{ $course_price->payment_from_foreign_countries_in_rate }}
+                                            &euro;
+                                        </h5>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-4">
+                                <div class="card text-white btn-success mb-3 h-100">
+                                    <div class="card-header text-center">
+                                        <h3>Premium paket</h3>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $course_price->premium_package }} RSD</h5>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card text-white btn-success mb-3 h-100">
+                                    <div class="card-header text-center">
+                                        <h3> Prijava do
+                                            {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}</h3>
+                                    </div>
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ $course_price->aplication_to_and_payfull }} RSD</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="card text-white btn-success mb-3 h-100">
+                                    <div class="card-header text-center">
+                                        <h3> U ratama. Broj rata: {{ $course_price->number_of_rate }}</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title  text-center">{{ $course_price->price_in_rate }} RSD</h5>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-5">
+                            <ul class="nav nav-tabs w-100" id="myTab" role="tablist">
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="course-desc-tab" data-toggle="tab" href="#course-desc"
+                                        role="tab" aria-controls="profile" aria-selected="false">
+                                        <h3 class="hny-title">
+                                            Opis kursa
+                                        </h3>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="course-program-tab" data-toggle="tab" href="#course-program"
+                                        role="tab" aria-controls="contact" aria-selected="false">
+                                        <h3 class="hny-title">
+                                            Program kursa
+                                        </h3>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" id="course-content-tab" data-toggle="tab"
+                                        href="#course-content2" role="tab" aria-controls="contact"
+                                        aria-selected="false">
+                                        <h3 class="hny-title">
+                                            Sadrzaj kursa
+                                        </h3>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        <div class="tab-content mt-5" id="myTabContent">
+                            
+                            <div class="tab-pane fade show active" id="course-desc" role="tabpanel"
+                                aria-labelledby="course-desc-tab">
 
                                 {!! $course->description !!}
 
                             </div>
-                            <div class="tab-pane fade" id="course-program" role="tabpanel" aria-labelledby="course-program-tab">
+                            <div class="tab-pane fade" id="course-program" role="tabpanel"
+                                aria-labelledby="course-program-tab">
                                 {!! $course->plan_and_program !!}
 
                             </div>
 
-                            <div class="tab-pane fade" id="course-content2" role="tabpanel" aria-labelledby="course-content-tab">
+                            <div class="tab-pane fade" id="course-content2" role="tabpanel"
+                                aria-labelledby="course-content-tab">
                                 <div class="course-content">
                                     {!! $course->course_content !!}
                                 </div>
 
                             </div>
 
-                            <div class="tab-pane fade" id="course-price" role="tabpanel" aria-labelledby="course-price-tab">
-                                <div class="row mt-4">
-                                    <div class="col-4">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3> U celini</h3>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->payment_in_full }}
-                                                    RSD</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3> Iz inostranstva </h3>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->payment_from_foreign_countries }}
-                                                    &euro;
-                                                </h5>
+                            <div class="tab-pane fade" id="course-price" role="tabpanel"
+                                aria-labelledby="course-price-tab">
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3> Iz inostranstva (u ratama)</h3>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->payment_from_foreign_countries_in_rate }}
-                                                    &euro;
-                                                </h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-4">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3>Premium paket</h3>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->premium_package }} RSD</h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3> Prijava do
-                                                    {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}</h3>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->aplication_to_and_payfull }} RSD</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-4">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3> U ratama. Broj rata: {{ $course_price->number_of_rate }}</h3>
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title  text-center">{{ $course_price->price_in_rate }} RSD</h5>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
+
+
                     </div>
 
                 </div>

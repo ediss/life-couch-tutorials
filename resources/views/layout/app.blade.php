@@ -12,16 +12,16 @@ Author URL: http://w3layouts.com
 	<title>@yield('title')</title>
 	<!-- Template CSS -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="{{ asset("assets/css/style-starter.min.css")}}">
+	<link rel="stylesheet" href="{{ asset("assets/css/style-starter.css")}}">
 	<!-- Template CSS -->
 	<link href="//fonts.googleapis.com/css?family=Muli:300,300i,400,500,600,700,800,900&display=swap" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700,900&display=swap" rel="stylesheet">
 
-
+	
 
 	<!-- Template CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 	<script src="https://kit.fontawesome.com/fcb04e2a3d.js" crossorigin="anonymous"></script>
 
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -40,6 +40,13 @@ Author URL: http://w3layouts.com
 	<!--w3l-banner-slider-main-->
 	<!--w3l-banner-slider-main-->
 	<section class="w3l-banner-slider-main w3l-inner-page-main">
+
+		<div class="mouse-scroll down-arrow">
+		
+			<a href = "@yield('scroll-to')" class="fas fa-angle-double-down fa-5x "></a>
+		
+		</div>
+		
 		<div class="breadcrumb-infhny">
 			<header class="top-headerhny" id="topheader">
 				<!--/nav-->
@@ -114,31 +121,12 @@ Author URL: http://w3layouts.com
 							</ul>
 
 						</div>
-						<!-- <form action="#" method="post" class="d-flex searchhny-form">
-                    <input type="search" placeholder="Search Here..." required="required">
-                    <button type="submit"><span class="fa fa-search" aria-hidden="true"></span></button>
-                </form> -->
+				
 					</div>
 				</nav>
 				<!--//nav-->
 			</header>
-			<!-- /breadcrumbs-->
-			{{-- <div class="container">
-				<nav aria-label="breadcrumb" class="breadcrumb-info">
-					<h2 class="hny-title text-center">@yield('banner-title')</h2>
-					@if(Request::url() != url("/"))
-    				<ol class="breadcrumb mb-0">
-						<li class="breadcrumb-item"><a href="{{url('/')}}">Početna</a></li>
-			<li class="breadcrumb-item active" aria-current="page"><a
-					href="{{ Request::url() }}">@yield('breadcrumb-item')</a></li>
-			<li class="breadcrumb-item" aria-current="page">@yield('success')
-			<li>
-				</ol>
-				@endif
-
-				</nav>
-		</div> --}}
-		<!-- //breadcrumbs-->
+		
 		</div>
 		<!--//banner-slider-->
 	</section>

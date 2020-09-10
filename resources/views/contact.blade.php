@@ -10,6 +10,10 @@ Kontakt
 Kontakt
 @endsection
 
+@section('scroll-to')
+#contact
+@endsection
+
 @section('content')
 
 <div id="contact" class="mt-5"></div>

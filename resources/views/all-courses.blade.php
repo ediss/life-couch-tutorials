@@ -10,6 +10,10 @@ Kursevi
     Kursevi
 @endsection
 
+@section('scroll-to')
+#all-courses
+@endsection
+
 @section('content')
 <div id="all-courses">
 

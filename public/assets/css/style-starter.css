@@ -10386,3 +10386,34 @@ a.text-dark:hover, a.text-dark:focus {
 border-color: #3F51B5 #3F51B5 #ffffff;
 
 }
+
+#myTab {
+  margin-top: 9%;
+}
+#myTab li {
+  text-align: center;
+  width: 33%;
+}
+.mouse-scroll {
+    z-index: 98;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+}
+
+.mouse-scroll .fas {
+  color: #3F51B5!important;
+
+}
+
+.down-arrow {
+  cursor: pointer;
+  -webkit-animation: downarrow 0.6s infinite alternate ease-in-out;
+  
+}
+@-webkit-keyframes downarrow {
+  0% { -webkit-transform: translateY(0); opacity: 1 }
+  
+  100% { -webkit-transform: translateY(3.4em); opacity: 1 }
+}
+

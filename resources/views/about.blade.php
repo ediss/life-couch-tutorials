@@ -10,6 +10,10 @@ O meni
 O meni
 @endsection
 
+@section('scroll-to')
+#about-me
+@endsection
+
 @section('content')
 <section class="w3l-wecome-content-6" id="about-me">
     <!-- /content-6-section -->
@@ -22,9 +26,9 @@ O meni
                         <div class="col-lg-12 welcome-image mt-3">
                             <div class="title-content mt-3">
 
-                                <div class="text-center">
-                                    <h2>Dobro došli na moju stranicu namenjenu onlajn treninzima!
-                                    </h2>
+                                <div class="text-center p-5">
+                                    <h3 class="hny-title">Dobro došli na moju stranicu namenjenu onlajn treninzima!
+                                    </h3>
                                 </div>
                                 <div class="text-justify">
 

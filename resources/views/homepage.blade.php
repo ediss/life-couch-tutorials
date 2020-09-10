@@ -4,6 +4,10 @@
 Početna
 @endsection
 
+@section('scroll-to')
+#courses
+@endsection
+
 @section('content')
 <section class="w3l-services-2" id="courses">
 	<!-- /content-6-section -->
