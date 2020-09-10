@@ -41,7 +41,7 @@ Author URL: http://w3layouts.com
 	<!--w3l-banner-slider-main-->
 	<section class="w3l-banner-slider-main w3l-inner-page-main">
 
-		<div class="mouse-scroll down-arrow">
+		<div class="mouse-scroll down-arrow d-none d-lg-block">
 		
 			<a href = "@yield('scroll-to')" class="fas fa-angle-double-down fa-5x "></a>
 		

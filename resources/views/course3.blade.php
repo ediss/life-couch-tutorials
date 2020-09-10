@@ -8,6 +8,10 @@
 {{ $course->name }}
 @endsection
 
+@section('scroll-to')
+#course-content
+@endsection
+
 @section('content')
 <div id="course-content">
     <section class="w3l-wecome-content-6">
@@ -79,89 +83,8 @@
 
                         </div>
 
-                        <div class="row mt-4">
-
-                            <div class="col-12 text-center">
-                                <h3 class="hny-title pt-4">
-                                    CENOVNIK
-                                </h3>
-                            </div>
-
-                            <div class="col-4">
-                                <div class="card text-white btn-success mb-3 h-100">
-                                    <div class="card-header text-center">
-                                        <h3> U celini</h3>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">{{ $course_price->payment_in_full }}
-                                            RSD</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card text-white btn-success mb-3 h-100">
-                                    <div class="card-header text-center">
-                                        <h3> Iz inostranstva </h3>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">{{ $course_price->payment_from_foreign_countries }}
-                                            &euro;
-                                        </h5>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card text-white btn-success mb-3 h-100">
-                                    <div class="card-header text-center">
-                                        <h3> Iz inostranstva (u ratama)</h3>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">
-                                            {{ $course_price->payment_from_foreign_countries_in_rate }}
-                                            &euro;
-                                        </h5>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-4">
-                                <div class="card text-white btn-success mb-3 h-100">
-                                    <div class="card-header text-center">
-                                        <h3>Premium paket</h3>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">{{ $course_price->premium_package }} RSD</h5>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card text-white btn-success mb-3 h-100">
-                                    <div class="card-header text-center">
-                                        <h3> Prijava do
-                                            {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}</h3>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">{{ $course_price->aplication_to_and_payfull }} RSD</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="card text-white btn-success mb-3 h-100">
-                                    <div class="card-header text-center">
-                                        <h3> U ratama. Broj rata: {{ $course_price->number_of_rate }}</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title  text-center">{{ $course_price->price_in_rate }} RSD</h5>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
+                       
 
 
                         <div class="row mt-5">
@@ -171,7 +94,7 @@
                                     <a class="nav-link active" id="course-desc-tab" data-toggle="tab" href="#course-desc"
                                         role="tab" aria-controls="profile" aria-selected="false">
                                         <h3 class="hny-title">
-                                            Opis kursa
+                                            Opis
                                         </h3>
                                     </a>
                                 </li>
@@ -179,7 +102,7 @@
                                     <a class="nav-link" id="course-program-tab" data-toggle="tab" href="#course-program"
                                         role="tab" aria-controls="contact" aria-selected="false">
                                         <h3 class="hny-title">
-                                            Program kursa
+                                            Program
                                         </h3>
                                     </a>
                                 </li>
@@ -189,7 +112,17 @@
                                         href="#course-content2" role="tab" aria-controls="contact"
                                         aria-selected="false">
                                         <h3 class="hny-title">
-                                            Sadrzaj kursa
+                                            Sadržaj
+                                        </h3>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" id="course-price-tab" data-toggle="tab"
+                                        href="#course-price" role="tab" aria-controls="price"
+                                        aria-selected="false">
+                                        <h3 class="hny-title">
+                                            Cenovnik
                                         </h3>
                                     </a>
                                 </li>
@@ -221,8 +154,88 @@
 
                             <div class="tab-pane fade" id="course-price" role="tabpanel"
                                 aria-labelledby="course-price-tab">
+                                <div class="row mt-3">
+                                    <div class="col-md-4 mb-4 mb-lg-0">
+                                        <div class="card text-white btn-success mb-3 h-100">
+                                            <div class="card-header text-center">
+                                                <h3>Premium paket</h3>
+                                            </div>
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">{{ $course_price->premium_package }} RSD</h5>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4 mb-lg-0">
+                                        <div class="card text-white btn-success mb-3 h-100">
+                                            <div class="card-header text-center">
+                                                <h3> Prijava do
+                                                    {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}</h3>
+                                            </div>
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">{{ $course_price->aplication_to_and_payfull }} RSD</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4 mb-lg-0">
+                                        <div class="card text-white btn-success mb-3 h-100">
+                                            <div class="card-header text-center">
+                                                <h3> U ratama. Broj rata: {{ $course_price->number_of_rate }}</h3>
+                                            </div>
+                                            <div class="card-body">
+                                                <h5 class="card-title  text-center">{{ $course_price->price_in_rate }} RSD</h5>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
 
+                                  
+        
+                                    <div class="col-md-4 mb-4 mb-lg-0">
+                                        <div class="card text-white btn-success mb-3 h-100">
+                                            <div class="card-header text-center">
+                                                <h3> U celini</h3>
+                                            </div>
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">{{ $course_price->payment_in_full }}
+                                                    RSD</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4 mb-lg-0">
+                                        <div class="card text-white btn-success mb-3 h-100">
+                                            <div class="card-header text-center">
+                                                <h3> Iz inostranstva </h3>
+                                            </div>
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">{{ $course_price->payment_from_foreign_countries }}
+                                                    &euro;
+                                                </h5>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-4 mb-lg-0">
+                                        <div class="card text-white btn-success mb-3 h-100">
+                                            <div class="card-header text-center">
+                                                <h3> Iz inostranstva (u ratama)</h3>
+                                            </div>
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title">
+                                                    {{ $course_price->payment_from_foreign_countries_in_rate }}
+                                                    &euro;
+                                                </h5>
+        
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                </div>
                             </div>
+
+                
                         </div>
 
 
