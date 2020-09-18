@@ -22,6 +22,8 @@ class CustomLoginController extends Controller
 
         $hash = $request->input('device_id');
 
+        
+
         $this->validate($request,[
             'email' => 'required',
             'password' => 'required'

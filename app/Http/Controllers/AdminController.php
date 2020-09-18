@@ -6,11 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Course;
 use App\Models\UserCourse;
 use App\Models\CoursePrice;
-
 use App\User;
 use Carbon\Carbon;
-
 use Validator;
+use Mail;
 
 class AdminController extends Controller
 {
@@ -20,6 +19,16 @@ class AdminController extends Controller
         return view ("admin.courses", [
             "courses" => $courses
         ]);
+    }
+
+    public function courseUsers($course_id) {
+
+        $course_users = UserCourse::where('course_id', '=', $course_id)->get();
+
+        return view('admin.users-belongs-to-course', [
+            'users' => $course_users
+        ]);
+
     }
     public function createCourse(Request $request) {
 
@@ -119,6 +128,8 @@ class AdminController extends Controller
 
         $users = User::where("role_id", "=", "2" )->get();
 
+        $course = Course::where('id', '=', $course_id)->first();
+
         if ($request->isMethod('post')) {
 
             //get user(s) id
@@ -131,8 +142,20 @@ class AdminController extends Controller
                 $user_course->course_id = $course_id;
                 $user_course->user_id = $user_id;
 
-                $user_course->save();
 
+                $user_course->save();
+                $user = User::where('id', '=', $user_id)->first();
+
+                $data = [
+                    'user_name'     => $user->name,
+                    'user_email'    => $user->email,
+                    'course_name'   => $course->name,
+                ];
+
+                Mail::send(['text'=>'mails.application-approved'], $data, function($message) use ($data) {
+                    $message->to($data['user_email'], 'Odobren Vam je pristup')->subject ('Odobren Vam je pristup')->replyTo('prijava.kursevi@gmail.com');
+                    $message->from('prijava.kursevi@gmail.com', $data['course_name'] );
+                });
 
             }
             return back()->with('info','Uspesno ste dodelili kurs korisniku!');

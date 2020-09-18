@@ -10,7 +10,6 @@
     @foreach ($courses as $course)
     <div class=" col-lg-4">
         <div class="card">
-            
             <div class="card-body">
               <h5 class="card-title">{{$course->name}}</h5>
               {{-- <p class="card-text">Broj pretplatnika : {{ count() }}</p> --}}
@@ -21,7 +20,10 @@
                 <a href="{{ route('admin.delete.course', ['course_id'=> $course->id]) }}" class="btn btn-danger m-1" onclick="return confirm('Da li ste sigurni?');">Ukloni kurs</a>
               </div>
             <div class="card-footer">
-              <small class="text-muted">Aktivan do: </small>
+              <small class="text-muted">Aktivan do: <b>{{$course->course_available}}</b> </small>
+              <a href="{{ route('course.users', ['course_id' => $course->id]) }}">
+              <small class=" float-right"> vidi korisnike <i class="fa fa-users fa-2x text-dark ml-2"></i></small>
+            </a>
             </div>
           </div>
     </div>

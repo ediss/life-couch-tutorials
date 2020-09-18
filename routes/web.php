@@ -24,6 +24,7 @@ Route::view('/not-allowed', 'access-not-allowed')->name('access.not.allowed');
 //admin routes
 Route::prefix("admin/")->middleware(['auth','admin'])->group(function(){
     Route::any('courses',                           'AdminController@index')            ->name("admin.courses");
+    Route::any('course-users/{course_id}',          'AdminController@courseUsers')      ->name("course.users");
     Route::any('create-course',                     'AdminController@createCourse')     ->name("admin.create-course");
     Route::any('add-user-to-course/{course_id}',    'AdminController@addUserToCourse')  ->name("admin.add.user.to.course");
     Route::any('edit-course/{course_id}',           'AdminController@editCourse')       ->name("admin.edit.course");
