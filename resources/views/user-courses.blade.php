@@ -38,24 +38,24 @@ Moji Kursevi
                         data-aos-delay="{{$delay}}" data-aos-duration="400">
                         <div class="course-grid-inf box-shadow">
 
-                            <a href="{{route('single-course', ['id' => $course->id])}}#course-content" class="popup-with-zoom-anim play-view text-center position-absolute" href="{{route('single-course', ['id' => $course->id])}}#course-content">
+                            <a href="{{route('single-course', ['id' => $course->course_id])}}#course-content" class="popup-with-zoom-anim play-view text-center position-absolute" href="{{route('single-course', ['id' => $course->id])}}#course-content">
                                 <span class="video-play-icon">
                                     <span class="fa fa-play"></span>
                                 </span>
                             </a>
-                            <a href="{{route('single-course', ['id' => $course->id])}}#course-content"
+                            <a href="{{route('single-course', ['id' => $course->course_id])}}#course-content"
                                 ><img src="assets/images/p1.jpg" class="img-fluid" alt="">
                             </a>
                             <div class="course-content">
                                 <div class="course-info">
                                     <h6><a class="course-instructor" href="{{route('about')}}#about-me"> Maja Vučković</a></h6>
-                                    <a href="{{route('single-course', ['id' => $course->id])}}#course-content" class="course-titlegulp-wrapper">
+                                    <a href="{{route('single-course', ['id' => $course->course_id])}}#course-content" class="course-titlegulp-wrapper">
                                         
                                         <h3 class="course-title">{{ $course->courses->name }}</h3>
                                     </a>
                                 </div>
 
-                                <a href="{{route('single-course', ['id' => $course->id])}}#course-content">
+                                <a href="{{route('single-course', ['id' => $course->course_id])}}#course-content">
                                     <button class="price-course btn font-weight-bold w-100">Gledaj Kurs</button>
                                 </a>
 
