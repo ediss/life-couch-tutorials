@@ -43,8 +43,8 @@ Moji Kursevi
                                     <span class="fa fa-play"></span>
                                 </span>
                             </a>
-                            <a href="{{route('single-course', ['id' => $course->course_id])}}#course-content"
-                                ><img src="assets/images/p1.jpg" class="img-fluid" alt="">
+                            <a href="{{route('single-course', ['id' => $course->course_id])}}#course-content">
+                                <img src="{{ $course->cover_img !=null ? $course->cover_img : 'assets/images/banners/background.png' }}" class="img-fluid" alt="">
                             </a>
                             <div class="course-content">
                                 <div class="course-info">
