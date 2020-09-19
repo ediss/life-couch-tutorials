@@ -34,31 +34,26 @@ Moji Kursevi
                         data-aos-delay="{{$delay}}" data-aos-duration="400">
                         <div class="course-grid-inf box-shadow">
 
-                            <a href="#"  class="popup-with-zoom-anim play-view text-center position-absolute" onclick=goToCourse({{$course->id}})>
+                            <a href="{{route('single-course', ['id' => $course->id])}}#course-content" class="popup-with-zoom-anim play-view text-center position-absolute" href="{{route('single-course', ['id' => $course->id])}}#course-content">
                                 <span class="video-play-icon">
                                     <span class="fa fa-play"></span>
                                 </span>
                             </a>
-                            <a href="#" onclick=goToCourse({{$course->id}})><img src="assets/images/p1.jpg" class="img-fluid" alt=""></a>
+                            <a href="{{route('single-course', ['id' => $course->id])}}#course-content"
+                                ><img src="assets/images/p1.jpg" class="img-fluid" alt="">
+                            </a>
                             <div class="course-content">
                                 <div class="course-info">
-                                    <h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
-                                    <a href="#" class="course-titlegulp-wrapper">
+                                    <h6><a class="course-instructor" href="{{route('about')}}#about-me"> Maja Vučković</a></h6>
+                                    <a href="{{route('single-course', ['id' => $course->id])}}#course-content" class="course-titlegulp-wrapper">
                                         
                                         <h3 class="course-title">{{ $course->courses->name }}</h3>
                                     </a>
                                 </div>
-                                <div class="course-divider mb-5">
-                                    <div class="course-meta grid"><span class="course-students" title=""><span
-                                                class="fa fa-user" aria-hidden="true"></span> 46</span>
-                                        <span class="course-reviews" title=""><span class="fa fa-thumbs-o-up"
-                                                aria-hidden="true"></span> 14</span>
 
-                                    </div>
-                                    <!-- <button class="price-course btn font-weight-bold">SAZNAJ VIŠE</button> -->
-                                </div>
-                                <a href="#" onclick=goToCourse({{$course->id}})><button class="price-course btn font-weight-bold w-100">SAZNAJ
-                                        VIŠE</button></a>
+                                <a href="{{route('single-course', ['id' => $course->id])}}#course-content">
+                                    <button class="price-course btn font-weight-bold w-100">Gledaj Kurs</button>
+                                </a>
 
                             </div>
                         </div>

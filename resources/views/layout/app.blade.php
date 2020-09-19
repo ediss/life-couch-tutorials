@@ -64,7 +64,7 @@ Author URL: http://w3layouts.com
 						@if(Auth::user())
 						<div class="col-6 d-lg-none text-center">
 							<a class="nav-link ml-0 p-0 text-violet font-weight-bold"
-								href="{{ route('user.courses') }}">Moji Kursevi</a>
+								href="{{ route('user.courses') }}#courses">Moji Kursevi</a>
 
 						</div>
 						<div class="col-4 d-lg-none text-right">
@@ -107,7 +107,7 @@ Author URL: http://w3layouts.com
 										<button class="dropbtn">{{ Auth::user()->name }}</button>
 										<div class="dropdown-content">
 											<a class="nav-link ml-0" href="{{ route("custom.logout") }}">Logout</a>
-											<a class="nav-link ml-0" href="{{ route('user.courses') }}">Moji Kursevi</a>
+											<a class="nav-link ml-0" href="{{ route('user.courses') }}#courses">Moji Kursevi</a>
 
 										</div>
 									</div>
