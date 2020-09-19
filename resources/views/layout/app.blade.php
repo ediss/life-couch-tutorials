@@ -499,6 +499,7 @@ Author URL: http://w3layouts.com
 						adBlock:true,
 						fonts:true, 
 						audio:true,
+						enumerateDevices: true
 					}
 				}
 				Fingerprint2.get(options, function (components) {
