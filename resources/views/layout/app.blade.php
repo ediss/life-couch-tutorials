@@ -17,11 +17,11 @@ Author URL: http://w3layouts.com
 	<link href="//fonts.googleapis.com/css?family=Muli:300,300i,400,500,600,700,800,900&display=swap" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,500,700,900&display=swap" rel="stylesheet">
 
-	
+
 
 	<!-- Template CSS -->
 	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	<script src="https://kit.fontawesome.com/fcb04e2a3d.js" crossorigin="anonymous"></script>
 
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -31,7 +31,7 @@ Author URL: http://w3layouts.com
 </head>
 
 <body>
-	
+
 
 	<div id="preloader">
 		<div id="status"></div>
@@ -42,11 +42,11 @@ Author URL: http://w3layouts.com
 	<section class="w3l-banner-slider-main w3l-inner-page-main">
 
 		<div class="mouse-scroll down-arrow d-none d-lg-block">
-		
-			<a href = "@yield('scroll-to')" class="fas fa-angle-double-down fa-5x "></a>
-		
+
+			<a href="@yield('scroll-to')" class="fas fa-angle-double-down fa-5x "></a>
+
 		</div>
-		
+
 		<div class="breadcrumb-infhny">
 			<header class="top-headerhny" id="topheader">
 				<!--/nav-->
@@ -121,12 +121,12 @@ Author URL: http://w3layouts.com
 							</ul>
 
 						</div>
-				
+
 					</div>
 				</nav>
 				<!--//nav-->
 			</header>
-		
+
 		</div>
 		<!--//banner-slider-->
 	</section>
@@ -357,8 +357,12 @@ Author URL: http://w3layouts.com
 
 	<script src="{{ asset("assets/js/jquery-3.5.1.min.js")}}"></script>
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-	{{-- <script src ="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script> --}}
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.8.2/fingerprint2.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
+
+
+	{{-- <script src="{{ asset("assets/js/jquery-3.5.1.min.js")}}"></script> --}}
+
+	{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/1.8.2/fingerprint2.min.js"></script> --}}
 
 	{{-- <script src="{{ asset("assets/js/bootstrap.min.js") }}"></script> --}}
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
@@ -366,6 +370,23 @@ Author URL: http://w3layouts.com
 	</script>
 
 
+	<script>
+		$( '#topheader .navbar-nav a' ).on( 'click', function () {
+		$( '#topheader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
+		$( this ).parent( 'li' ).addClass( 'active' );
+	});
+
+
+		// makes sure the whole site is loaded
+
+	$(window).on('load', function(){
+		$("#status").fadeOut();
+        // will fade out the whole DIV that covers the website.
+    $("#preloader").delay(1000).fadeOut("slow");
+	});
+
+
+	</script>
 	<script>
 		// When the user scrolls down 20px from the top of the document, show the button
 		window.onscroll = function () {
@@ -434,42 +455,71 @@ Author URL: http://w3layouts.com
 
 	<!--//pop-up-box-->
 
-	<script>
+	{{-- <script>
 		var hash= '';
 	if (window.requestIdleCallback) {
 		requestIdleCallback(function () {
 			new Fingerprint2().get(function(result, components){
 				hash = result;
 			   	$("#device_id_login").val(result);
+				   console.log(components) // an array of components: {key: ..., value: ...}
+
+				   console.log(result) // an array of components: {key: ..., value: ...}
+
+
 			});
+
 		})
 	} else {
 		setTimeout(function () {
 			new Fingerprint2().get(function (result, components) {
 			  console.log(components) // an array of components: {key: ..., value: ...}
+
 			})
 		}, 500)
 	}
 
-	</script>
+	</script> --}}
 
 	<script>
-	$( '#topheader .navbar-nav a' ).on( 'click', function () {
-		$( '#topheader .navbar-nav' ).find( 'li.active' ).removeClass( 'active' );
-		$( this ).parent( 'li' ).addClass( 'active' );
-	});
+		if (window.requestIdleCallback) {
+    		requestIdleCallback(function () {
+				var options = {
+    				excludes: {
+						userAgent: true,
+						sessionStorage: true,
+						localStorage: true,
+						indexedDb: true,
+						addBevior: true,
+						openDatabase: true,
+						doNotTrack: true,
+						plugins: true,
+						canvas:true,
+						webgl:true,
+						adBlock:true,
+						fonts:true, 
+						audio:true,
+					}
+				}
+				Fingerprint2.get(options, function (components) {
+			  		console.log(components) // an array of components: {key: ..., value: ...}
 
-
-		// makes sure the whole site is loaded
-
-	$(window).on('load', function(){
-		$("#status").fadeOut();
-        // will fade out the whole DIV that covers the website.
-    $("#preloader").delay(1000).fadeOut("slow");
-	});
-
-
+					var values = components.map(function (component) { return component.value })
+					var murmur = Fingerprint2.x64hash128(values.join(''), 31)
+					hash = murmur;
+			   		$("#device_id_login").val(murmur);
+					console.log(murmur); //before options :9188e47be875c8d629553cd5d3b2c8d9; AFTER OPTIONS 63cc4ec5833f0ede976d11b8c0333474
+        		})
+    		})
+		} else {
+    		setTimeout(function () {
+        		Fingerprint2.get(function (components) {
+          			console.log(components) // an array of components: {key: ..., value: ...}
+        		})
+    		}, 500)
+		}
 	</script>
+
 
 	@yield('footer-scripts')
 </body>

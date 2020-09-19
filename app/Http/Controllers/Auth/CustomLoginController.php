@@ -22,8 +22,6 @@ class CustomLoginController extends Controller
 
         $hash = $request->input('device_id');
 
-        
-
         $this->validate($request,[
             'email' => 'required',
             'password' => 'required'
@@ -49,15 +47,15 @@ class CustomLoginController extends Controller
 
                         return redirect()->intended(route('homepage'));
                     }
-                    else {
-                        Auth::logout();
+                    // else {
+                    //     Auth::logout();
 
-                        $url = URL::route('access.not.allowed') . '#scroll-section';
-                        return redirect()->to($url);
-                        
-                    }
+                    //     $url = URL::route('access.not.allowed') . '#scroll-section';
+                    //     return redirect()->to($url);
 
-                    
+                    // }
+
+
 
                 }
 
