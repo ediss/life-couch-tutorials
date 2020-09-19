@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function index() {
 
-        $courses = Course::take(6)->get();
+        $courses = Course::take(6)->orderBy('course_available', 'desc')->get();
 
         // dd($courses);
 

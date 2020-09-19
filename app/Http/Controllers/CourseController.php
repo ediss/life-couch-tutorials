@@ -24,7 +24,7 @@ class CourseController extends Controller
 {
     public function index() {
 
-        $courses = Course::all();
+        $courses = Course::orderBy('course_available', 'desc')->get();
 
         return view('all-courses', ['courses' => $courses]);
     }
