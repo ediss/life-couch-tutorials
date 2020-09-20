@@ -23,7 +23,7 @@ Moji Kursevi
             <div class="container py-lg-5 col-10 offset-1">
                 <div class="row title-content">
                     <div class="col-lg-4 title-left">
-                        <h3 class="hny-title">Učite bilo gde!</h3>
+                        <h3 class="hny-title">Moji kursevi!</h3>
                     </div>
                     <div class="col-lg-8 title-info">
                         <p><b>U doba interneta, edukacija je svima dostupna. Jednim klikom do nove veštine!

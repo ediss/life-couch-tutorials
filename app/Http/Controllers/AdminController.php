@@ -126,7 +126,9 @@ class AdminController extends Controller
 
     public function addUserToCourse(Request $request, $course_id) {
 
-        $users = User::where("role_id", "=", "2" )->get();
+        $assigned_users = UserCourse::where('course_id', '=', $course_id)->pluck('user_id');
+        $avilable_users = User::whereNotIn('id', $assigned_users )
+            ->where("role_id", "=", "2")->get();
 
         $course = Course::where('id', '=', $course_id)->first();
 
@@ -169,7 +171,7 @@ class AdminController extends Controller
 
         return view('admin.user-course', [
             'course_id' => $course_id,
-            'users' => $users
+            'users' => $avilable_users
         ]);
     }
 
