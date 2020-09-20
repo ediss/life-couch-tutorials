@@ -23,7 +23,7 @@ class AdminController extends Controller
 
     public function courseUsers($course_id) {
 
-        $course_users = UserCourse::where('course_id', '=', $course_id)->get();
+        $course_users = UserCourse::where('course_id', '=', $course_id)->get()->unique('user_id');;
 
         return view('admin.users-belongs-to-course', [
             'users' => $course_users
