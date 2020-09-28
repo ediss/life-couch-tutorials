@@ -511,7 +511,7 @@ Author URL: http://w3layouts.com
 			   		$("#device_id_login").val(murmur);
 					console.log(murmur); //before options :9188e47be875c8d629553cd5d3b2c8d9; AFTER OPTIONS 63cc4ec5833f0ede976d11b8c0333474
 
-					//D
+					//last b3b5a8dbd47d315025028231e4eeae4f
         		})
     		})
 		} else {

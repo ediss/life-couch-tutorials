@@ -20,7 +20,7 @@
             <div class="container-fluid py-lg-5">
                 <div class="welcome-grids">
 
-                    <div class="col-10 offset-1">
+                    <div class="col-md-10 offset-md-1">
                         <h3 class="hny-title pb-5 pt-5">
                             {{$course->name}}
                         </h3>
@@ -28,7 +28,7 @@
          
 
                         <div class="row">
-                            <div class="col-10 offset-1">
+                            <div class="col-md-10 offset-md-1">
                                 @if(\Carbon\Carbon::now()->toDateString() > $course->course_available)
 
                                 <div class="col-12">
@@ -252,7 +252,7 @@
         <div class="specification-content py-5">
             <div class="container-fluid py-lg-5">
                 <div class="mission-grids-info row">
-                    <div class="col-10 offset-1">
+                    <div class="col-md-10 offset-md-1">
                         <div class="row">
                             <div class="mission-gd-left col-lg-7">
                                 <div class="grids-inn-ab">
@@ -313,7 +313,7 @@
         <div class="ab-content-6-mian py-5">
             <div class="container-fluid py-lg-5">
                 <div class="welcome-grids">
-                    <div class="col-lg-10 offset-1 text-justify">
+                    <div class="col-lg-10 offset-lg-1 text-justify">
                         <p>
                             Pripadam integrativnom psihodinamskom pravcu u koučingu i psihoterapiji, pa su i ovi kursevi
                             napravljeni u tom duhu: nije ideja da naučite neke šeme i obrasce ’kako se stvari rade’ već
