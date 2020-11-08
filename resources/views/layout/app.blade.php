@@ -331,11 +331,11 @@ Author URL: http://w3layouts.com
 								</div>
 							</div>
 						</div>
-						@if (Route::has('password.request'))
+						{{-- @if (Route::has('password.request'))
 						<a class="btn btn-link" href="{{ route('password.request') }}">
 							{{ __('Forgot Your Password?') }}
 						</a>
-						@endif
+						@endif --}}
 
 						<div class="form-group row mb-0 text-center">
 
