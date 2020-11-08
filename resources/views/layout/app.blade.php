@@ -499,7 +499,16 @@ Author URL: http://w3layouts.com
 						adBlock:true,
 						fonts:true, 
 						audio:true,
-						enumerateDevices: true
+						enumerateDevices: true,
+						webdriver:true,
+						webglVendorAndRenderer:true,
+						hasLiedLanguages:true,
+						hasLiedResolution:true,
+						hasLiedOs:true,
+						hasLiedBrowser:true,
+						touchSupport:true,
+						fontsFlash:true,
+						addBehavior:true
 					}
 				}
 				Fingerprint2.get(options, function (components) {
@@ -511,7 +520,8 @@ Author URL: http://w3layouts.com
 			   		$("#device_id_login").val(murmur);
 					console.log(murmur); //before options :9188e47be875c8d629553cd5d3b2c8d9; AFTER OPTIONS 63cc4ec5833f0ede976d11b8c0333474
 
-					//last b3b5a8dbd47d315025028231e4eeae4f
+					//last  f6643d41650e3b3e251ccf2c0eee9cf8
+					//		2d2ff37646cc73a74449d0c9d7ebc1a1
         		})
     		})
 		} else {
