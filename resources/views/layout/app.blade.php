@@ -107,7 +107,8 @@ Author URL: http://w3layouts.com
 										<button class="dropbtn">{{ Auth::user()->name }}</button>
 										<div class="dropdown-content">
 											<a class="nav-link ml-0" href="{{ route("custom.logout") }}">Logout</a>
-											<a class="nav-link ml-0" href="{{ route('user.courses') }}#courses">Moji Kursevi</a>
+											<a class="nav-link ml-0" href="{{ route('user.courses') }}#courses">Moji
+												Kursevi</a>
 
 										</div>
 									</div>
@@ -289,7 +290,7 @@ Author URL: http://w3layouts.com
 						@csrf
 						<input type="hidden" id="device_id_login" name="device_id">
 						<div class="form-group row">
-							<label for="email" class="col-md-4 col-form-label">{{ __('E-Mail Address') }}</label>
+							<label for="email" class="col-md-4 col-form-label">{{ __('E-Mail Adresa') }}</label>
 
 							<div class="col-12">
 								<input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -304,7 +305,7 @@ Author URL: http://w3layouts.com
 						</div>
 
 						<div class="form-group row">
-							<label for="password" class="col-md-4 col-form-label">{{ __('Password') }}</label>
+							<label for="password" class="col-md-4 col-form-label">{{ __('Lozninka') }}</label>
 
 							<div class="col-12">
 								<input id="password" type="password"
@@ -326,16 +327,23 @@ Author URL: http://w3layouts.com
 										{{ old('remember') ? 'checked' : '' }}>
 
 									<label class="form-check-label" for="remember">
-										{{ __('Remember Me') }}
+										{{ __('Zapamti me') }}
 									</label>
 								</div>
 							</div>
 						</div>
-						{{-- @if (Route::has('password.request'))
-						<a class="btn btn-link" href="{{ route('password.request') }}">
-							{{ __('Forgot Your Password?') }}
-						</a>
-						@endif --}}
+						
+						<div class="form-group row">
+							<div class="col-12">
+								@if (Route::has('password.request'))
+								<a class="btn-link text-dark" href="{{ route('password.request') }}">
+								{{ __('Zaboravili ste lozinku?') }}
+								</a>
+								@endif
+							</div>
+						</div>
+						
+						
 
 						<div class="form-group row mb-0 text-center">
 
@@ -353,6 +361,9 @@ Author URL: http://w3layouts.com
 			</div>
 		</div>
 	</div>
+
+
+
 
 
 	<script src="{{ asset("assets/js/jquery-3.5.1.min.js")}}"></script>
@@ -497,7 +508,7 @@ Author URL: http://w3layouts.com
 						canvas:true,
 						webgl:true,
 						adBlock:true,
-						fonts:true, 
+						fonts:true,
 						audio:true,
 						enumerateDevices: true,
 						webdriver:true,
