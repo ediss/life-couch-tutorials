@@ -59,7 +59,7 @@ class CourseController extends Controller
         //checking if user attempts to watch course from 3td device
 
 
-        return view('course2', [
+        return view('course3', [
             "course" => $course,
             "user_assigned_to_course" => $user_assigned_to_course,
             "course_price"  => $course_price,
