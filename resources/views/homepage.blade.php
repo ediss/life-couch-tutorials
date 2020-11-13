@@ -33,23 +33,23 @@ Početna
 					<div class="course-grid-inf box-shadow">
 
 						<input type="hidden" id="route" value="{{ route('contact') }}">
-						<a class="popup-with-zoom-anim play-view text-center position-absolute" href="{{route('single-course', ['id' => $course->id])}}#course-content">
+						<a class="popup-with-zoom-anim play-view text-center position-absolute" href="{{route('single-course', $course->slug)}}#course-content">
 							<span class="video-play-icon">
 								<span class="fa fa-play"></span>
 							</span>
 						</a>
-						<a href="{{route('single-course', ['id' => $course->id])}}#course-content" >
+						<a href="{{route('single-course', $course->slug)}}#course-content" >
 							<img src="{{ $course->cover_img !=null ? $course->cover_img : 'assets/images/banners/main-banner2.jpg' }}" class="img-fluid" alt="">
 						</a>
 						<div class="course-content">
 							<div class="course-info mb-5">
 								<h6><a class="course-instructor" href="{{route('about')}}#about-me"> Maja Vučković</a></h6>
-								<a href="{{route('single-course', ['id' => $course->id])}}#course-content" class="course-titlegulp-wrapper" >
+								<a href="{{route('single-course', $course->slug)}}#course-content" class="course-titlegulp-wrapper" >
 									<h3 class="course-title">{{ $course->name }}</h3>
 								</a>
 							</div>
 
-							<a href="{{route('single-course', ['id' => $course->id])}}#course-content" ><button
+							<a href="{{route('single-course', $course->slug)}}#course-content" ><button
 									class="price-course btn font-weight-bold w-100">SAZNAJ
 									VIŠE</button></a>
 

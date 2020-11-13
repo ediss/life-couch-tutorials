@@ -38,7 +38,7 @@ Moji Kursevi
                         data-aos-delay="{{$delay}}" data-aos-duration="400">
                         <div class="course-grid-inf box-shadow">
 
-                            <a href="{{route('single-course', ['id' => $course->course_id])}}#course-content" class="popup-with-zoom-anim play-view text-center position-absolute" href="{{route('single-course', ['id' => $course->id])}}#course-content">
+                            <a href="{{route('single-course', ['id' => $course->course_id])}}#course-content" class="popup-with-zoom-anim play-view text-center position-absolute" href="{{route('single-course', $course->slug)}}#course-content">
                                 <span class="video-play-icon">
                                     <span class="fa fa-play"></span>
                                 </span>
