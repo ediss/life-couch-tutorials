@@ -14,7 +14,7 @@ class UpdatePrice3 extends Migration
     public function up()
     {
         Schema::table('course_price', function (Blueprint $table) {
-            $table->string('payment_from_foreign_countries_in_rate')->nullable()->change();
+            $table->string('payment_from_foreign_countries_in_rate')->nullable();
 
         });
     }

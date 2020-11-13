@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdatePrice extends Migration
+class AddSlugToCourse extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class UpdatePrice extends Migration
      */
     public function up()
     {
-        Schema::table('course_price', function (Blueprint $table) {
-            $table->string('payment_from_foreign_countries_in_rate');
+        Schema::table('course', function (Blueprint $table) {
+            $table->string('slug')->unique();
         });
     }
 
@@ -25,8 +25,8 @@ class UpdatePrice extends Migration
      */
     public function down()
     {
-        Schema::table('course_price', function (Blueprint $table) {
-            $table->dropColumn('payment_from_foreign_countries_in_rate');
+        Schema::table('course', function (Blueprint $table) {
+            $table->dropColumn('slug');
         });
     }
 }

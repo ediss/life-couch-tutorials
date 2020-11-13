@@ -41,18 +41,17 @@ class CourseController extends Controller
         return $route;
     }
 
-    public function singleCourse($id) {
+    public function singleCourse($slug) {
+        $course = Course::where("slug", "=", $slug)->first();
 
-
-        $course = Course::findOrFail($id);
         $user_assigned_to_course = null;
-        $course_price = CoursePrice::where('course_id', '=', $id)->first();
+        $course_price = CoursePrice::where('course_id', '=', $course->id)->first();
 
 
         //checking if loged user have permission to see course
         if(Auth::user()) {
             $user_assigned_to_course = UserCourse::where('user_id', '=', Auth::user()->id)
-            ->where("course_id", "=", $id)->get();
+            ->where("course_id", "=", $course->id)->get();
 
         }
 

@@ -8,10 +8,16 @@ Dodavanje kursa
   @csrf
   <div class="card-body">
     <div class="row">
-      <div class="col-3">
+      <div class="col-2">
         <div class="form-group">
           <label>Naziv kursa</label>
           <input type="text" class="form-control" name="course_name" placeholder="Naziv kursa">
+        </div>
+      </div>
+      <div class="col-2">
+        <div class="form-group">
+          <label>Slug</label>
+          <input type="text" class="form-control" name="course_slug" placeholder="Naziv-kursa-sa-crticama">
         </div>
       </div>
       <div class="col-3">
@@ -25,7 +31,7 @@ Dodavanje kursa
         <label>Kurs Url</label>
         <input type="text" class="form-control" name="course_url">
       </div>
-      <div class="col-3">
+      <div class="col-2">
         <div class="form-group">
           <label for="exampleInputFile">Naslovna Fotografija</label>
           <div class="input-group">

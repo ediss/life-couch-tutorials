@@ -33,6 +33,6 @@ class CoursePrice extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course');
+        Schema::dropIfExists('course_price');
     }
 }

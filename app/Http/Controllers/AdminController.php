@@ -43,6 +43,7 @@ class AdminController extends Controller
                 "course_program"        => "required",
                 "course_content"        => "required",
                 "course_organisation"   => "required",
+                "course_slug"                 => "required|unique:course,slug",
 
             ]);
 
@@ -58,6 +59,7 @@ class AdminController extends Controller
                $course_available    = $request->input("course_available");
                $course_application  = $request->input("course_application_to");
                $course_organisation = $request->input("course_organisation");
+               $course_slug         = $request->input("course_slug");
 
                $cover_img_path =null;
                   //uplouding event photos
@@ -92,6 +94,7 @@ class AdminController extends Controller
                $course->course_available        = $course_available;
                $course->course_application_to   = $course_application;
                $course->course_organisation     = $course_organisation;
+               $course->slug                    = $course_slug;
 
                if($course->save()) {
                    $course_price = new CoursePrice();
