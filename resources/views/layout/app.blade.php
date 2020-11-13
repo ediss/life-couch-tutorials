@@ -75,7 +75,7 @@ Author URL: http://w3layouts.com
 
 						<div class="col-8 d-lg-none text-right">
 							<a class="nav-link text-violet font-weight-bold" data-toggle="modal"
-								data-target="#loginModal" href="#">Logovanje</a>
+								data-target="#loginModal" href="#">Login</a>
 						</div>
 						@endif
 
@@ -115,7 +115,7 @@ Author URL: http://w3layouts.com
 
 									@else
 									<a class="nav-link " data-toggle="modal" data-target="#loginModal"
-										href="#">Logovanje</a>
+										href="#">Login</a>
 									@endif
 
 								</li>
@@ -280,7 +280,7 @@ Author URL: http://w3layouts.com
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Logovanje</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Login</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>

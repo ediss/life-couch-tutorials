@@ -33,13 +33,13 @@ Route::prefix("admin/")->middleware(['auth','admin'])->group(function(){
 
 
 //end of admin routes
-Route::get('courses',                                   'CourseController@index')                   ->name("all-courses");
+Route::get('kursevi',                                   'CourseController@index')                   ->name("all-courses");
 // Route::any('prepare-course',                            'CourseController@preparingCourse')         ->name("prepare-course");
-Route::get('course/{id}',                               'CourseController@singleCourse')            ->name("single-course");
+Route::get('kurs/{id}',                                 'CourseController@singleCourse')            ->name("single-course");
 Route::any('course-subscription/{course_id?}',          'CourseController@courseSubscription')      ->name("course.subscription");
 Route::any('get-phone-code',                            'CourseController@getPhoneCode')            ->name("get.phone.code");
-Route::get('About-me',                                  'HomeController@about')                     ->name("about");
-Route::any('contact',                                   'ContactController@index')                  ->name("contact");
+Route::get('O-meni',                                    'HomeController@about')                     ->name("about");
+Route::any('Kontakt',                                   'ContactController@index')                  ->name("contact");
 
 Route::get('My-Courses',                                'UserController@index')                     ->name("user.courses")->middleware('auth');
 
