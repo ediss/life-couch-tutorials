@@ -4,6 +4,10 @@
 {{ $course->name }}
 @endsection
 
+@section('meta-desc')
+
+@endsection
+
 @section('banner-title')
 {{ $course->name }}
 @endsection
@@ -21,9 +25,9 @@
                 <div class="welcome-grids">
 
                     <div class="col-md-10 offset-md-1">
-                        <h3 class="hny-title pb-5 pt-5">
+                        <h1 class="hny-title pb-5 pt-5">
                             {{$course->name}}
-                        </h3>
+                        </h1>
 
                         {{-- <div style='padding:56.25% 0 0 0;position:relative;'>
                             <iframe src='https://vimeo.com/showcase/7568136/embed' allowfullscreen frameborder='0' style='position:absolute;top:0;left:0;width:100%;height:100%;'></iframe>

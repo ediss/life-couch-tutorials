@@ -3,13 +3,13 @@ Author: W3layouts
 Author URL: http://w3layouts.com
 -->
 <!doctype html>
-<html lang="zxx">
+<html lang="sr">
 
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>@yield('title')</title>
+	<title>@yield('title') - Maja Vučković</title>
 	<!-- Template CSS -->
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset("assets/css/style-starter.css")}}">
@@ -25,8 +25,19 @@ Author URL: http://w3layouts.com
 	<script src="https://kit.fontawesome.com/fcb04e2a3d.js" crossorigin="anonymous"></script>
 
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
+	<meta name="description" content="@yield('meta-desc')">
+	<meta property="og:image" content="{{ url('assets/images/banners/background.png') }}" />
 
+	<link rel="canonical" href="{{ url()->current() }}">
 
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-T8Q32RSM6E"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+  		function gtag(){dataLayer.push(arguments);}
+  			gtag('js', new Date());
+  			gtag('config', 'G-T8Q32RSM6E');
+	</script>
 
 </head>
 
@@ -332,18 +343,18 @@ Author URL: http://w3layouts.com
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="form-group row">
 							<div class="col-12">
 								@if (Route::has('password.request'))
 								<a class="btn-link text-dark" href="{{ route('password.request') }}">
-								{{ __('Zaboravili ste lozinku?') }}
+									{{ __('Zaboravili ste lozinku?') }}
 								</a>
 								@endif
 							</div>
 						</div>
-						
-						
+
+
 
 						<div class="form-group row mb-0 text-center">
 

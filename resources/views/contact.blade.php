@@ -3,6 +3,10 @@
 Kontakt
 @endsection
 
+@section('meta-desc')
+Za sva dodatna pitanja budite slobodni da me kontaktirate!
+@endsection
+
 @section('breadcrumb-item')
 Kontakt
 @endsection
@@ -29,8 +33,8 @@ Kontakt
         </div>
         <form action="{{ route('contact') }}" method="POST">
             @csrf
-            <h3>Kontaktirajte Me!</h3>
-            <div class="row">
+            <h1 class="hny-title text-center">Za sva dodatna pitanja budite slobodni da me kontaktirate!</h1>
+            <div class="row mt-4">
                 <div class="col-12 col-md-6">
                     <div class="form-group">
                         <input type="text" name="txtName" class="form-control" placeholder="Ime i Prezime *" value="" />

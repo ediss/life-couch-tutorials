@@ -75,6 +75,7 @@ body img {
 .title-content .title-info {
   padding-left: 40px; }
 
+h1.hny-title,
 h3.hny-title,
 h3.hny-title.two {
   font-size: 40px;
@@ -9854,7 +9855,7 @@ a.text-dark:hover, a.text-dark:focus {
   /* transform: rotate(29deg); */
 }
 .contact-form form{
-  padding: 14%;
+  padding: 2% 10%;
 }
 .contact-form form .row{
   margin-bottom: -7%;
@@ -10423,7 +10424,6 @@ border-color: #3F51B5 #3F51B5 #ffffff;
 
 
 .btnResetPassword {
-  
   border: none;
   padding: 2.5%;
   background: #3F51B5;

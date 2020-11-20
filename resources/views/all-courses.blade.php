@@ -1,6 +1,10 @@
 @extends('layout.app')
 @section('title')
-Kursevi
+Online Kursevi - Edukacija
+@endsection
+
+@section('meta-desc')
+U doba interneta, edukacija je svima dostupna. Jednim klikom do nove veštine! Online Kursevi & Edukacija
 @endsection
 
 @section('breadcrumb-item')
@@ -9,7 +13,6 @@ Kursevi
 @section('banner-title')
     Kursevi
 @endsection
-
 @section('scroll-to')
 #all-courses
 @endsection
@@ -22,12 +25,8 @@ Kursevi
         <div class="services-2-mian py-5">
             <div class="container py-lg-5 col-10 offset-1">
                 <div class="row title-content">
-                    <div class="col-lg-4 title-left">
-                        <h3 class="hny-title">Učite bilo gde!</h3>
-                    </div>
-                    <div class="col-lg-8 title-info">
-                        <p><b>U doba interneta, edukacija je svima dostupna. Jednim klikom do nove veštine!
-                            </b></p>
+                    <div class="col-12 title-left">
+                        <h1 class="hny-title">U doba interneta, edukacija je svima dostupna. Jednim klikom do nove veštine! <br> Online Kursevi & Edukacija</h1>
                     </div>
                 </div>
                 <div class="welcome-grids row">

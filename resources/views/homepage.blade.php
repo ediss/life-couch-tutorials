@@ -1,7 +1,11 @@
 @extends('layout.app')
 
 @section('title')
-Početna
+Online Kursevi - Edukacija
+@endsection
+
+@section('meta-desc')
+Naučite veštine koje će vam omogućiti da budete zadovoljniji u životu, ljubavi i radu!
 @endsection
 
 @section('scroll-to')
@@ -13,14 +17,13 @@ Početna
 	<!-- /content-6-section -->
 	<div class="services-2-mian py-5">
 		<div class="container py-lg-5 col-10 offset-1">
-			<div class="row title-content">
-				<div class="col-lg-4 title-left">
-					<h3 class="hny-title">Učite bilo gde!</h3>
-				</div>
-				<div class="col-lg-8 title-info">
+			<div class="row title-content"> 
+				<div class="col-12 title-left">
+					<h1 class="hny-title">Online Kursevi - Edukacija | Učite bilo gde!</h1>
 					<p><b>U doba interneta, edukacija je svima dostupna. Jednim klikom do nove veštine!
-						</b></p>
+					</b></p>
 				</div>
+				
 			</div>
 			<div class="welcome-grids row">
 				@php $delay = 0; @endphp

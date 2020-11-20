@@ -3,6 +3,10 @@
 O meni
 @endsection
 
+@section('meta-desc')
+Ja sam Maja Vučković, doktor medicine, akreditovani psihoterapeut i lajf kouč. Iza sebe imam godine radnog staža u psihoterapeutskoj i lekarskoj praksi, u marketingu i prodaji, u edukacijama i treninzima.
+@endsection
+
 @section('breadcrumb-item')
 O meni
 @endsection
@@ -27,8 +31,8 @@ O meni
                             <div class="title-content mt-3">
 
                                 <div class="text-center p-5">
-                                    <h3 class="hny-title">Dobro došli na moju stranicu namenjenu onlajn treninzima!
-                                    </h3>
+                                    <h1 class="hny-title">Dobro došli na moju stranicu namenjenu onlajn treninzima!
+                                    </h1>
                                 </div>
                                 <div class="text-justify">
 
