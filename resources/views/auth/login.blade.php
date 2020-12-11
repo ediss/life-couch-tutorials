@@ -12,7 +12,7 @@
             <div class="container-fluid">
                 <div class="welcome-grids row mt-5">
 
-                    <div class="col-md-10 offset-1 mt-5">
+                    <div class="col-md-10 offset-md-1 mt-5">
                         <form method="POST" action="{{ route('custom.login.submit') }}">
                             @csrf
 

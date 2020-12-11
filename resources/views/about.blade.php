@@ -25,7 +25,7 @@ O meni
         <div class="container-fluid">
             <div class="welcome-grids row">
 
-                <div class="col-md-10 offset-1">
+                <div class="col-md-10 offset-md-1">
                     <div class="row">
                         <div class="col-lg-12 welcome-image mt-3">
                             <div class="title-content mt-3">
@@ -86,7 +86,7 @@ O meni
         <div class="container-fluid">
             <div class="welcome-grids row mt-5">
 
-                <div class="col-md-10 offset-1 mt-5">
+                <div class="col-md-10 offset-md-1 mt-5">
                     <div class="row">
                         <div class="col-12">
 

@@ -95,18 +95,18 @@ Author URL: http://w3layouts.com
 
 							<ul class="navbar-nav mx-lg-auto ml-auto">
 								<li class="nav-item {{ request()->is('/') ? 'active' : '' }}">
-									<a class="nav-link" href="{{url('/')}}">Početna</a>
+									<a class="nav-link nav-link-click" href="{{url('/')}}">Početna</a>
 								</li>
-								<li class="nav-item {{ request()->is('courses*') ? 'active' : '' }}">
-									<a class="nav-link" href="{{ route('all-courses') }}#all-courses">Kursevi</a>
+								<li class="nav-item {{ request()->is('kursevi*') ? 'active' : '' }}">
+									<a class="nav-link nav-link-click" href="{{ route('all-courses') }}#all-courses">Kursevi</a>
 								</li>
-								<li class="nav-item {{ request()->is('About-me*') ? 'active' : '' }}">
-									<a class="nav-link" href="{{route('about')}}#about-me">O meni</a>
+								<li class="nav-item {{ request()->is('O-meni*') ? 'active' : '' }}">
+									<a class="nav-link nav-link-click" href="{{route('about')}}#about-me">O meni</a>
 								</li>
 
 
-								<li class="nav-item {{ request()->is('contact*') ? 'active' : '' }}">
-									<a class="nav-link" href="{{route('contact')}}#contact">Kontakt</a>
+								<li class="nav-item {{ request()->is('Kontakt*') ? 'active' : '' }}">
+									<a class="nav-link nav-link-click" href="{{route('contact')}}#contact">Kontakt</a>
 								</li>
 
 
@@ -544,6 +544,8 @@ Author URL: http://w3layouts.com
 
 					//last  f6643d41650e3b3e251ccf2c0eee9cf8
 					//		2d2ff37646cc73a74449d0c9d7ebc1a1
+					//		2d2ff37646cc73a74449d0c9d7ebc1a1
+					//		online 880ed18a44c9abe5528122588b0cbe69
         		})
     		})
 		} else {
@@ -557,6 +559,15 @@ Author URL: http://w3layouts.com
 
 
 	@yield('footer-scripts')
+
+	<script>
+		$(document).ready(function(){
+			$(".nav-link-click").click(function(){
+        		$("#navbarSupportedContent").removeClass("show");
+    		});
+		});
+	
+	</script>
 </body>
 
 </html>

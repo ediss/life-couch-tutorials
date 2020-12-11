@@ -326,7 +326,9 @@ h3.hny-title.two {
     text-decoration: none;
     background-color: transparent; }
   .w3l-banner-slider-main nav.navbar {
-    background-color: transparent;
+    background-color: white;
+    position: fixed;
+    width: 100%;
     padding: 20px 0; }
   .w3l-banner-slider-main a.navbar-brand {
     color: #fff;
@@ -536,7 +538,9 @@ h3.hny-title.two {
       padding: 0.6em 1em; } }
   @media (max-width: 991px) {
     .w3l-banner-slider-main nav.navbar {
-      background-color: transparent;
+      background-color: white;
+      position: fixed;
+      width: 100%;
       padding: 0.8em 1em;
       z-index: 999; }
     .w3l-banner-slider-main .navbar-light .navbar-nav .nav-link {

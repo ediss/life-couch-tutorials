@@ -15,7 +15,7 @@
                 <div class="container-fluid py-lg-5">
                     <div class="welcome-grids row">
 
-                        <div class="col-md-10 offset-1">
+                        <div class="col-md-10 offset-md-1">
                             <div class="row">
                                 <div class="col-lg-6 welcome-image">
                                     <!-- <img src="assets/images/ab.jpg" class="img-fluid" alt="" /> -->
@@ -233,7 +233,7 @@
                 <div class="container-fluid py-lg-5">
                     <div class="welcome-grids row">
 
-                        <div class="col-md-10 offset-1">
+                        <div class="col-md-10 offset-md-1">
                             <div class="row">
                                 <div class="col-lg-6 welcome-image">
                                     <!-- <img src="assets/images/ab.jpg" class="img-fluid" alt="" /> -->
