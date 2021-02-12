@@ -36,11 +36,11 @@ Naučite veštine koje će vam omogućiti da budete zadovoljniji u životu, ljub
 					<div class="course-grid-inf box-shadow">
 
 						<input type="hidden" id="route" value="{{ route('contact') }}">
-						<a class="popup-with-zoom-anim play-view text-center position-absolute" href="{{route('single-course', $course->slug)}}#course-content">
+						{{-- <a class="popup-with-zoom-anim play-view text-center position-absolute" href="{{route('single-course', $course->slug)}}#course-content">
 							<span class="video-play-icon">
 								<span class="fa fa-play"></span>
 							</span>
-						</a>
+						</a> --}}
 						<a href="{{route('single-course', $course->slug)}}#course-content" >
 							<img src="{{ $course->cover_img !=null ? $course->cover_img : 'assets/images/banners/main-banner2.jpg' }}" class="img-fluid" alt="">
 						</a>

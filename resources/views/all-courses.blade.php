@@ -36,12 +36,12 @@ Kursevi
                     <div class="col-lg-4 col-md-6 course-grid" data-aos="fade-right" data-aos-offset="200"
                         data-aos-delay="{{$delay}}" data-aos-duration="400">
                         <div class="course-grid-inf box-shadow">
-    
+{{--     
                             <a href="{{route('single-course', $course->slug)}}#course-content" class="popup-with-zoom-anim play-view text-center position-absolute" >
                                 <span class="video-play-icon">
                                     <span class="fa fa-play"></span>
                                 </span>
-                            </a>
+                            </a> --}}
                             <a href="{{route('single-course', $course->slug)}}#course-content" ><img src="{{ $course->cover_img !=null ? $course->cover_img : 'assets/images/banners/main-banner2.jpg' }}" class="img-fluid" alt=""></a>
                         <div class="course-content">
 							<div class="course-info mb-5">
