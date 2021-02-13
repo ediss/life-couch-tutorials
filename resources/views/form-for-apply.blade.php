@@ -374,7 +374,6 @@ $(document).ready(function () {
 
     $('#countries').on('change', function(){
      var country = $(this).val();
-     alert("test");
      $.ajax({
            type:'POST',
            url:"{{ route('get.phone.code') }}",
