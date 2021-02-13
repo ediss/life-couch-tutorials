@@ -31,8 +31,16 @@
 
 
 @if ($errors->any())
-<div class="alert alert-danger text-message">
-	<button type="button" class="close" data-dismiss="alert">×</button>	
-	Please check the form below for errors
+<div class="text-message">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+	@if (count($errors) > 0)
+            <div class = "alert alert-danger">
+               <ul>
+                  @foreach ($errors->all() as $error)
+                     <li>{{ $error }}</li>
+                  @endforeach
+               </ul>
+            </div>
+            @endif
 </div>
 @endif

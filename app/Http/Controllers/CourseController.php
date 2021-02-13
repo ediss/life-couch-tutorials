@@ -110,19 +110,22 @@ class CourseController extends Controller
                 });
             }else {
 
+
                 $validator = Validator::make($request->all(), [
                     "name"      => "required",
-                    "yob"       => "required",
                     "password"  => "required",
                     "email"     => "required|unique:users,email",
+                    "phone"     => "required",
+                    "countries" => "required"
 
                 ],
                 [
-                    "name.required"               => "Polje 'Ime i Prezime' je obavezno!",
+                    "name.required"               => "Polje 'Ime i Prezime' je obavezno.",
                     "password.required"           => "Polje 'Lozinka' je obavezno!",
-                    "yob.required"                => "Molimo izaberite godinu rodjenja",
-                    "email.required"              => "Polje 'E-mail' je obavezno!",
-                    "email.unique"                => "Uneta e-mail adresa vec postoji. Ulogujte se i probajte ponovo sa prijavom.",
+                    "phone.required"              => "Molimo unesite Vaš broj telefona",
+                    "email.required"              => "Polje 'E-mail' je obavezno.",
+                    "email.unique"                => "Uneta e-mail adresa već postoji. Ulogujte se i probajte ponovo sa prijavom.",
+                    "countries.required"          => "Polje 'Država' je obavezno.",
 
 
                 ]);

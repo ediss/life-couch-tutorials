@@ -24,6 +24,8 @@ Author URL: http://w3layouts.com
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 	<script src="https://kit.fontawesome.com/fcb04e2a3d.js" crossorigin="anonymous"></script>
 
+	<link rel="stylesheet" href="{{ asset("assets/css/form-apply.css")}}">
+
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
 	<meta name="description" content="@yield('meta-desc')">
 	<meta property="og:image" content="{{ url('assets/images/banners/background.png') }}" />
@@ -51,7 +53,6 @@ Author URL: http://w3layouts.com
 	<!--w3l-banner-slider-main-->
 	<!--w3l-banner-slider-main-->
 	<section class="w3l-banner-slider-main w3l-inner-page-main">
-
 		<div class="mouse-scroll down-arrow d-none d-lg-block">
 
 			<a href="@yield('scroll-to')" class="fas fa-angle-double-down fa-5x "></a>
@@ -542,10 +543,9 @@ Author URL: http://w3layouts.com
 			   		$("#device_id_login").val(murmur);
 					console.log(murmur); //before options :9188e47be875c8d629553cd5d3b2c8d9; AFTER OPTIONS 63cc4ec5833f0ede976d11b8c0333474
 
-					//last  f6643d41650e3b3e251ccf2c0eee9cf8
-					//		2d2ff37646cc73a74449d0c9d7ebc1a1
-					//		2d2ff37646cc73a74449d0c9d7ebc1a1
 					//		online 880ed18a44c9abe5528122588b0cbe69
+					//		d99db7186fbd2e0da6c1037707663150
+					//		online dc03447fdfbbb5c7ea4dd64e381a9930
         		})
     		})
 		} else {
@@ -566,7 +566,6 @@ Author URL: http://w3layouts.com
         		$("#navbarSupportedContent").removeClass("show");
     		});
 		});
-	
 	</script>
 </body>
 
