@@ -17,6 +17,9 @@
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
+  <link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
+
+
 
 </head>
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
@@ -29,7 +32,7 @@
           <li class="nav-item d-none d-sm-inline-block">
             <a target="_blank" href="http://kursevi.life-leaf.com/" class="nav-link">kursevi.life-leaf.com</a>
           </li>
-           
+
         </ul>
     </div>
     <div class="mx-auto order-0">
@@ -98,14 +101,14 @@
                   </p>
                 </a>
               </li>
-    
+
             </ul>
           </li>
           <li class="nav-item">
-     
+
           </li>
 
-        
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -138,7 +141,7 @@
         <div class="row">
           <div class="col-12">
             <div class="card card-success">
-         
+
                 @yield('content')
 
             </div>
@@ -179,8 +182,53 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
+<script src="{{ asset("assets/js/apply-form-steps.js")}}"></script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+<script>
+$('#smartwizard').smartWizard({
+  selected: 0, // Initial selected step, 0 = first step
+  theme: 'progress', // theme for the wizard, related css need to include for other than default theme
+  justified: true, // Nav menu justification. true/false
+  darkMode:false, // Enable/disable Dark Mode if the theme supports. true/false
+  autoAdjustHeight: true, // Automatically adjust content height
+  cycleSteps: true, // Allows to cycle the navigation of steps
+  backButtonSupport: true, // Enable the back button support
+  enableURLhash: true, // Enable selection of the step based on url hash
+  transition: {
+      animation: 'slide-horizontal', // Effect on navigation, none/fade/slide-horizontal/slide-vertical/slide-swing
+      speed: '400', // Transion animation speed
+      easing:'' // Transition animation easing. Not supported without a jQuery easing plugin
+  },
+  toolbarSettings: {
+      toolbarPosition: 'bottom', // none, top, bottom, both
+      toolbarButtonPosition: 'center', // left, right, center
+      showNextButton: true, // show/hide a Next button
+      showPreviousButton: true, // show/hide a Previous button
+      toolbarExtraButtons: [] // Extra buttons to show on toolbar, array of jQuery input/buttons elements
+  },
+  anchorSettings: {
+      anchorClickable: true, // Enable/Disable anchor navigation
+      enableAllAnchors: true, // Activates all anchors clickable all times
+      markDoneStep: true, // Add done state on navigation
+      markAllPreviousStepsAsDone: true, // When a step selected by url hash, all previous steps are marked done
+      removeDoneStepOnNavigateBack: true, // While navigate back done step after active step will be cleared
+      enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
+  },
+  keyboardSettings: {
+      keyNavigation: true, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
+      keyLeft: [37], // Left key code
+      keyRight: [39] // Right key code
+  },
+  lang: { // Language variables for button
+      next: 'Sledeći korak',
+      previous: 'Prethodni korak'
+  },
+  disabledSteps: [], // Array Steps disabled
+  errorSteps: [], // Highlight step with errors
+  hiddenSteps: [] // Hidden steps
+});
+</script>
 <script>
   $(function () {
     // Summernote

@@ -128,7 +128,7 @@
                                         href="#course-price" role="tab" aria-controls="price"
                                         aria-selected="false">
                                         <h3 class="hny-title">
-                                            Cenovnik
+                                            Opcije plaćanja
                                         </h3>
                                     </a>
                                 </li>
@@ -167,7 +167,7 @@
                                                 <h3>Premium paket</h3>
                                             </div>
                                             <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->premium_package }} RSD</h5>
+                                                <h5 class="card-title">{{ $course_price->premium_package }} </h5>
         
                                             </div>
                                         </div>
@@ -175,11 +175,11 @@
                                     <div class="col-md-4 mb-4 mb-lg-0">
                                         <div class="card text-white btn-success mb-3 h-100">
                                             <div class="card-header text-center">
-                                                <h3> Prijava do
+                                                <h3> Prijava i plaćanje do
                                                     {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}</h3>
                                             </div>
                                             <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->aplication_to_and_payfull }} RSD</h5>
+                                                <h5 class="card-title">{{ $course_price->aplication_to_and_payfull }} </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -189,7 +189,7 @@
                                                 <h3> U ratama. Broj rata: {{ $course_price->number_of_rate }}</h3>
                                             </div>
                                             <div class="card-body">
-                                                <h5 class="card-title  text-center">{{ $course_price->price_in_rate }} RSD</h5>
+                                                <h5 class="card-title  text-center">{{ $course_price->price_in_rate }} </h5>
         
                                             </div>
                                         </div>
@@ -206,7 +206,7 @@
                                             </div>
                                             <div class="card-body text-center">
                                                 <h5 class="card-title">{{ $course_price->payment_in_full }}
-                                                    RSD</h5>
+                                                    </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -217,7 +217,6 @@
                                             </div>
                                             <div class="card-body text-center">
                                                 <h5 class="card-title">{{ $course_price->payment_from_foreign_countries }}
-                                                    &euro;
                                                 </h5>
         
                                             </div>
@@ -231,7 +230,6 @@
                                             <div class="card-body text-center">
                                                 <h5 class="card-title">
                                                     {{ $course_price->payment_from_foreign_countries_in_rate }}
-                                                    &euro;
                                                 </h5>
         
                                             </div>
