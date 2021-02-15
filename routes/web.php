@@ -36,7 +36,7 @@ Route::prefix("admin/")->middleware(['auth','admin'])->group(function(){
 Route::get('kursevi',                                   'CourseController@index')                   ->name("all-courses");
 // Route::any('prepare-course',                            'CourseController@preparingCourse')         ->name("prepare-course");
 Route::get('kurs/{id}',                                 'CourseController@singleCourse')            ->name("single-course");
-Route::any('course-subscription/{course_id?}',          'CourseController@courseSubscription')      ->name("course.subscription");
+Route::any('course-subscription/{course_id?}',          'CourseController@courseSubscription')      ->name("course.subscription")->middleware('guest');;
 Route::any('get-phone-code',                            'CourseController@getPhoneCode')            ->name("get.phone.code");
 Route::get('O-meni',                                    'HomeController@about')                     ->name("about");
 Route::any('Kontakt',                                   'ContactController@index')                  ->name("contact");
