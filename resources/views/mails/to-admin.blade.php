@@ -1,4 +1,4 @@
- {{ $name }} se prijavio na kurs {{$course_name}}
+ {{ $name }} se prijavio na kurs {{ $course_name }}  {{route('single-course', $course_slug)}}#course-content
  
  
  Podaci o korisniku:
@@ -11,6 +11,8 @@
  Status veze: {{$relationship}}
  Zanimanje: {{$profession}}
  Lokacija: {{$country}}
+
+ Nacin placanja: {{ $payment_method }} ({{ $payment_country }})
 
 
 

@@ -36,7 +36,7 @@ Kursevi
                     <div class="col-lg-4 col-md-6 course-grid" data-aos="fade-right" data-aos-offset="200"
                         data-aos-delay="{{$delay}}" data-aos-duration="400">
                         <div class="course-grid-inf box-shadow">
-{{--     
+{{--
                             <a href="{{route('single-course', $course->slug)}}#course-content" class="popup-with-zoom-anim play-view text-center position-absolute" >
                                 <span class="video-play-icon">
                                     <span class="fa fa-play"></span>
@@ -70,199 +70,13 @@ Kursevi
 							@endif
 						</div>
                         </div>
-    
+
                     </div>
                     @endforeach
-    
-                    {{-- <div class="col-lg-4 col-md-6 course-grid" data-aos="fade-right" data-aos-offset="200"
-                        data-aos-delay="100" data-aos-duration="400">
-                        <div class="course-grid-inf box-shadow">
-    
-                            <a href="course.html" class="popup-with-zoom-anim play-view text-center position-absolute">
-                                <span class="video-play-icon">
-                                    <span class="fa fa-play"></span>
-                                </span>
-                            </a>
-                            <a href="course.html"><img src="assets/images/p1.jpg" class="img-fluid" alt=""></a>
-                            <div class="course-content">
-                                <div class="course-info">
-                                    <h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
-                                    <a href="#" class="course-titlegulp-wrapper">
-                                        <h3 class="course-title">Design Thinking &#8211; Design Research and Analysis
-                                        </h3>
-                                    </a>
-                                </div>
-                                <div class="course-divider mb-5">
-                                    <div class="course-meta grid"><span class="course-students" title=""><span
-                                                class="fa fa-user" aria-hidden="true"></span> 46</span>
-                                        <span class="course-reviews" title=""><span class="fa fa-thumbs-o-up"
-                                                aria-hidden="true"></span> 14</span>
-    
-                                    </div>
-                                    <!-- <button class="price-course btn font-weight-bold">SAZNAJ VIŠE</button> -->
-                                </div>
-                                <a href="course.html"><button class="price-course btn font-weight-bold w-100">SAZNAJ
-                                        VIŠE</button></a>
-    
-                            </div>
-                        </div>
-    
-                    </div>
-                    <div class="col-lg-4 col-md-6 course-grid" data-aos="fade-right" data-aos-offset="200"
-                        data-aos-delay="200" data-aos-duration="400">
-    
-                        <div class="course-grid-inf box-shadow">
-                            <a href="#" class="popup-with-zoom-anim play-view text-center position-absolute">
-                                <span class="video-play-icon">
-                                    <span class="fa fa-play"></span>
-                                </span>
-                            </a>
-                            <a href="#"><img src="assets/images/p2.jpg" class="img-fluid" alt=""></a>
-                            <div class="course-content">
-                                <div class="course-info">
-                                    <h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
-                                    <a href="#" class="course-titlegulp-wrapper">
-                                        <h3 class="course-title">Learn Digital Painting to Make Concept Art</h3>
-                                    </a>
-                                </div>
-                                <div class="course-divider mb-5">
-                                    <div class="course-meta grid"><span class="course-students" title=""><span
-                                                class="fa fa-user" aria-hidden="true"></span> 36</span>
-                                        <span class="course-reviews" title=""><span class="fa fa-thumbs-o-up"
-                                                aria-hidden="true"></span> 24</span>
-    
-                                    </div>
-                                    <!-- <button class="price-course btn font-weight-bold">SAZNAJ VIŠE</button> -->
-                                </div>
-                                <a href="course.html"><button class="price-course btn font-weight-bold w-100">SAZNAJ
-                                        VIŠE</button></a>
-                            </div>
-                        </div>
-    
-                    </div>
-                    <div class="col-lg-4 col-md-6 course-grid" data-aos="fade-right" data-aos-offset="200"
-                        data-aos-delay="300" data-aos-duration="400">
-                        <div class="course-grid-inf box-shadow">
-                            <a href="#" class="popup-with-zoom-anim play-view text-center position-absolute">
-                                <span class="video-play-icon">
-                                    <span class="fa fa-play"></span>
-                                </span>
-                            </a>
-                            <a href="#"><img src="assets/images/p3.jpg" class="img-fluid" alt=""></a>
-                            <div class="course-content">
-                                <div class="course-info">
-                                    <h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
-                                    <a href="#" class="course-titlegulp-wrapper">
-                                        <h3 class="course-title">Interior Design & Development Course</h3>
-                                    </a>
-                                </div>
-                                <div class="course-divider mb-5">
-                                    <div class="course-meta grid"><span class="course-students" title=""><span
-                                                class="fa fa-user" aria-hidden="true"></span> 56</span>
-                                        <span class="course-reviews" title=""><span class="fa fa-thumbs-o-up"
-                                                aria-hidden="true"></span> 44</span>
-    
-                                    </div>
-                                    <!-- <button class="price-course btn font-weight-bold">SAZNAJ VIŠE</button> -->
-                                </div>
-                                <a href="course.html"><button class="price-course btn font-weight-bold w-100">SAZNAJ
-                                        VIŠE</button></a>
-                            </div>
-                        </div>
-    
-                    </div>
-                    <div class="col-lg-4 col-md-6 course-grid" data-aos="fade-right" data-aos-offset="200"
-                        data-aos-delay="400" data-aos-duration="400">
-                        <div class="course-grid-inf box-shadow">
-                            <a href="#" class="popup-with-zoom-anim play-view text-center position-absolute">
-                                <span class="video-play-icon">
-                                    <span class="fa fa-play"></span>
-                                </span>
-                            </a>
-                            <a href="#"><img src="assets/images/p4.jpg" class="img-fluid" alt=""></a>
-                            <div class="course-content">
-                                <div class="course-info">
-                                    <h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
-                                    <a href="#" class="course-titlegulp-wrapper">
-                                        <h3 class="course-title">Mastering Web Developer Interview Code</h3>
-                                    </a>
-                                </div>
-                                <div class="course-divider mb-5">
-                                    <div class="course-meta grid"><span class="course-students" title=""><span
-                                                class="fa fa-user" aria-hidden="true"></span> 46</span>
-                                        <span class="course-reviews" title=""><span class="fa fa-thumbs-o-up"
-                                                aria-hidden="true"></span> 44</span>
-    
-                                    </div>
-                                    <!-- <button class="price-course btn font-weight-bold">SAZNAJ VIŠE</button> -->
-                                </div>
-                                <a href="course.html"><button class="price-course btn font-weight-bold w-100">SAZNAJ
-                                        VIŠE</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 course-grid" data-aos="fade-right" data-aos-offset="200"
-                        data-aos-delay="500" data-aos-duration="400">
-                        <div class="course-grid-inf box-shadow">
-                            <a href="#" class="popup-with-zoom-anim play-view text-center position-absolute">
-                                <span class="video-play-icon">
-                                    <span class="fa fa-play"></span>
-                                </span>
-                            </a>
-                            <a href="#"><img src="assets/images/p8.jpg" class="img-fluid" alt=""></a>
-                            <div class="course-content">
-                                <div class="course-info">
-                                    <h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
-                                    <a href="#" class="course-titlegulp-wrapper">
-                                        <h3 class="course-title">Photoshop For T-shirt Design: For Beginners</h3>
-                                    </a>
-                                </div>
-                                <div class="course-divider mb-5">
-                                    <div class="course-meta grid"><span class="course-students" title=""><span
-                                                class="fa fa-user" aria-hidden="true"></span> 36</span>
-                                        <span class="course-reviews" title=""><span class="fa fa-thumbs-o-up"
-                                                aria-hidden="true"></span> 34</span>
-    
-                                    </div>
-                                    <!-- <button class="price-course btn font-weight-bold">SAZNAJ VIŠE</button> -->
-                                </div>
-                                <a href="course.html"><button class="price-course btn font-weight-bold w-100">SAZNAJ
-                                        VIŠE</button></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 course-grid" data-aos="fade-right" data-aos-offset="200"
-                        data-aos-delay="600" data-aos-duration="400">
-                        <div class="course-grid-inf box-shadow">
-                            <a href="#" class="popup-with-zoom-anim play-view text-center position-absolute">
-                                <span class="video-play-icon">
-                                    <span class="fa fa-play"></span>
-                                </span>
-                            </a>
-                            <a href="#"><img src="assets/images/p6.jpg" class="img-fluid" alt=""></a>
-                            <div class="course-content">
-                                <div class="course-info">
-                                    <h6><a class="course-instructor" href="#"> Maja Vučković</a></h6>
-                                    <a href="#" class="course-titlegulp-wrapper">
-                                        <h3 class="course-title">Beginner to Expert Guide for Consignment</h3>
-                                    </a>
-                                </div>
-                                <div class="course-divider mb-5">
-                                    <div class="course-meta grid"><span class="course-students" title=""><span
-                                                class="fa fa-user" aria-hidden="true"></span> 36</span>
-                                        <span class="course-reviews" title=""><span class="fa fa-thumbs-o-up"
-                                                aria-hidden="true"></span> 34</span>
-    
-                                    </div>
-                                    <!-- <button class="price-course btn font-weight-bold">SAZNAJ VIŠE</button> -->
-                                </div>
-                                <a href="course.html"><button class="price-course btn font-weight-bold w-100">SAZNAJ
-                                        VIŠE</button></a>
-                            </div>
-                        </div>
-                    </div> --}}
+
+
                 </div>
-    
+
                 <!-- /pagination-->
                 {{-- <div class="pagination p1" data-aos="zoom-in" data-aos-offset="100" data-aos-delay="300"
                     data-aos-duration="400">

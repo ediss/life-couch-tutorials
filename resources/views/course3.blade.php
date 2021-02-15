@@ -70,12 +70,11 @@
                                     @else
                                     @if(Auth::user())
 
-                                    <form action="{{route('course.subscription', ['course_id' => $course->id])}}"
-                                        method="POST">
-                                        @csrf
-                                        <input type="submit" class="btn btn-success btn-lg w-100" name=""
-                                            value="Prijavi me">
-                                    </form>
+                                    <button type="button" class="btn btn-success btn-lg w-100" data-toggle="modal"
+                                        data-target="#subscribeModal">
+                                        Prijava
+                                    </button>
+
                                     @else
                                     <a href="{{route('course.subscription', ['course_id' => $course->id])}}#form-apply"
                                         class="btn btn-success btn-lg w-100">Prijavi me</a>
@@ -89,16 +88,16 @@
 
                         </div>
 
-                       
-                       
+
+
 
 
                         <div class="row mt-5">
                             <ul class="nav nav-tabs w-100" id="myTab" role="tablist">
 
                                 <li class="nav-item">
-                                    <a class="nav-link active" id="course-desc-tab" data-toggle="tab" href="#course-desc"
-                                        role="tab" aria-controls="profile" aria-selected="false">
+                                    <a class="nav-link active" id="course-desc-tab" data-toggle="tab"
+                                        href="#course-desc" role="tab" aria-controls="profile" aria-selected="false">
                                         <h3 class="hny-title">
                                             Opis
                                         </h3>
@@ -124,11 +123,10 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link" id="course-price-tab" data-toggle="tab"
-                                        href="#course-price" role="tab" aria-controls="price"
-                                        aria-selected="false">
+                                    <a class="nav-link" id="course-price-tab" data-toggle="tab" href="#course-price"
+                                        role="tab" aria-controls="price" aria-selected="false">
                                         <h3 class="hny-title">
-                                            Cenovnik
+                                            Opcije plaćanja
                                         </h3>
                                     </a>
                                 </li>
@@ -137,7 +135,7 @@
                         </div>
 
                         <div class="tab-content mt-5" id="myTabContent">
-                            
+
                             <div class="tab-pane fade show active" id="course-desc" role="tabpanel"
                                 aria-labelledby="course-desc-tab">
 
@@ -161,87 +159,248 @@
                             <div class="tab-pane fade" id="course-price" role="tabpanel"
                                 aria-labelledby="course-price-tab">
                                 <div class="row mt-3">
-                                    <div class="col-md-4 mb-4 mb-lg-0">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3>Premium paket</h3>
+
+                                    <div class="col-12">
+                                        <ul class="nav nav-pills mb-3 d-flex justify-content-center" id="pills-tab"
+                                            role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link text-violet active" id="pills-home-tab"
+                                                    data-toggle="pill" href="#pills-home" role="tab"
+                                                    aria-controls="pills-home" aria-selected="true">
+                                                    <h4>Iz Srbije</h4>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link text-violet" id="pills-profile-tab"
+                                                    data-toggle="pill" href="#pills-profile" role="tab"
+                                                    aria-controls="pills-profile" aria-selected="false">
+                                                    <h4>Iz inostranstva</h4>
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                        <div class="tab-content" id="pills-tabContent">
+                                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                                aria-labelledby="pills-home-tab">
+                                                <div class="row">
+                                                    @if($course_price->payment_in_full != "")
+                                                    <div class="col-md-4 mb-4 mb-lg-0 mt-4">
+                                                        <div class="card text-white btn-success mb-3 h-100">
+                                                            <div class="card-header text-center">
+                                                                <h3> U celini</h3>
+                                                            </div>
+                                                            <div
+                                                                class="card-body text-center d-flex justify-content-center align-items-center">
+                                                                <h5 class="card-title">
+                                                                    {{ $course_price->payment_in_full }}
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endif
+
+                                                    @if($course_price->premium_package != "")
+                                                    <div class="col-md-4 mb-4 mb-lg-0 mt-4">
+                                                        <div class="card text-white btn-success mb-3 h-100">
+                                                            <div class="card-header text-center">
+                                                                <h3>Premium paket</h3>
+                                                            </div>
+                                                            <div
+                                                                class="card-body text-center d-flex justify-content-center align-items-center">
+                                                                <h5 class="card-title">
+                                                                    {{ $course_price->premium_package }} </h5>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endif
+
+
+                                                    @if($course_price->aplication_to != "")
+                                                    <div class="col-md-4 mb-4 mb-lg-0 mt-4">
+                                                        <div class="card text-white btn-success mb-3 h-100">
+                                                            <div class="card-header text-center">
+                                                                <h3> Prijava i plaćanje do
+                                                                    {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}
+                                                                </h3>
+                                                            </div>
+                                                            <div
+                                                                class="card-body text-center d-flex justify-content-center align-items-center">
+                                                                <h5 class="card-title">
+                                                                    {{ $course_price->aplication_to_and_payfull }} </h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endif
+
+                                                    @if($course_price->number_of_rate != "")
+                                                    <div class="col-md-4 mb-4 mb-lg-0 mt-4">
+                                                        <div class="card text-white btn-success mb-3 h-100">
+                                                            <div class="card-header text-center">
+                                                                <h3> Ponuda u ratama.</h3>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between">
+                                                                    <h5>Broj rata: {{ $course_price->number_of_rate }}
+                                                                    </h5>
+                                                                    <h5 class="card-title ml-auto">
+                                                                        {{ $course_price->price_in_rate }}
+                                                                    </h5>
+                                                                </div>
+
+                                                                @if($course_price->number_of_rate_2 != "")
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between">
+                                                                    <h5>Broj rata: {{ $course_price->number_of_rate_2 }}
+                                                                    </h5>
+                                                                    <h5 class="card-title ml-auto">
+                                                                        {{ $course_price->price_in_rate_2 }}
+                                                                    </h5>
+                                                                </div>
+                                                                @endif
+                                                                @if($course_price->number_of_rate_3 != "")
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between">
+                                                                    <h5>Broj rata: {{ $course_price->number_of_rate_3 }}
+                                                                    </h5>
+                                                                    <h5 class="card-title ml-auto">
+                                                                        {{ $course_price->price_in_rate_3 }}
+                                                                    </h5>
+                                                                </div>
+                                                                @endif
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endif
+
+                                                </div>
                                             </div>
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->premium_package }} RSD</h5>
-        
+
+                                            <!--IZ INOSTRANSTVA-->
+                                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                                aria-labelledby="pills-profile-tab">
+                                                <div class="row">
+                                                    @if($course_price->payment_from_foreign_countries != "")
+                                                    <div class="col-md-4 mb-4 mb-lg-0 mt-4">
+                                                        <div class="card text-white btn-success mb-3 h-100">
+                                                            <div class="card-header text-center">
+                                                                <h3> U celini </h3>
+                                                            </div>
+                                                            <div
+                                                                class="card-body text-center d-flex justify-content-center align-items-center">
+                                                                <h5 class="card-title">
+                                                                    {{ $course_price->payment_from_foreign_countries }}
+                                                                </h5>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endif
+
+                                                    @if($course_price->foreign_countries_premium_package != "")
+
+                                                    <div class="col-md-4 mb-4 mb-lg-0 mt-4">
+                                                        <div class="card text-white btn-success mb-3 h-100">
+                                                            <div class="card-header text-center">
+                                                                <h3> Premium paket</h3>
+                                                            </div>
+                                                            <div
+                                                                class="card-body text-center d-flex justify-content-center align-items-center">
+                                                                <h5 class="card-title">
+                                                                    {{ $course_price->foreign_countries_premium_package }}
+                                                                </h5>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endif
+
+                                                    @if($course_price->foreign_countries_aplication_to != "")
+                                                    <div class="col-md-4 mb-4 mb-lg-0 mt-4">
+                                                        <div class="card text-white btn-success mb-3 h-100">
+                                                            <div class="card-header text-center">
+                                                                <h3> Prijava i plaćanje do
+                                                                    {{ date('d-M-Y', strtotime($course_price->foreign_countries_aplication_to)) }}
+                                                                </h3>
+                                                            </div>
+                                                            <div
+                                                                class="card-body text-center d-flex justify-content-center align-items-center">
+                                                                <h5 class="card-title">
+                                                                    {{ $course_price->foreign_countries_aplication_to_and_payfull }}
+                                                                </h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endif
+
+                                                    @if($course_price->foreign_countries_number_of_rate != "")
+                                                    <div class="col-md-4 mb-4 mb-lg-0 mt-4">
+                                                        <div class="card text-white btn-success mb-3 h-100">
+                                                            <div class="card-header text-center">
+                                                                <h3> Ponuda u ratama.</h3>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between">
+                                                                    <h5>Broj rata:
+                                                                        {{ $course_price->foreign_countries_number_of_rate }}
+                                                                    </h5>
+                                                                    <h5 class="card-title ml-auto">
+                                                                        {{ $course_price->payment_from_foreign_countries_in_rate }}
+                                                                    </h5>
+                                                                </div>
+
+                                                                @if($course_price->foreign_countries_number_of_rate_2 !=
+                                                                "")
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between">
+                                                                    <h5>Broj rata:
+                                                                        {{ $course_price->foreign_countries_number_of_rate_2 }}
+                                                                    </h5>
+                                                                    <h5 class="card-title ml-auto">
+                                                                        {{ $course_price->payment_from_foreign_countries_in_rate_2 }}
+                                                                    </h5>
+                                                                </div>
+                                                                @endif
+                                                                @if($course_price->foreign_countries_number_of_rate_3 !=
+                                                                "")
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between">
+                                                                    <h5>Broj rata:
+                                                                        {{ $course_price->foreign_countries_number_of_rate_3 }}
+                                                                    </h5>
+                                                                    <h5 class="card-title ml-auto">
+                                                                        {{ $course_price->payment_from_foreign_countries_in_rate_3 }}
+                                                                    </h5>
+                                                                </div>
+                                                                @endif
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 mb-4 mb-lg-0">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3> Prijava do
-                                                    {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}</h3>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->aplication_to_and_payfull }} RSD</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-4 mb-lg-0">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3> U ratama. Broj rata: {{ $course_price->number_of_rate }}</h3>
-                                            </div>
-                                            <div class="card-body">
-                                                <h5 class="card-title  text-center">{{ $course_price->price_in_rate }} RSD</h5>
-        
-                                            </div>
-                                        </div>
-                                    </div>
+
+
+
+
+
+
                                 </div>
                                 <div class="row mt-4">
 
-                                  
-        
-                                    <div class="col-md-4 mb-4 mb-lg-0">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3> U celini</h3>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->payment_in_full }}
-                                                    RSD</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-4 mb-lg-0">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3> Iz inostranstva </h3>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">{{ $course_price->payment_from_foreign_countries }}
-                                                    &euro;
-                                                </h5>
-        
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mb-4 mb-lg-0">
-                                        <div class="card text-white btn-success mb-3 h-100">
-                                            <div class="card-header text-center">
-                                                <h3> Iz inostranstva (u ratama)</h3>
-                                            </div>
-                                            <div class="card-body text-center">
-                                                <h5 class="card-title">
-                                                    {{ $course_price->payment_from_foreign_countries_in_rate }}
-                                                    &euro;
-                                                </h5>
-        
-                                            </div>
-                                        </div>
-                                    </div>
-        
+
+
+
                                 </div>
                             </div>
 
-                
+
                         </div>
 
 
@@ -371,6 +530,176 @@
 
     </section>
 </div>
+
+<div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog" aria-labelledby="subscribeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="subscribeModalLabel">Prijava za kurs {{ $course->name }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{route('course.subscription', ['course_id' => $course->id])}}" method="POST">
+                @csrf
+                <div class="modal-body">
+
+
+                    <div class="form-group">
+                        <label for="">Način plaćanja</label>
+                        <div class="payment-country d-flex">
+                            <div class="radio">
+                                <label for="">
+                                    <input type="radio" class="w-auto" name="payment_country" value="Iz Srbije" checked>
+                                    <span class="">Iz Srbije</span>
+                                </label>
+                            </div>
+                            <div class="radio ml-3">
+                                <label class="">
+                                    <input type="radio" class="w-auto" name="payment_country" value="Iz inostranstva">
+                                    <span class="">Iz inostranstva</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="payment-method-srb mt-3">
+                        @if($course_price->payment_in_full != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method" value="U celini">
+                                <span class="ml-1">U celini</span>
+                            </label>
+                        </div>
+                        @endif
+
+                        @if($course_price->premium_package != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method" value="Premium paket">
+                                <span class="ml-1">Premium paket</span>
+                            </label>
+                        </div>
+                        @endif
+                        @if($course_price->aplication_to != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method"
+                                    value="Prijava i plaćanje do {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}"
+                                >
+                                <span class="ml-1">Prijava i plaćanje do
+                                    {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}</span>
+                            </label>
+                        </div>
+                        @endif
+
+                        <small>U ratama:</small>
+                        @if($course_price->number_of_rate != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method"
+                                    value="Broj rata: {{ $course_price->number_of_rate }}">
+                                <span class="ml-1">Broj rata: {{ $course_price->number_of_rate }}</span>
+                            </label>
+                        </div>
+                        @endif
+
+                        @if($course_price->number_of_rate_2 != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method"
+                                    value="Broj rata: {{ $course_price->number_of_rate_2 }}">
+                                <span class="ml-1">Broj rata: {{ $course_price->number_of_rate_2 }}</span>
+                            </label>
+                        </div>
+                        @endif
+                        @if($course_price->number_of_rate_3 != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method"
+                                    value="Broj rata: {{ $course_price->number_of_rate_3 }}">
+                                <span class="ml-1">Broj rata: {{ $course_price->number_of_rate_3 }}</span>
+                            </label>
+                        </div>
+                        @endif
+                    </div>
+
+                    <div class="payment-method-foreign-contry mt-3 d-none">
+                        @if($course_price->payment_from_foreign_countries != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method" value="U celini"
+                                    checked="checked">
+                                <span class="ml-1">U celini</span>
+                            </label>
+                        </div>
+                        @endif
+
+                        @if($course_price->foreign_countries_premium_package != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method" value="Premium paket">
+                                <span class="ml-1">Premium paket</span>
+                            </label>
+                        </div>
+                        @endif
+                        @if($course_price->foreign_countries_aplication_to != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method"
+                                    value="Prijava i plaćanje do {{ date('d-M-Y', strtotime($course_price->foreign_countries_aplication_to)) }}"
+                                >
+                                <span class="ml-1">Prijava i plaćanje do
+                                    {{ date('d-M-Y', strtotime($course_price->foreign_countries_aplication_to)) }}</span>
+                            </label>
+                        </div>
+                        @endif
+
+                        <small>U ratama:</small>
+                        @if($course_price->foreign_countries_number_of_rate != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method"
+                                    value="Broj rata: {{ $course_price->foreign_countries_number_of_rate }}">
+                                <span class="ml-1">Broj rata:
+                                    {{ $course_price->foreign_countries_number_of_rate }}</span>
+                            </label>
+                        </div>
+                        @endif
+
+                        @if($course_price->foreign_countries_number_of_rate_2 != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method"
+                                    value="Broj rata: {{ $course_price->foreign_countries_number_of_rate_2 }}">
+                                <span class="ml-1">Broj rata:
+                                    {{ $course_price->foreign_countries_number_of_rate_2 }}</span>
+                            </label>
+                        </div>
+                        @endif
+                        @if($course_price->foreign_countries_number_of_rate_3 != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method"
+                                    value="Broj rata: {{ $course_price->foreign_countries_number_of_rate_3 }}">
+                                <span class="ml-1">Broj rata:
+                                    {{ $course_price->foreign_countries_number_of_rate_3 }}</span>
+                            </label>
+                        </div>
+                        @endif
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-dismiss="modal">Odustani</button>
+                    <input type="submit" class="btn btn-success" name="" value="Prijavi me">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
 
 
@@ -378,6 +707,17 @@
 
 <script>
     $( document ).ready(function() {
+
+    $("input[name=payment_country]:radio").on("change", function() {
+        if (this.value == 'Iz Srbije') {
+            $(".payment-method-srb").removeClass("d-none");
+            $(".payment-method-foreign-contry").addClass("d-none");
+        }
+        else {
+            $(".payment-method-srb").addClass("d-none");
+            $(".payment-method-foreign-contry").removeClass("d-none");
+        }
+    });
 
     $(".course-content").find("ul").addClass("list-group");
 

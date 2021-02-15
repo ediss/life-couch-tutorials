@@ -32,6 +32,8 @@ class AdminController extends Controller
     }
     public function createCourse(Request $request) {
 
+
+
         $validator = null;
         if ($request->isMethod('post')) {
             //validation
@@ -75,11 +77,23 @@ class AdminController extends Controller
                $aplication_to       = $request->input("aplication_to");
                $number_of_rate      = $request->input("number_of_rate");
                $price_in_rate       = $request->input("price_in_rate");
+               $number_of_rate_2    = $request->input("number_of_rate_2");
+               $price_in_rate_2     = $request->input("price_in_rate_2");
+               $number_of_rate_3    = $request->input("number_of_rate_3");
+               $price_in_rate_3     = $request->input("price_in_rate_3");
 
-               $payment_from_foreign_countries      = $request->input("payment_from_foreign_countries");
-               $payment_from_foreign_countries_in_rate = $request->input("payment_from_foreign_countries_in_rate");
+               $payment_from_foreign_countries              = $request->input("payment_from_foreign_countries");
+               $foreign_countries_premium_package           = $request->input("foreign_countries_premium_package");
+               $foreign_countries_aplication_to             = $request->input("foreign_countries_aplication_to");
+               $foreign_countries_aplication_to_and_payfull = $request->input("foreign_countries_aplication_to_and_payfull");
+               $foreign_countries_number_of_rate            = $request->input("foreign_countries_number_of_rate");
+               $payment_from_foreign_countries_in_rate      = $request->input("payment_from_foreign_countries_in_rate");
+               $foreign_countries_number_of_rate_2          = $request->input("foreign_countries_number_of_rate_2");
+               $payment_from_foreign_countries_in_rate_2    = $request->input("payment_from_foreign_countries_in_rate_2");
+               $foreign_countries_number_of_rate_3          = $request->input("foreign_countries_number_of_rate_3");
+               $payment_from_foreign_countries_in_rate_3    = $request->input("payment_from_foreign_countries_in_rate_3");
 
-               $aplication_to_and_payfull           = $request->input("aplication_to_and_payfull");
+               $aplication_to_and_payfull                   = $request->input("aplication_to_and_payfull");
 
 
 
@@ -99,15 +113,35 @@ class AdminController extends Controller
                if($course->save()) {
                    $course_price = new CoursePrice();
 
-                   $course_price->course_id = $course->id;
-                   $course_price->payment_in_full = $payment_in_full;
-                   $course_price->payment_from_foreign_countries = $payment_from_foreign_countries;
-                   $course_price->premium_package = $premium_package;
-                   $course_price->aplication_to = $aplication_to;
-                   $course_price->aplication_to_and_payfull = $aplication_to_and_payfull;
-                   $course_price->number_of_rate = $number_of_rate;
-                   $course_price->price_in_rate = $price_in_rate;
-                   $course_price->payment_from_foreign_countries_in_rate   = $payment_from_foreign_countries_in_rate;
+                   $course_price->course_id                         = $course->id;
+                   $course_price->payment_in_full                   = $payment_in_full;
+                   $course_price->payment_from_foreign_countries    = $payment_from_foreign_countries;
+                   $course_price->premium_package                   = $premium_package;
+                   $course_price->aplication_to                     = $aplication_to;
+                   $course_price->aplication_to_and_payfull         = $aplication_to_and_payfull;
+
+                   $course_price->number_of_rate                    = $number_of_rate;
+                   $course_price->price_in_rate                     = $price_in_rate;
+
+                   $course_price->price_in_rate_2                   = $price_in_rate_2;
+                   $course_price->number_of_rate_2                  = $number_of_rate_2;
+
+                   $course_price->price_in_rate_3                   = $price_in_rate_3;
+                   $course_price->number_of_rate_3                  = $number_of_rate_3;
+
+                   $course_price->foreign_countries_premium_package             = $foreign_countries_premium_package;
+
+                   $course_price->foreign_countries_aplication_to               = $foreign_countries_aplication_to;
+                   $course_price->foreign_countries_aplication_to_and_payfull   = $foreign_countries_aplication_to_and_payfull;
+
+                   $course_price->foreign_countries_number_of_rate              = $foreign_countries_number_of_rate;
+                   $course_price->payment_from_foreign_countries_in_rate        = $payment_from_foreign_countries_in_rate;
+
+                   $course_price->foreign_countries_number_of_rate_2            = $foreign_countries_number_of_rate_2;
+                   $course_price->payment_from_foreign_countries_in_rate_2      = $payment_from_foreign_countries_in_rate_2;
+
+                   $course_price->foreign_countries_number_of_rate_3            = $foreign_countries_number_of_rate_3;
+                   $course_price->payment_from_foreign_countries_in_rate_3      = $payment_from_foreign_countries_in_rate_3;
 
 
                     $course_price->save();

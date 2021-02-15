@@ -5629,8 +5629,8 @@ input[type="button"].btn-block {
 
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #007bff; }
+  color: #fff !important;
+  background-color: #3F51B5; }
 
 .nav-fill .nav-item {
   flex: 1 1 auto;
@@ -9918,8 +9918,8 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .sign-up{
-  height:40px;
-  background-color: #3F51B5;
+  /* height:40px; */
+  background-color: #3F51B5 !important;
 }
 .sign-up p {
   color: white;

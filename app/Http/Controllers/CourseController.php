@@ -66,7 +66,10 @@ class CourseController extends Controller
     }
 
     public function courseSubscription(Request $request, $course_id=null) {
-        $course_name    = Course::where('id', $course_id)->first('name');
+        $course         = Course::where('id', $course_id);
+        $course_name    = $course->first('name');
+        $course_slug    = $course->first('slug');
+
         $course_price   = CoursePrice::where("course_id", '=', $course_id)->first();
 
         $path = storage_path() . "/json/countries.json";
@@ -82,6 +85,10 @@ class CourseController extends Controller
                 $name           = $user->name;
                 $gender         = $user->gender;
                 $course_name    = $course_name->name;
+                $course_slug    = $course_slug->slug;
+
+                $payment_country = $request->input('payment_country');
+                $payment_method  = $request->input("payment_method");
 
                 $data = [
                     'name'          => $name,
@@ -94,7 +101,10 @@ class CourseController extends Controller
                     'country'       => $user->place_of_living,
                     'course_name'   => $course_name,
                     'course_price'  => $course_price,
-                    'country_code'  => false
+                    'country_code'  => false,
+                    'payment_country' => $payment_country,
+                    'payment_method' => $payment_method,
+                    'course_slug'    => $course_slug
                 ];
 
 
@@ -109,7 +119,6 @@ class CourseController extends Controller
                     $message->from($data['email'], $data['course_name'] );
                 });
             }else {
-
 
                 $validator = Validator::make($request->all(), [
                     "name"      => "required",
@@ -150,6 +159,9 @@ class CourseController extends Controller
                     $gender         = $request->input('gender');
                     $course_id      = $request->input('course_id');
 
+                    $payment_country = $request->input('payment_country');
+                    $payment_method  = $request->input("payment_method");
+
 
                     $user = new User();
 
@@ -181,7 +193,9 @@ class CourseController extends Controller
                             'profession'    => $profession,
                             'country'       => $country,
                             'course_name'   => $course_name,
-                            'course_price'  => $course_price
+                            'course_price'  => $course_price,
+                            'payment_country' => $payment_country,
+                            'payment_method' => $payment_method
                         ];
                         Mail::send(['text'=>'mails.to-admin'], $data, function($message) use ($data) {
                             $message->to('prijava.kursevi@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
@@ -224,7 +238,9 @@ class CourseController extends Controller
         return view('form-for-apply', [
             'course_name' => $course_name->name,
             'course_id'   => $course_id,
-            'countries'   => $countries
+            'countries'   => $countries,
+            'course_price'  => $course_price
+
         ]);
     }
 
