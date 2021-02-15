@@ -95,7 +95,7 @@ Naučite veštine koje će vam omogućiti da budete zadovoljniji u životu, ljub
 
 
 
-<section class="w3l-features-1" data-aos="zoom-out2" data-aos-offset="100" data-aos-delay="100" data-aos-duration="300"
+<section class="w3l-features-1" data-aos="zoom-out2" data-aos-offset="100" data-aos-delay="100" data-aos-duration="200"
 	id="about">
 	<!-- /features-1-->
 	<div class="features-1-mian py-5">
