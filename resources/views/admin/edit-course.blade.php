@@ -1,165 +1,172 @@
 @extends('layout.admin-dashboard')
 @section('page-title')
-    Izmena kursa
+Izmena kursa
 @endsection
 
 @section('content')
-{{-- <form action="{{ route("admin.edit.course", ['course_id' => $course->id]) }}" method="POST" enctype="multipart/form-data">
-  @csrf
-  <div class="card-body">
-    <div class="row">
-      <div class="col-3">
-        <div class="form-group">
-          <label>Naziv kursa</label>
-          <input type="text" class="form-control" name="course_name" value="{{$course->name}}">
-        </div>
+{{-- <form action="{{ route("admin.edit.course", ['course_id' => $course->id]) }}" method="POST"
+enctype="multipart/form-data">
+@csrf
+<div class="card-body">
+  <div class="row">
+    <div class="col-3">
+      <div class="form-group">
+        <label>Naziv kursa</label>
+        <input type="text" class="form-control" name="course_name" value="{{$course->name}}">
       </div>
-      <div class="col-3">
-        <div class="form-group">
-          <label>Intro Url</label>
-          <input type="text" class="form-control" name="intro_url" value="{{$course->intro_url}} ">
-        </div>
+    </div>
+    <div class="col-3">
+      <div class="form-group">
+        <label>Intro Url</label>
+        <input type="text" class="form-control" name="intro_url" value="{{$course->intro_url}} ">
       </div>
+    </div>
 
-      <div class="col-3">
-        <label>Kurs Url</label>
-          <input type="text" class="form-control" name="course_url" value="{{$course->course_url}} ">
-      </div>
+    <div class="col-3">
+      <label>Kurs Url</label>
+      <input type="text" class="form-control" name="course_url" value="{{$course->course_url}} ">
+    </div>
 
-      <div class="col-3">
-        <div class="form-group">
-          <div class="row">
-              <div class="col-md-6">
-                  
-                  <p><img src="{{ url($course->cover_img) }}" style="max-width: 50%"></p>
-              </div>
-              <div class="col-md-6">
-                  <label class="form-control-label"><b>Naslovna fotografija </b></label>
-                  <p><input type="file" name="cover_img" id="cover_img" /></p>
-              </div>
-          
+    <div class="col-3">
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6">
+
+            <p><img src="{{ url($course->cover_img) }}" style="max-width: 50%"></p>
           </div>
+          <div class="col-md-6">
+            <label class="form-control-label"><b>Naslovna fotografija </b></label>
+            <p><input type="file" name="cover_img" id="cover_img" /></p>
+          </div>
+
+        </div>
       </div>
-      </div>
+    </div>
 
 
-      <div class="col-12">
-        <label>Opis kursa</label>
+    <div class="col-12">
+      <label>Opis kursa</label>
 
-        <textarea class="textarea form-control" placeholder="Place some text here" name="course_desc"
-            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-        
+      <textarea class="textarea form-control" placeholder="Place some text here" name="course_desc"
+        style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+
             {{$course->description}}
         </textarea>
-      </div>
+    </div>
 
-      <div class="col-12">
-        <label>Program kursa</label>
+    <div class="col-12">
+      <label>Program kursa</label>
 
-        <textarea class="textarea form-control" placeholder="Place some text here" name="course_program"
-            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+      <textarea class="textarea form-control" placeholder="Place some text here" name="course_program"
+        style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
             {{$course->plan_and_program}}
         </textarea>
-      </div>
+    </div>
 
-      <div class="col-12">
-        <label>Sadrzaj kursa</label>
+    <div class="col-12">
+      <label>Sadrzaj kursa</label>
 
-        <textarea class="textarea form-control" placeholder="Place some text here" name="course_content"
-            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+      <textarea class="textarea form-control" placeholder="Place some text here" name="course_content"
+        style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
             {{$course->course_content}}
         </textarea>
-      </div>
+    </div>
 
 
-      <div class="col-12">
-        <label>Organizacija kursa</label>
+    <div class="col-12">
+      <label>Organizacija kursa</label>
 
-        <textarea class="textarea form-control" placeholder="Place some text here" name="course_organisation"
-            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+      <textarea class="textarea form-control" placeholder="Place some text here" name="course_organisation"
+        style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
             {{$course->course_organisation}}
         </textarea>
+    </div>
+
+    <div class="col-6 text-center">
+      <label>Prijava aktivna do: </label>
+      <input type="date" class="form-control" name='course_application_to' value="{{$course->course_available}}">
+
+    </div>
+
+    <div class="col-6 text-center">
+      <div class="form-group">
+        <label>Kurs je aktivan do: </label>
+        <input type="date" class="form-control" name='course_available' value="{{$course->course_available}}">
       </div>
 
-      <div class="col-6 text-center">
-        <label>Prijava aktivna do: </label>
-        <input type="date" class="form-control" name='course_application_to' value="{{$course->course_available}}">
+    </div>
+    <div class="col-12 text-center">
+      <label>
+        <h1>Cenovnik</h1>
+      </label>
+    </div>
 
-      </div>
+    <div class="col-4">
+      <label>U celini</label>
+      <input type="text" class="form-control" name="payment_in_full" value="{{$course_price->payment_in_full}}">
+    </div>
 
-      <div class="col-6 text-center">
-        <div class="form-group">
-          <label>Kurs je aktivan do: </label>
-          <input type="date" class="form-control" name='course_available' value="{{$course->course_available}}">
-        </div>
+    <div class="col-4">
+      <label>Iz inostranstva</label>
+      <input type="text" class="form-control" name="payment_from_foreign_countries"
+        value="{{$course_price->payment_from_foreign_countries}}">
 
-      </div>
-      <div class="col-12 text-center">
-          <label> <h1>Cenovnik</h1></label>
-      </div>
+    </div>
 
-      <div class="col-4">
-        <label>U celini</label>
-        <input type="text" class="form-control" name="payment_in_full" value="{{$course_price->payment_in_full}}">
-      </div>
-     
-      <div class="col-4">
-        <label>Iz inostranstva</label>
-        <input type="text" class="form-control" name="payment_from_foreign_countries" value="{{$course_price->payment_from_foreign_countries}}">
+    <div class="col-4">
+      <label>Iz inostranstva (u ratama)</label>
+      <input type="text" class="form-control" name="payment_from_foreign_countries_in_rate"
+        value="{{$course_price->payment_from_foreign_countries_in_rate}}">
 
-      </div>
-
-      <div class="col-4">
-        <label>Iz inostranstva (u ratama)</label>
-        <input type="text" class="form-control" name="payment_from_foreign_countries_in_rate" value="{{$course_price->payment_from_foreign_countries_in_rate}}">
-
-      </div>
-      
- 
-
-
-      <div class="col-12 mt-5">
-        <div class="row">
-          <div class="col-4">
-            <label>Premium paket</label>
-            <input type="text" class="form-control" name="premium_package" value="{{$course_price->premium_package}}">
-          </div>
-          <div class="col-4">
-            <label>Rana prijava do <input type="date" name="aplication_to" value="{{$course_price->aplication_to}}"> i placanje u celini</label>
-            <input type="text" class="form-control" name="aplication_to_and_payfull" value="{{$course_price->aplication_to_and_payfull}}">
-
-          </div>
-          <div class="col-4">
-            <label>U <input type="number" name="number_of_rate" value="{{$course_price->number_of_rate}}"> rata</label>
-            <input type="text" class="form-control" name="price_in_rate" value="{{$course_price->price_in_rate}}">
-          </div>
-        </div>
-      </div>
-
-      
     </div>
 
 
 
 
+    <div class="col-12 mt-5">
+      <div class="row">
+        <div class="col-4">
+          <label>Premium paket</label>
+          <input type="text" class="form-control" name="premium_package" value="{{$course_price->premium_package}}">
+        </div>
+        <div class="col-4">
+          <label>Rana prijava do <input type="date" name="aplication_to" value="{{$course_price->aplication_to}}"> i
+            placanje u celini</label>
+          <input type="text" class="form-control" name="aplication_to_and_payfull"
+            value="{{$course_price->aplication_to_and_payfull}}">
+
+        </div>
+        <div class="col-4">
+          <label>U <input type="number" name="number_of_rate" value="{{$course_price->number_of_rate}}"> rata</label>
+          <input type="text" class="form-control" name="price_in_rate" value="{{$course_price->price_in_rate}}">
+        </div>
+      </div>
+    </div>
+
+
   </div>
-  <!-- /.card-body -->
-
-  <div class="card-footer">
-    <input type="submit" class="btn btn-success" value="Izmeni kurs">
-  </div>
 
 
-  @if (count($errors) > 0)
 
-  <div class="alert alert-danger">
-    <ul>
-      @foreach ($errors->all() as $error)
-      <li>{{ $error }}</li>
-      @endforeach
-    </ul>
-  </div>
-  @endif
+
+</div>
+<!-- /.card-body -->
+
+<div class="card-footer">
+  <input type="submit" class="btn btn-success" value="Izmeni kurs">
+</div>
+
+
+@if (count($errors) > 0)
+
+<div class="alert alert-danger">
+  <ul>
+    @foreach ($errors->all() as $error)
+    <li>{{ $error }}</li>
+    @endforeach
+  </ul>
+</div>
+@endif
 </form> --}}
 
 <div id="smartwizard-edit">
@@ -186,7 +193,8 @@
     </li>
 
   </ul>
-  <form action="{{ route("admin.edit.course", ['course_id' => $course->id]) }}" method="POST" enctype="multipart/form-data">
+  <form action="{{ route("admin.edit.course", ['course_id' => $course->id]) }}" method="POST"
+    enctype="multipart/form-data">
     @csrf
 
     <div class="col-12">
@@ -239,7 +247,8 @@
           <div class="col-4">
             <div class="form-group">
               <label>Prijava aktivna do: </label>
-              <input type="date" class="form-control" name='course_application_to' value="{{$course->course_available}}">
+              <input type="date" class="form-control" name='course_application_to'
+                value="{{$course->course_application_to}}">
             </div>
           </div>
 
@@ -320,28 +329,63 @@
                   <div class="tab-pane fade show active" id="from-serbia" role="tabpanel"
                     aria-labelledby="from-serbia-tab">
                     <div class="row mt-5">
+
+
                       <div class="col-4">
                         <div class="form-group">
                           <label>U celini</label>
-                          <input type="text" class="form-control" name="payment_in_full" value="{{$course_price->payment_in_full}}">
+                          <input type="text" class="form-control" name="payment_in_full"
+                            value="{{$course_price->payment_in_full}}">
                         </div>
                       </div>
-
-
                       <div class="col-4">
                         <div class="form-group">
                           <label>Premium paket</label>
-                          <input type="text" class="form-control" name="premium_package" value="{{$course_price->premium_package}}">
+                          <input type="text" class="form-control" name="premium_package"
+                            value="{{$course_price->premium_package}}">
+                        </div>
+                      </div>
+
+
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label>Rana prijava do <input type="date" name="aplication_to"
+                              value="{{$course_price->aplication_to}}"> i placanje u celini</label>
+                          <input type="text" class="form-control" name="aplication_to_and_payfull"
+                            value="{{$course_price->aplication_to_and_payfull}}">
+                        </div>
+
+                      </div>
+
+                      <div class="col-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="1" name="weekly_srb" id="defaultCheck1"
+                            {{ ($course_price->weekly_srb == "1") ? "checked" : ""}}>
+                          <label class="form-check-label" for="defaultCheck1">
+                            Nedeljno
+                          </label>
+                        </div>
+
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="weekly_srb_price" value="{{ $course_price->weekly_srb_price }}">
                         </div>
                       </div>
 
                       <div class="col-4">
-                        <div class="form-group">
-                          <label>Rana prijava do <input type="date" name="aplication_to" value="{{$course_price->aplication_to}}"> i placanje u celini</label>
-                          <input type="text" class="form-control" name="aplication_to_and_payfull" value="{{$course_price->aplication_to_and_payfull}}">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="1" name="monthly_srb"
+                            id="defaultCheck2" {{ ($course_price->monthly_srb == "1") ? "checked" : ""}}>
+                          <label class="form-check-label" for="defaultCheck2">
+                            Mesečno
+                          </label>
                         </div>
-
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="monthly_srb_price" value="{{ $course_price->monthly_srb_price }}">
+                        </div>
                       </div>
+
+
+
                       <div class="col-12 mt-5 mb-5">
 
                         <h1>Opcije za rate</h1>
@@ -349,24 +393,30 @@
                       </div>
                       <div class="col-4">
                         <div class="form-group">
-                          <label>U <input type="number" name="number_of_rate" value="{{$course_price->number_of_rate}}"> rata</label>
-                          <input type="text" class="form-control" name="price_in_rate" value="{{$course_price->price_in_rate}}">
+                          <label>U <input type="number" name="number_of_rate" value="{{$course_price->number_of_rate}}">
+                            rata</label>
+                          <input type="text" class="form-control" name="price_in_rate"
+                            value="{{$course_price->price_in_rate}}">
                           <small>Opcija 1 za rate</small>
                         </div>
                       </div>
 
                       <div class="col-4">
                         <div class="form-group">
-                          <label>U <input type="number" name="number_of_rate_2" value="{{$course_price->number_of_rate_2}}"> rata</label>
-                          <input type="text" class="form-control" name="price_in_rate_2" value="{{$course_price->price_in_rate_2}}">
+                          <label>U <input type="number" name="number_of_rate_2"
+                              value="{{$course_price->number_of_rate_2}}"> rata</label>
+                          <input type="text" class="form-control" name="price_in_rate_2"
+                            value="{{$course_price->price_in_rate_2}}">
                           <small>Opcija 2 za rate</small>
                         </div>
                       </div>
 
                       <div class="col-4">
                         <div class="form-group">
-                          <label>U <input type="number" name="number_of_rate_3" value="{{$course_price->number_of_rate_3}}"> rata</label>
-                          <input type="text" class="form-control" name="price_in_rate_3" value="{{$course_price->number_of_rate_3}}">
+                          <label>U <input type="number" name="number_of_rate_3"
+                              value="{{$course_price->number_of_rate_3}}"> rata</label>
+                          <input type="text" class="form-control" name="price_in_rate_3"
+                            value="{{$course_price->price_in_rate_3}}">
                           <small>Opcija 3 za rate</small>
                         </div>
                       </div>
@@ -380,10 +430,14 @@
                     aria-labelledby="foreign-countries-tab">
                     <div class="row mt-5">
 
+
+
+
                       <div class="col-4">
                         <div class="form-group">
                           <label>U celini</label>
-                          <input type="text" class="form-control" name="payment_from_foreign_countries" value="{{$course_price->payment_from_foreign_countries}}">
+                          <input type="text" class="form-control" name="payment_from_foreign_countries"
+                            value="{{$course_price->payment_from_foreign_countries}}">
                         </div>
 
                       </div>
@@ -391,17 +445,54 @@
                       <div class="col-4">
                         <div class="form-group">
                           <label>Premium paket</label>
-                          <input type="text" class="form-control" name="foreign_countries_premium_package" value="{{$course_price->foreign_countries_premium_package}}">
+                          <input type="text" class="form-control" name="foreign_countries_premium_package"
+                            value="{{$course_price->foreign_countries_premium_package}}">
+                        </div>
+                      </div>
+
+
+                      <div class="col-4">
+                        <div class="form-group">
+                          <label>Rana prijava do <input type="date" name="foreign_countries_aplication_to"
+                              value="{{$course_price->foreign_countries_aplication_to}}"> i placanje u
+                            celini</label>
+                          <input type="text" class="form-control" name="foreign_countries_aplication_to_and_payfull"
+                            value="{{$course_price->foreign_countries_aplication_to_and_payfull}}">
                         </div>
                       </div>
 
                       <div class="col-4">
-                        <div class="form-group">
-                          <label>Rana prijava do <input type="date" name="foreign_countries_aplication_to" value="{{$course_price->foreign_countries_aplication_to}}"> i placanje u celini</label>
-                          <input type="text" class="form-control" name="foreign_countries_aplication_to_and_payfull" value="{{$course_price->foreign_countries_aplication_to_and_payfull}}">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="1" name="weekly_foreign"
+                            id="defaultCheck1" {{ ($course_price->weekly_foreign == "1") ? "checked" : ""}}>
+                          <label class="form-check-label" for="defaultCheck1">
+                            Nedeljno
+                          </label>
                         </div>
 
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="weekly_foreign_price" value="{{ $course_price->weekly_foreign_price }}">
+                        </div>
                       </div>
+
+                      <div class="col-4">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="1" name="monthly_foreign"
+                            id="defaultCheck2" {{ ($course_price->monthly_foreign == "1") ? "checked" : ""}}>
+                          <label class="form-check-label" for="defaultCheck2">
+                            Mesečno
+                          </label>
+                        </div>
+
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="monthly_foreign_price" value="{{ $course_price->monthly_foreign_price }}">
+                        </div>
+                      </div>
+
+
+
+
+
                       <div class="col-12 mt-5 mb-5">
 
                         <h1>Opcije za rate</h1>
@@ -409,24 +500,30 @@
                       </div>
                       <div class="col-4">
                         <div class="form-group">
-                          <label>U <input type="number" name="foreign_countries_number_of_rate" value="{{$course_price->foreign_countries_number_of_rate}}"> rata</label>
-                          <input type="text" class="form-control" name="payment_from_foreign_countries_in_rate" value="{{$course_price->payment_from_foreign_countries_in_rate}}">
+                          <label>U <input type="number" name="foreign_countries_number_of_rate"
+                              value="{{$course_price->foreign_countries_number_of_rate}}"> rata</label>
+                          <input type="text" class="form-control" name="payment_from_foreign_countries_in_rate"
+                            value="{{$course_price->payment_from_foreign_countries_in_rate}}">
                           <small>Opcija 1 za rate</small>
                         </div>
                       </div>
 
                       <div class="col-4">
                         <div class="form-group">
-                          <label>U <input type="number" name="foreign_countries_number_of_rate_2" value="{{$course_price->foreign_countries_number_of_rate_2}}"> rata</label>
-                          <input type="text" class="form-control" name="payment_from_foreign_countries_in_rate_2" value="{{$course_price->payment_from_foreign_countries_in_rate_2}}">
+                          <label>U <input type="number" name="foreign_countries_number_of_rate_2"
+                              value="{{$course_price->foreign_countries_number_of_rate_2}}"> rata</label>
+                          <input type="text" class="form-control" name="payment_from_foreign_countries_in_rate_2"
+                            value="{{$course_price->payment_from_foreign_countries_in_rate_2}}">
                           <small>Opcija 2 za rate</small>
                         </div>
                       </div>
 
                       <div class="col-4">
                         <div class="form-group">
-                          <label>U <input type="number" name="foreign_countries_number_of_rate_3" value="{{$course_price->foreign_countries_number_of_rate_3}}"> rata</label>
-                          <input type="text" class="form-control" name="payment_from_foreign_countries_in_rate_3" value="{{$course_price->foreign_countries_number_of_rate_3}}">
+                          <label>U <input type="number" name="foreign_countries_number_of_rate_3"
+                              value="{{$course_price->foreign_countries_number_of_rate_3}}"> rata</label>
+                          <input type="text" class="form-control" name="payment_from_foreign_countries_in_rate_3"
+                            value="{{$course_price->payment_from_foreign_countries_in_rate_3}}">
                           <small>Opcija 3 za rate</small>
                         </div>
                       </div>

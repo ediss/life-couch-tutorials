@@ -14,7 +14,7 @@ use Mail;
 class AdminController extends Controller
 {
     public function index() {
-        $courses = Course::all();
+        $courses = Course::all()->sortByDesc('id');
 
         return view ("admin.courses", [
             "courses" => $courses
@@ -36,6 +36,7 @@ class AdminController extends Controller
 
         $validator = null;
         if ($request->isMethod('post')) {
+
             //validation
             $validator = Validator::make($request->all(), [
                 "course_name"           => "required",
@@ -81,6 +82,10 @@ class AdminController extends Controller
                $price_in_rate_2     = $request->input("price_in_rate_2");
                $number_of_rate_3    = $request->input("number_of_rate_3");
                $price_in_rate_3     = $request->input("price_in_rate_3");
+               $weekly_srb          = $request->input("weekly_srb");
+               $weekly_srb_price    = $request->input("weekly_srb_price");
+               $monthly_srb         = $request->input("monthly_srb");
+               $monthly_srb_price   = $request->input("monthly_srb_price");
 
                $payment_from_foreign_countries              = $request->input("payment_from_foreign_countries");
                $foreign_countries_premium_package           = $request->input("foreign_countries_premium_package");
@@ -95,7 +100,11 @@ class AdminController extends Controller
 
                $aplication_to_and_payfull                   = $request->input("aplication_to_and_payfull");
 
+               $weekly_foreign          = $request->input("weekly_foreign");
+               $weekly_foreign_price    = $request->input("weekly_foreign_price");
 
+               $monthly_foreign         = $request->input("monthly_foreign");
+               $monthly_foreign_price   = $request->input("monthly_foreign_price");
 
                $course = new Course();
                $course->name                    = $course_name;
@@ -129,6 +138,12 @@ class AdminController extends Controller
                    $course_price->price_in_rate_3                   = $price_in_rate_3;
                    $course_price->number_of_rate_3                  = $number_of_rate_3;
 
+                   $course_price->weekly_srb          = $weekly_srb;
+                   $course_price->monthly_srb         = $monthly_srb;
+                   $course_price->weekly_srb_price    = $weekly_srb_price;
+                   $course_price->monthly_srb_price   = $monthly_srb_price;
+
+                   //foreign countries
                    $course_price->foreign_countries_premium_package             = $foreign_countries_premium_package;
 
                    $course_price->foreign_countries_aplication_to               = $foreign_countries_aplication_to;
@@ -143,10 +158,15 @@ class AdminController extends Controller
                    $course_price->foreign_countries_number_of_rate_3            = $foreign_countries_number_of_rate_3;
                    $course_price->payment_from_foreign_countries_in_rate_3      = $payment_from_foreign_countries_in_rate_3;
 
+                   $course_price->weekly_foreign          = $weekly_foreign;
+                   $course_price->monthly_foreign         = $monthly_foreign;
+                   $course_price->weekly_foreign_price    = $weekly_foreign_price;
+                   $course_price->monthly_foreign_price   = $monthly_foreign_price;
 
-                    $course_price->save();
 
-                    return back()->with('info','Uspesno ste uneli kurs!');
+                   $course_price->save();
+
+                   return back()->with('info','Uspesno ste uneli kurs!');
 
                }
 
@@ -219,7 +239,6 @@ class AdminController extends Controller
 
         if ($request->isMethod('post')) {
 
-
             $validator = Validator::make($request->all(), [
                 "course_name"           => "required",
                 "intro_url"             => "required",
@@ -242,6 +261,8 @@ class AdminController extends Controller
                 $course_application  = $request->input("course_application_to");
                 $course_available    = $request->input("course_available");
                 $course_organisation = $request->input("course_organisation");
+                $course_slug         = $request->input("course_slug");
+
 
                 if ($request->hasFile('cover_img')) {
                     $cover_img        = $request->file('cover_img');
@@ -249,16 +270,49 @@ class AdminController extends Controller
                     $cover_img_path   = $cover_img ? $cover_img->move('images/courses/', $cover_img_name) : null;
                 }
 
-                   //prices
+                //prices Serbia
                 $payment_in_full     = $request->input("payment_in_full");
                 $premium_package     = $request->input("premium_package");
                 $aplication_to       = $request->input("aplication_to");
+
                 $number_of_rate      = $request->input("number_of_rate");
                 $price_in_rate       = $request->input("price_in_rate");
 
-                $payment_from_foreign_countries         = $request->input("payment_from_foreign_countries");
-                $aplication_to_and_payfull              = $request->input("aplication_to_and_payfull");
+                $number_of_rate_2    = $request->input("number_of_rate_2");
+                $price_in_rate_2     = $request->input("price_in_rate_2");
+
+                $number_of_rate_3    = $request->input("number_of_rate_3");
+                $price_in_rate_3     = $request->input("price_in_rate_3");
+                $aplication_to_and_payfull = $request->input("aplication_to_and_payfull");
+
+                $weekly_srb          = $request->input("weekly_srb");
+                $monthly_srb         = $request->input("monthly_srb");
+                $weekly_srb_price    = $request->input("weekly_srb_price");
+                $monthly_srb_price   = $request->input("monthly_srb_price");
+
+                //prices foreign countries
+                $payment_from_foreign_countries              = $request->input("payment_from_foreign_countries");
+                $foreign_countries_premium_package           = $request->input("foreign_countries_premium_package");
+
+                $foreign_countries_aplication_to             = $request->input("foreign_countries_aplication_to");
+                $foreign_countries_aplication_to_and_payfull = $request->input("foreign_countries_aplication_to_and_payfull");
+
+                $foreign_countries_number_of_rate = $request->input("foreign_countries_number_of_rate");
                 $payment_from_foreign_countries_in_rate = $request->input("payment_from_foreign_countries_in_rate");
+
+                $foreign_countries_number_of_rate_2 = $request->input("foreign_countries_number_of_rate_2");
+                $payment_from_foreign_countries_in_rate_2 = $request->input("payment_from_foreign_countries_in_rate_2");
+
+                $foreign_countries_number_of_rate_3 = $request->input("foreign_countries_number_of_rate_3");
+                $payment_from_foreign_countries_in_rate_3 = $request->input("payment_from_foreign_countries_in_rate_3");
+
+                $weekly_foreign  = $request->input("weekly_foreign");
+                $monthly_foreign = $request->input("monthly_foreign");
+
+                $weekly_foreign_price  = $request->input("weekly_foreign_price");
+                $monthly_foreign_price = $request->input("monthly_foreign_price");
+
+
 
                 $course->name                   = $course_name;
                 $course->intro_url              = $intro_url;
@@ -269,21 +323,54 @@ class AdminController extends Controller
                 $course->plan_and_program       = $course_program;
                 $course->course_available       = $course_available;
                 $course->course_application_to  = $course_application;
-
-                $course->course_organisation = $course_organisation;
+                $course->course_organisation    = $course_organisation;
+                $course->slug                   = $course_slug;
 
                 if($course->save()) {
                     $course_price = CoursePrice::where("course_id", "=", $course_id)->first();
 
-                    $course_price->course_id                                = $course->id;
-                    $course_price->aplication_to                            = $aplication_to;
-                    $course_price->price_in_rate                            = $price_in_rate;
-                    $course_price->number_of_rate                           = $number_of_rate;
-                    $course_price->premium_package                          = $premium_package;
-                    $course_price->payment_in_full                          = $payment_in_full;
-                    $course_price->aplication_to_and_payfull                = $aplication_to_and_payfull;
-                    $course_price->payment_from_foreign_countries           = $payment_from_foreign_countries;
-                    $course_price->payment_from_foreign_countries_in_rate   = $payment_from_foreign_countries_in_rate;
+                    $course_price->course_id        = $course->id;
+                    $course_price->aplication_to    = $aplication_to;
+                    $course_price->price_in_rate    = $price_in_rate;
+                    $course_price->number_of_rate   = $number_of_rate;
+
+                    $course_price->price_in_rate_2  = $price_in_rate_2;
+                    $course_price->number_of_rate_2 = $number_of_rate_2;
+
+                    $course_price->price_in_rate_3  = $price_in_rate_3;
+                    $course_price->number_of_rate_3 = $number_of_rate_3;
+
+                    $course_price->premium_package  = $premium_package;
+                    $course_price->payment_in_full  = $payment_in_full;
+                    $course_price->aplication_to_and_payfull = $aplication_to_and_payfull;
+
+                    $course_price->weekly_srb          = $weekly_srb;
+                    $course_price->monthly_srb         = $monthly_srb;
+                    $course_price->weekly_srb_price    = $weekly_srb_price;
+                    $course_price->monthly_srb_price   = $monthly_srb_price;
+
+                    //payment from foreign countries
+                    $course_price->payment_from_foreign_countries               = $payment_from_foreign_countries;
+                    $course_price->foreign_countries_premium_package            = $foreign_countries_premium_package;
+
+                    $course_price->foreign_countries_aplication_to              = $foreign_countries_aplication_to;
+                    $course_price->foreign_countries_aplication_to_and_payfull  = $foreign_countries_aplication_to_and_payfull;
+
+                    $course_price->foreign_countries_number_of_rate             = $foreign_countries_number_of_rate;
+                    $course_price->payment_from_foreign_countries_in_rate       = $payment_from_foreign_countries_in_rate;
+
+                    $course_price->foreign_countries_number_of_rate_2           = $foreign_countries_number_of_rate_2;
+                    $course_price->payment_from_foreign_countries_in_rate_2     = $payment_from_foreign_countries_in_rate_2;
+
+                    $course_price->foreign_countries_number_of_rate_3           = $foreign_countries_number_of_rate_3;
+                    $course_price->payment_from_foreign_countries_in_rate_3     = $payment_from_foreign_countries_in_rate_3;
+
+                    $course_price->weekly_foreign    = $weekly_foreign;
+                    $course_price->monthly_foreign   = $monthly_foreign;
+
+                    $course_price->weekly_foreign_price    = $weekly_foreign_price;
+                    $course_price->monthly_foreign_price   = $monthly_foreign_price;
+
 
                     $course_price->save();
 

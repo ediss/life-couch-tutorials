@@ -356,6 +356,24 @@ Prijava za kurs <br>
                                                             </label>
                                                         </div>
                                                         @endif
+
+                                                        @if($course_price->weekly_srb != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Nedeljno">
+                                                                <span class="ml-1">Nedeljno: {{ $course_price->weekly_srb_price }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+
+                                                        @if($course_price->monthly_srb != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Mesečno">
+                                                                <span class="ml-1">Mesečno: {{ $course_price->monthly_srb_price }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
                                                     </div>
 
                                                     <div class="payment-method-foreign-contry mt-3 d-none">
@@ -408,6 +426,24 @@ Prijava za kurs <br>
                                                             <label class="">
                                                                 <input type="radio" class="w-auto" name="payment_method" value="Broj rata: {{ $course_price->foreign_countries_number_of_rate_3 }}">
                                                                 <span class="ml-1">Broj rata: {{ $course_price->foreign_countries_number_of_rate_3 }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+
+                                                        @if($course_price->weekly_foreign != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Nedeljno">
+                                                                <span class="ml-1">Nedeljno: {{ $course_price->weekly_foreign_price }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+
+                                                        @if($course_price->monthly_foreign != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Mesečno">
+                                                                <span class="ml-1">Mesečno: {{ $course_price->monthly_foreign_price }}</span>
                                                             </label>
                                                         </div>
                                                         @endif

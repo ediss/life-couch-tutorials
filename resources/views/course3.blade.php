@@ -233,7 +233,7 @@
                                                     </div>
                                                     @endif
 
-                                                    @if($course_price->number_of_rate != "")
+                                                    @if($course_price->number_of_rate != "" || $course_price->weekly_srb != "" || $course_price->monthly_srb)
                                                     <div class="col-md-4 mb-4 mb-lg-0 mt-4">
                                                         <div class="card text-white btn-success mb-3 h-100">
                                                             <div class="card-header text-center">
@@ -266,6 +266,26 @@
                                                                     </h5>
                                                                     <h5 class="card-title ml-auto">
                                                                         {{ $course_price->price_in_rate_3 }}
+                                                                    </h5>
+                                                                </div>
+                                                                @endif
+
+                                                                @if($course_price->weekly_srb != "")
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between">
+                                                                    <h5>Nedeljno:</h5>
+                                                                    <h5 class="card-title ml-auto">
+                                                                        {{ $course_price->weekly_srb_price }}
+                                                                    </h5>
+                                                                </div>
+                                                                @endif
+
+                                                                @if($course_price->weekly_srb != "")
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between">
+                                                                    <h5>Mesečno:</h5>
+                                                                    <h5 class="card-title ml-auto">
+                                                                        {{ $course_price->monthly_srb_price }}
                                                                     </h5>
                                                                 </div>
                                                                 @endif
@@ -335,7 +355,7 @@
                                                     </div>
                                                     @endif
 
-                                                    @if($course_price->foreign_countries_number_of_rate != "")
+                                                    @if($course_price->foreign_countries_number_of_rate != "" || $course_price->weekly_foreign != "" || $course_price->monthly_foreign != "")
                                                     <div class="col-md-4 mb-4 mb-lg-0 mt-4">
                                                         <div class="card text-white btn-success mb-3 h-100">
                                                             <div class="card-header text-center">
@@ -373,6 +393,26 @@
                                                                     </h5>
                                                                     <h5 class="card-title ml-auto">
                                                                         {{ $course_price->payment_from_foreign_countries_in_rate_3 }}
+                                                                    </h5>
+                                                                </div>
+                                                                @endif
+
+                                                                @if($course_price->weekly_foreign != "")
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between">
+                                                                    <h5>Nedeljno:</h5>
+                                                                    <h5 class="card-title ml-auto">
+                                                                        {{ $course_price->weekly_foreign_price }}
+                                                                    </h5>
+                                                                </div>
+                                                                @endif
+
+                                                                @if($course_price->monthly_foreign != "")
+                                                                <div
+                                                                    class="d-flex align-items-center justify-content-between">
+                                                                    <h5>Mesečno:</h5>
+                                                                    <h5 class="card-title ml-auto">
+                                                                        {{ $course_price->monthly_foreign_price }}
                                                                     </h5>
                                                                 </div>
                                                                 @endif
@@ -624,6 +664,24 @@
                             </label>
                         </div>
                         @endif
+
+                        @if($course_price->weekly_srb != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method" value="Nedeljno">
+                                <span class="ml-1">Nedeljno: {{ $course_price->weekly_srb_price }}</span>
+                            </label>
+                        </div>
+                        @endif
+
+                        @if($course_price->monthly_srb != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method" value="Mesečno">
+                                <span class="ml-1">Mesečno: {{ $course_price->monthly_srb_price }}</span>
+                            </label>
+                        </div>
+                        @endif
                     </div>
 
                     <div class="payment-method-foreign-contry mt-3 d-none">
@@ -686,6 +744,24 @@
                                     value="Broj rata: {{ $course_price->foreign_countries_number_of_rate_3 }}">
                                 <span class="ml-1">Broj rata:
                                     {{ $course_price->foreign_countries_number_of_rate_3 }}</span>
+                            </label>
+                        </div>
+                        @endif
+
+                        @if($course_price->weekly_foreign != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method" value="Nedeljno">
+                                <span class="ml-1">Nedeljno: {{ $course_price->weekly_foreign_price }}</span>
+                            </label>
+                        </div>
+                        @endif
+
+                        @if($course_price->monthly_foreign != "")
+                        <div class="radio">
+                            <label class="">
+                                <input type="radio" class="w-auto" name="payment_method" value="Mesečno">
+                                <span class="ml-1">Mesečno: {{ $course_price->monthly_foreign_price }}</span>
                             </label>
                         </div>
                         @endif

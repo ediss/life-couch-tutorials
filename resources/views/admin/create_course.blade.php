@@ -305,28 +305,14 @@ Dodavanje kursa
                   <div class="tab-pane fade show active" id="from-serbia" role="tabpanel"
                     aria-labelledby="from-serbia-tab">
                     <div class="row mt-5">
+
+
                       <div class="col-4">
                         <div class="form-group">
                           <label>U celini</label>
                           <input type="text" class="form-control" name="payment_in_full">
                         </div>
                       </div>
-
-                      {{-- <div class="col-4">
-                        <div class="form-group">
-                          <label>Iz inostranstva</label>
-                          <input type="text" class="form-control" name="payment_from_foreign_countries">
-                        </div>
-
-                      </div>
-
-                      <div class="col-4">
-                        <div class="form-group">
-                          <label>Iz inostranstva (u ratama)</label>
-                          <input type="text" class="form-control" name="payment_from_foreign_countries_in_rate">
-                        </div>
-
-                      </div> --}}
 
                       <div class="col-4">
                         <div class="form-group">
@@ -335,13 +321,54 @@ Dodavanje kursa
                         </div>
                       </div>
 
+
+
+
+
                       <div class="col-4">
                         <div class="form-group">
-                          <label>Rana prijava do <input type="date" name="aplication_to"> i placanje u celini</label>
+                          <label>Rana prijava do <input type="date" name="aplication_to"> i placanje u
+                            celini</label>
                           <input type="text" class="form-control" name="aplication_to_and_payfull">
                         </div>
 
                       </div>
+
+                      <div class="col-4">
+
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="1" name="weekly_srb"
+                            id="defaultCheck1">
+                          <label class="form-check-label" for="defaultCheck1">
+                            Nedeljno
+                          </label>
+                        </div>
+
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="weekly_srb_price">
+                        </div>
+                      </div>
+
+
+                      <div class="col-4">
+
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" value="1" name="monthly_srb"
+                            id="defaultCheck2">
+                          <label class="form-check-label" for="defaultCheck2">
+                            Mesečno
+                          </label>
+                        </div>
+                        <div class="form-group">
+                          <input type="text" class="form-control" name="monthly_srb_price">
+                        </div>
+                      </div>
+                    </div>
+
+
+
+
+                    <div class="row">
                       <div class="col-12 mt-5 mb-5">
 
                         <h1>Opcije za rate</h1>
@@ -380,6 +407,8 @@ Dodavanje kursa
                     aria-labelledby="foreign-countries-tab">
                     <div class="row mt-5">
 
+
+
                       <div class="col-4">
                         <div class="form-group">
                           <label>U celini</label>
@@ -395,13 +424,52 @@ Dodavanje kursa
                         </div>
                       </div>
 
-                      <div class="col-4">
-                        <div class="form-group">
-                          <label>Rana prijava do <input type="date" name="foreign_countries_aplication_to"> i placanje u celini</label>
-                          <input type="text" class="form-control" name="foreign_countries_aplication_to_and_payfull">
-                        </div>
 
-                      </div>
+
+                      
+                        
+                          <div class="col-4">
+                            <div class="form-group">
+                              <label>Rana prijava do <input type="date" name="foreign_countries_aplication_to"> i
+                                placanje u celini</label>
+                              <input type="text" class="form-control"
+                                name="foreign_countries_aplication_to_and_payfull">
+                            </div>
+                          </div>
+
+                          <div class="col-4">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="1" name="weekly_foreign"
+                                id="defaultCheck1">
+                              <label class="form-check-label" for="defaultCheck1">
+                                Nedeljno
+                              </label>
+                            </div>
+
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="weekly_foreign_price">
+                            </div>
+                          </div>
+
+                          <div class="col-4">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" value="1" name="monthly_foreign"
+                                id="defaultCheck2">
+                              <label class="form-check-label" for="defaultCheck2">
+                                Mesečno
+                              </label>
+                            </div>
+
+                            <div class="form-group">
+                              <input type="text" class="form-control" name="monthly_foreign_price">
+                            </div>
+                          </div>
+                        
+                      
+
+
+
+
                       <div class="col-12 mt-5 mb-5">
 
                         <h1>Opcije za rate</h1>
