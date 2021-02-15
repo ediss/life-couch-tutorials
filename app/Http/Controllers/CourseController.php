@@ -69,6 +69,7 @@ class CourseController extends Controller
         $course         = Course::where('id', $course_id);
         $course_name    = $course->first('name');
         $course_slug    = $course->first('slug');
+        $course_slug    = $course_slug->slug;
 
         $course_price   = CoursePrice::where("course_id", '=', $course_id)->first();
 
@@ -85,7 +86,6 @@ class CourseController extends Controller
                 $name           = $user->name;
                 $gender         = $user->gender;
                 $course_name    = $course_name->name;
-                $course_slug    = $course_slug->slug;
 
                 $payment_country = $request->input('payment_country');
                 $payment_method  = $request->input("payment_method");
@@ -195,7 +195,9 @@ class CourseController extends Controller
                             'course_name'   => $course_name,
                             'course_price'  => $course_price,
                             'payment_country' => $payment_country,
-                            'payment_method' => $payment_method
+                            'payment_method' => $payment_method,
+                            'course_slug'    => $course_slug
+
                         ];
                         Mail::send(['text'=>'mails.to-admin'], $data, function($message) use ($data) {
                             $message->to('prijava.kursevi@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
