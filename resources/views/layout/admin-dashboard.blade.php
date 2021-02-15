@@ -230,7 +230,7 @@ $('#smartwizard').smartWizard({
       enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
   },
   keyboardSettings: {
-      keyNavigation: true, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
+      keyNavigation: false, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
       keyLeft: [37], // Left key code
       keyRight: [39] // Right key code
   },
@@ -313,7 +313,7 @@ $('#smartwizard-edit').smartWizard({
       enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
   },
   keyboardSettings: {
-      keyNavigation: true, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
+      keyNavigation: false, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
       keyLeft: [37], // Left key code
       keyRight: [39] // Right key code
   },
