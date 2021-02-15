@@ -17,13 +17,13 @@ Naučite veštine koje će vam omogućiti da budete zadovoljniji u životu, ljub
 	<!-- /content-6-section -->
 	<div class="services-2-mian py-5">
 		<div class="container py-lg-5 col-10 offset-1">
-			<div class="row title-content"> 
+			<div class="row title-content">
 				<div class="col-12 title-left">
-					<h1 class="hny-title">Online Kursevi - Edukacija | Učite bilo gde!</h1>
+					<h1 class="hny-title">Online kursevi - Edukacija | Učite bilo gde!</h1>
 					<p><b>U doba interneta, edukacija je svima dostupna. Jednim klikom do nove veštine!
 					</b></p>
 				</div>
-				
+
 			</div>
 			<div class="welcome-grids row">
 				@php $delay = 0; @endphp
@@ -86,7 +86,7 @@ Naučite veštine koje će vam omogućiti da budete zadovoljniji u životu, ljub
 					</div>
 				</div>
 			</div>
-			
+
 			<!-- //pagination-->
 		</div>
 	</div>
@@ -228,5 +228,5 @@ Naučite veštine koje će vam omogućiti da budete zadovoljniji u životu, ljub
   });
 </script>
 
-	
+
 @endsection
