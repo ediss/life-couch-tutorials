@@ -16,7 +16,6 @@ Prijava za kurs <br>
 @section('content')
 <div id="form-apply" class="mt-5">
     <div class="row mt-5">
-
         {{-- <div class="col-8 offset-2 box-shadow p-5">
             <small class="form-text text-danger">Polja sa zvezdicom (*) su obavezna.</small>
             @include('flash-message')
@@ -282,7 +281,140 @@ Prijava za kurs <br>
                                     <div class="inner">
                                         <div class="wizard-header">
                                             <h3 class="heading">Prijava</h3>
-                                            <p>Unesite lozinku.</p>
+                                            <p>Polja sa zvezdicom (*) su obavezna </p>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="form-holder form-holder-2">
+                                                <fieldset>
+                                                    <legend>Način plaćanja <span class="text-danger">*</span></legend>
+                                                    <div class="payment-country d-flex">
+                                                        <div class="radio">
+                                                            <label for="">
+                                                                <input type="radio" class="w-auto" name="payment_country" value="Iz Srbije" checked>
+                                                                <span class="">Iz Srbije</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="radio ml-3">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_country" value="Iz inostranstva">
+                                                                <span class="">Iz inostranstva</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="payment-method-srb mt-3">
+                                                        @if($course_price->payment_in_full != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="U celini">
+                                                                <span class="ml-1">U celini</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+
+                                                        @if($course_price->premium_package != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Premium paket">
+                                                                <span class="ml-1">Premium paket</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+                                                        @if($course_price->aplication_to != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Prijava i plaćanje do {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}">
+                                                                <span class="ml-1">Prijava i plaćanje do {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+
+                                                        <small>U ratama:</small>
+                                                        @if($course_price->number_of_rate != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Broj rata: {{ $course_price->number_of_rate }}">
+                                                                <span class="ml-1">Broj rata: {{ $course_price->number_of_rate }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+
+                                                        @if($course_price->number_of_rate_2 != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Broj rata: {{ $course_price->number_of_rate_2 }}">
+                                                                <span class="ml-1">Broj rata: {{ $course_price->number_of_rate_2 }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+                                                        @if($course_price->number_of_rate_3 != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Broj rata: {{ $course_price->number_of_rate_3 }}">
+                                                                <span class="ml-1">Broj rata: {{ $course_price->number_of_rate_3 }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+                                                    </div>
+
+                                                    <div class="payment-method-foreign-contry mt-3 d-none">
+                                                        @if($course_price->payment_from_foreign_countries != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="U celini">
+                                                                <span class="ml-1">U celini</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+
+                                                        @if($course_price->foreign_countries_premium_package != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Premium paket">
+                                                                <span class="ml-1">Premium paket</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+                                                        @if($course_price->foreign_countries_aplication_to != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Prijava i plaćanje do {{ date('d-M-Y', strtotime($course_price->foreign_countries_aplication_to)) }}">
+                                                                <span class="ml-1">Prijava i plaćanje do {{ date('d-M-Y', strtotime($course_price->foreign_countries_aplication_to)) }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+
+                                                        <small>U ratama:</small>
+                                                        @if($course_price->foreign_countries_number_of_rate != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Broj rata: {{ $course_price->foreign_countries_number_of_rate }}">
+                                                                <span class="ml-1">Broj rata: {{ $course_price->foreign_countries_number_of_rate }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+
+                                                        @if($course_price->foreign_countries_number_of_rate_2 != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Broj rata: {{ $course_price->foreign_countries_number_of_rate_2 }}">
+                                                                <span class="ml-1">Broj rata: {{ $course_price->foreign_countries_number_of_rate_2 }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+                                                        @if($course_price->foreign_countries_number_of_rate_3 != "")
+                                                        <div class="radio">
+                                                            <label class="">
+                                                                <input type="radio" class="w-auto" name="payment_method" value="Broj rata: {{ $course_price->foreign_countries_number_of_rate_3 }}">
+                                                                <span class="ml-1">Broj rata: {{ $course_price->foreign_countries_number_of_rate_3 }}</span>
+                                                            </label>
+                                                        </div>
+                                                        @endif
+                                                    </div>
+
+                                                </fieldset>
+                                            </div>
                                         </div>
                                         <div class="form-row">
                                             <div class="form-holder form-holder-2">
@@ -340,6 +472,10 @@ $(document).ready(function () {
         }
 
         form.validate({
+            rules : {
+                payment_method : "required",
+            },
+
             messages : {
                 name: {
                     required: ""
@@ -351,6 +487,10 @@ $(document).ready(function () {
                     required: ""
                 },
                 password : {
+                    required: ""
+                },
+
+                payment_method : {
                     required: ""
                 }
 
@@ -383,13 +523,29 @@ $(document).ready(function () {
            }
         });
     });
+
+    $("input[name=payment_country]:radio").on("change", function() {
+        $('input[name="payment_method"]').prop('checked', false);
+
+        if (this.value == 'Iz Srbije') {
+            $(".payment-method-srb").removeClass("d-none");
+            $(".payment-method-foreign-contry").addClass("d-none");
+        }
+        else {
+            $(".payment-method-srb").addClass("d-none");
+            $(".payment-method-foreign-contry").removeClass("d-none");
+        }
+    });
 });
 
 
 </script>
 <script src="{{ asset("assets/js/apply-form-steps.js")}}"></script>
 
+<script>
+    
 
+</script>
 
 
 <script>

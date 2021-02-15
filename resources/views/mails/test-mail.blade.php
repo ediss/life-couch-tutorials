@@ -576,8 +576,8 @@
 
 
         /*SERVICES*/
-  
-       
+
+
 
         @media screen and (max-width: 500px) {
 
@@ -594,7 +594,7 @@
         }
 
 
- 
+
     </style>
 
 
@@ -622,163 +622,26 @@
                                 <td>
                                     <div class="text" style="padding: 0 3em; text-align: center;">
                                         <h2>ZDRAVO {{ $name }}!</h2>
-                                        <p>Hvala na prijavi za kurs {{$course_name}}</p>
+                                        <p>Hvala na prijavi za kurs <a href="{{route('single-course', $course_slug)}}#course-content">{{$course_name}}</a></p>
                                         <div class="icon">
                                             <a href="#">
                                                 <img src="images/002-play-button.png" alt=""
                                                     style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
                                             </a>
                                         </div>
+
+                                        <p>Izabrali ste metod plaćanja: {{ $payment_method }}</p>
+
+                                        <p>Uskoro ćete dobiti dalje instrukcije za plaćanje.</p>
                                     </div>
                                 </td>
                             </tr>
                         </table>
                     </td>
-                </tr><!-- end tr -->
-                <tr>
-                    <td class="bg_white">
-                        <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
-                            <tr>
-                                <td class="bg_white email-section">
-                                    <div class="heading-section" style="text-align: center; padding: 0 30px;">
-                                        <h1 style="color:#32127a">CENOVNIK</h1>
-                                        <p></p>
-                                    </div>
-                                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                        <tr>
-                                            <td valign="top" width="33.333%" style="padding-top: 20px;"
-                                                class="services">
-                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0"
-                                                    width="100%">
-                                                    <tr>
-                                                        <td class="icon">
-                                                            <img src="images/001-diet.png" alt=""
-                                                                style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-services">
-                                                            <h3>U celini</h3>
-                                                            <h5>  {{ $course_price->payment_in_full}} ,00RSD</h5>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                            <td valign="top" width="33.333%"
-                                                style="padding-top: 20px; background: rgba(0,0,0,.08);"
-                                                class="services">
-                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0"
-                                                    width="100%">
-                                                    <tr>
-                                                        <td class="icon">
-                                                            <img src="images/001-diet.png" alt=""
-                                                                style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-services">
-                                                            <h3>Iz inostranstva</h3>
-                                                            <h5>{{ $course_price->payment_from_foreign_countries}},00RSD</h5>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                            <td valign="top" width="33.333%" style="padding-top: 20px;"
-                                                class="services">
-                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0"
-                                                    width="100%">
-                                                    <tr>
-                                                        <td class="icon">
-                                                            <img src="images/003-recipe-book.png" alt=""
-                                                                style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-services">
-                                                            <h3>Premium paket</h3>
-                                                            <h5>{{ $course_price->premium_package}},00RSD</h5>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
 
-
-
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr><!-- end: tr -->
-
-
-                            <tr>
-                                <td class="bg_white email-section2">
-                          
-                                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
-                                        <tr>
-                                            <td valign="top" width="50%" style="padding-top: 20px; border-right: 2px solid rgba(0,0,0,.2);"
-                                                class="services">
-                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0"
-                                                    width="100%">
-                                                    <tr>
-                                                        <td class="icon">
-                                                            <img src="images/001-diet.png" alt=""
-                                                                style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-services">
-                                                            <h3>Prijava do {{ $course_price->aplication_to}}</h3>
-                                                            <h5>{{ $course_price->aplication_to_and_payfull}}, 00RSD</h5>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                            <td valign="top" width="50%"
-                                                style="padding-top: 20px; background: rgba(0,0,0,.08);"
-                                                class="services">
-                                                <table role="presentation" cellspacing="0" cellpadding="0" border="0"
-                                                    width="100%">
-                                                    <tr>
-                                                        <td class="icon">
-                                                            <img src="images/001-diet.png" alt=""
-                                                                style="width: 60px; max-width: 600px; height: auto; margin: auto; display: block;">
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-services">
-                                                            <h3>U {{ $course_price->number_of_rate}} rata</h3>
-                                                            <h5>{{ $course_price->price_in_rate}},00RSD</h5>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-
-
-                                        </tr>
-                                    </table>
-                                </td>
-                            </tr><!-- end: tr -->
-
-
-
-                            <tr>
-                                <td class="bg_white email-section">
-                                    <div class="heading-section" style="text-align: center; padding: 0 30px;">
-                                        <h1 style="color:#32127a">Primer uplatnice</h1>
-                                        <p>Izaberite nacin placanja koji Vam odgovara, nakon sto primimo uplatu bice Vam omogucen pristup kursu</p>
-                                    </div>
-
-                                
-                                
-                                </td>
-                            </tr><!-- end: tr -->
-                        </table>
-
-                    </td>
-                </tr><!-- end:tr -->
                 <!-- 1 Column Text + Button : END -->
             </table>
-  
+
 
         </div>
     </center>
@@ -814,7 +677,7 @@
                         <div id="sifraplacanjaunos"> </div>
                         <div id="valutaunos">  RSD </div>
                         <div id="iznosunos">
-                            {{$course_price->payment_in_full}}
+
                         </div>
                     </div>
                 </div>

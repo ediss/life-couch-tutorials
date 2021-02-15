@@ -183,7 +183,11 @@ Dodavanje kursa
   <form action="{{ route("admin.create-course") }}" method="POST" enctype="multipart/form-data">
     @csrf
 
-
+    <div class="col-12">
+      <div class="col-12">
+        @include('flash-message')
+      </div>
+    </div>
     <div class="tab-content h-auto">
 
       <div id="step-1" class="tab-pane" role="tabpanel">

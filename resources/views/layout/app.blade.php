@@ -317,7 +317,7 @@ Author URL: http://w3layouts.com
 						</div>
 
 						<div class="form-group row">
-							<label for="password" class="col-md-4 col-form-label">{{ __('Lozninka') }}</label>
+							<label for="password" class="col-md-4 col-form-label">{{ __('Lozinka') }}</label>
 
 							<div class="col-12">
 								<input id="password" type="password"
