@@ -233,7 +233,8 @@
                                                     </div>
                                                     @endif
 
-                                                    @if($course_price->number_of_rate != "" || $course_price->weekly_srb != "" || $course_price->monthly_srb)
+                                                    @if($course_price->number_of_rate != "" || $course_price->weekly_srb
+                                                    != "" || $course_price->monthly_srb)
                                                     <div class="col-md-4 mb-4 mb-lg-0 mt-4">
                                                         <div class="card text-white btn-success mb-3 h-100">
                                                             <div class="card-header text-center">
@@ -355,7 +356,9 @@
                                                     </div>
                                                     @endif
 
-                                                    @if($course_price->foreign_countries_number_of_rate != "" || $course_price->weekly_foreign != "" || $course_price->monthly_foreign != "")
+                                                    @if($course_price->foreign_countries_number_of_rate != "" ||
+                                                    $course_price->weekly_foreign != "" ||
+                                                    $course_price->monthly_foreign != "")
                                                     <div class="col-md-4 mb-4 mb-lg-0 mt-4">
                                                         <div class="card text-white btn-success mb-3 h-100">
                                                             <div class="card-header text-center">
@@ -559,9 +562,19 @@
                             najviše naučiti u direktnom kontaktu, već onda kad ste spremni i raspoloženi za učenje! A
                             ovakav način rada vam to dozvoljava. </p>
 
-                        <h1 class="text-violet"> Dakle, šta čekate? <a
-                                href="{{route('course.subscription', ['course_id' => $course->id])}}#form-apply"
-                                class=""> <u>Prijavite se!</u> </a> </h1>
+                        <h1 class="text-violet"> Dakle, šta čekate?
+                            @if(Auth::user())
+
+                            <a href="#" class="" data-toggle="modal"
+                                data-target="#subscribeModal">
+                                Prijavite se!
+                            </a>
+
+                            @else
+                            <a href="{{route('course.subscription', ['course_id' => $course->id])}}#form-apply"
+                                class="">Prijavite se!</a>
+                            @endif
+
 
                     </div>
                 </div>
@@ -627,8 +640,7 @@
                         <div class="radio">
                             <label class="">
                                 <input type="radio" class="w-auto" name="payment_method"
-                                    value="Prijava i plaćanje do {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}"
-                                >
+                                    value="Prijava i plaćanje do {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}">
                                 <span class="ml-1">Prijava i plaćanje do
                                     {{ date('d-M-Y', strtotime($course_price->aplication_to)) }}</span>
                             </label>
@@ -707,8 +719,7 @@
                         <div class="radio">
                             <label class="">
                                 <input type="radio" class="w-auto" name="payment_method"
-                                    value="Prijava i plaćanje do {{ date('d-M-Y', strtotime($course_price->foreign_countries_aplication_to)) }}"
-                                >
+                                    value="Prijava i plaćanje do {{ date('d-M-Y', strtotime($course_price->foreign_countries_aplication_to)) }}">
                                 <span class="ml-1">Prijava i plaćanje do
                                     {{ date('d-M-Y', strtotime($course_price->foreign_countries_aplication_to)) }}</span>
                             </label>

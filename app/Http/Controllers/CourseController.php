@@ -114,7 +114,10 @@ class CourseController extends Controller
                 });
 
 
-                Mail::send(['html'=>'mails.test-mail'], $data, function($message) use ($data) {
+                $mail_tmpl = ($payment_country === "Iz inostranstva") ? 'mails.test-mail' : 'mails.to-user';
+
+
+                Mail::send(['html'=>$mail_tmpl], $data, function($message) use ($data) {
                     $message->to($data['email'], 'Prijava na kurs')->subject ('Prijava na kurs')->replyTo($data['email']);
                     $message->from($data['email'], $data['course_name'] );
                 });
@@ -204,8 +207,9 @@ class CourseController extends Controller
                             $message->from($data['email'], $data['name'] );
                         });
 
+                        $mail_tmpl = ($payment_country === "Iz inostranstva") ? 'mails.test-mail' : 'mails.to-user';
 
-                        Mail::send(['html'=>'mails.test-mail'], $data, function($message) use ($data) {
+                        Mail::send(['html'=>$mail_tmpl], $data, function($message) use ($data) {
                             $message->to($data['email'], 'Prijava na kurs')->subject ('Prijava na kurs')->replyTo($data['email']);
                             $message->from($data['email'], $data['course_name'] );
                         });
