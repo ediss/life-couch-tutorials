@@ -241,13 +241,19 @@ class CourseController extends Controller
 
         }
 
-        return view('form-for-apply', [
-            'course_name' => $course_name->name,
-            'course_id'   => $course_id,
-            'countries'   => $countries,
-            'course_price'  => $course_price
+        if(!Auth::user()) {
+            return view('form-for-apply', [
+                'course_name' => $course_name->name,
+                'course_id'   => $course_id,
+                'countries'   => $countries,
+                'course_price'  => $course_price
+    
+            ]);
+        }else {
+            return redirect()->route('homepage');
+        }
 
-        ]);
+      
     }
 
     public function getPhoneCode(Request $request) {

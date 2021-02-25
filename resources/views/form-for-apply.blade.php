@@ -1,3 +1,10 @@
+@php
+    if(Auth::user()) {
+        dd(redirect()->route('homepage'));
+        return redirect()->route('homepage');
+    }
+
+@endphp
 @extends('layout.app')
 
 @section('title')
