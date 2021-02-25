@@ -562,7 +562,8 @@
                             najviše naučiti u direktnom kontaktu, već onda kad ste spremni i raspoloženi za učenje! A
                             ovakav način rada vam to dozvoljava. </p>
 
-                        <h1 class="text-violet"> Dakle, šta čekate?
+                        @if(\Carbon\Carbon::now()->toDateString() < $course->course_application_to)
+                            <h1 class="text-violet"> Dakle, šta čekate?
                             @if(Auth::user())
 
                             <a href="#" class="" data-toggle="modal"
@@ -574,6 +575,7 @@
                             <a href="{{route('course.subscription', ['course_id' => $course->id])}}#form-apply"
                                 class="">Prijavite se!</a>
                             @endif
+                        @endif
 
 
                     </div>
