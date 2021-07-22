@@ -4,8 +4,8 @@
 {{ $course->name }}
 @endsection
 
-@section('meta-desc')
-
+@section('meta-img')
+<meta property="og:image" content="{{ url($course->cover_img)}}" />
 @endsection
 
 @section('banner-title')
@@ -17,6 +17,7 @@
 @endsection
 
 @section('content')
+
 <div id="course-content">
     <section class="w3l-wecome-content-6">
         <!-- /content-6-section -->
