@@ -28,7 +28,7 @@ Author URL: http://w3layouts.com
 
 	<meta name="csrf-token" content="{{ csrf_token() }}" />
 	<meta name="description" content="@yield('meta-desc')">
-	{{-- <meta property="og:image" content="{{ url('assets/images/banners/background.png') }}" /> --}}
+	<meta property="og:image" content="{{ url('assets/images/banners/background.png') }}" />
 
 	@yield('meta-img')
 
