@@ -20,7 +20,6 @@
 
 <div id="course-content">
     <section class="w3l-wecome-content-6">
-        <!-- /content-6-section -->
         <div class="ab-content-6-mian py-5">
             <div class="container-fluid py-lg-5">
                 <div class="welcome-grids">

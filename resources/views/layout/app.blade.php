@@ -30,6 +30,8 @@ Author URL: http://w3layouts.com
 	<meta name="description" content="@yield('meta-desc')">
 	<meta property="og:image" content="{{ url('assets/images/banners/background.png') }}" />
 
+	@yield('meta-img')
+
 	<link rel="canonical" href="{{ url()->current() }}">
 
 	<!-- Global site tag (gtag.js) - Google Analytics -->
