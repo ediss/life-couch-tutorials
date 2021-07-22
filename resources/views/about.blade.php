@@ -7,9 +7,14 @@ O meni
 Ja sam Maja Vučković, doktor medicine, akreditovani psihoterapeut i lajf kouč. Iza sebe imam godine radnog staža u psihoterapeutskoj i lekarskoj praksi, u marketingu i prodaji, u edukacijama i treninzima.
 @endsection
 
+@section('meta-img')
+	<meta property="og:image" content="{{ url('assets/images/banners/background.png') }}" />
+@endsection
+
 @section('breadcrumb-item')
 O meni
 @endsection
+
 @section('banner-title')
 O meni
 @endsection

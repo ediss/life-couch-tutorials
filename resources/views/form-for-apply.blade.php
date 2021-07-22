@@ -11,6 +11,10 @@
 {{ $course_name }}
 @endsection
 
+@section('meta-img')
+	<meta property="og:image" content="{{ url('assets/images/banners/background.png') }}" />
+@endsection
+
 @section('banner-title')
 Prijava za kurs <br>
 {{ $course_name }}

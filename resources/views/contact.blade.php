@@ -7,6 +7,10 @@ Kontakt
 Za sva dodatna pitanja budite slobodni da me kontaktirate!
 @endsection
 
+@section('meta-img')
+	<meta property="og:image" content="{{ url('assets/images/banners/background.png') }}" />
+@endsection
+
 @section('breadcrumb-item')
 Kontakt
 @endsection

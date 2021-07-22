@@ -7,6 +7,10 @@ Online Kursevi - Edukacija
 U doba interneta, edukacija je svima dostupna. Jednim klikom do nove veštine! Online Kursevi & Edukacija
 @endsection
 
+@section('meta-img')
+	<meta property="og:image" content="{{ url('assets/images/banners/background.png') }}" />
+@endsection
+
 @section('breadcrumb-item')
 Kursevi
 @endsection

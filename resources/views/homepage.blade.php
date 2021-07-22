@@ -8,6 +8,10 @@ Online Kursevi - Edukacija
 Naučite veštine koje će vam omogućiti da budete zadovoljniji u životu, ljubavi i radu!
 @endsection
 
+@section('meta-img')
+	<meta property="og:image" content="{{ url('assets/images/banners/background.png') }}" />
+@endsection
+
 @section('scroll-to')
 #courses
 @endsection
