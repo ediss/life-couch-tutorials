@@ -5,7 +5,7 @@
 @endsection
 
 @section('meta-img')
-    {{-- <meta property="og:image" content="{{ url($course->cover_img) }}" /> --}}
+    <meta property="og:image" content="{{ url($course->cover_img) }}" />
 @endsection
 
 @section('banner-title')
