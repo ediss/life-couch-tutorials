@@ -24,7 +24,7 @@ Uspešna Prijava
     <div class="row" style="margin-top:10%; margin-bottom:10%;">
         <div class="col-8 offset-2 text-justify box-shadow" style="padding:5%">
 
-            @if($course->is_free == 0)
+            @if($course->getOriginal('is_free') == 0)
                 @include('partial.succes-apply-paid-course')
             @else
                 @include('partial.succes-apply-free-course')
