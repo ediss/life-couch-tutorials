@@ -24,7 +24,13 @@ $counter = 0;
         @php $counter ++; @endphp
         <tr>
             <th scope="row">{{$counter }}</th>
-            <td>{{  $user->users()->exists() ? $user->users->name : "<p class='text-danger'> Korisnik je obrisan </p>" }}</td>
+            <td>
+                @if($user->users()->exists())
+                    {{ $user->users->name }}
+                @else
+                    <p class='text-danger'> Korisnik je obrisan </p>
+                @endif
+            </td>
             <td>{{$user->users()->exists() ? $user->users->email : ''}}</td>
             <td>{{$user->courses->name}}</td>
 
