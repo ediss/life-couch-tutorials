@@ -21,11 +21,10 @@ $counter = 0;
 
         @foreach($users as $user)
         @php $counter ++; @endphp
-        @dd($users)
         <tr>
             <th scope="row">{{$counter }}</th>
-            <td>{{$user->users->name}}</td>
-            <td>{{$user->users->email}}</td>
+            <td>{{$user->users->name ? $user->users->name : 'Korisnik je obrisan' }}</td>
+            <td>{{$user->users->email ? $user->users->email : 'Korisnik je obrisan'}}</td>
             <td>{{$user->courses->name}}</td>
 
         </tr>
