@@ -19,6 +19,7 @@ $counter = 0;
     </thead>
     <tbody>
 
+        @dd($users)
         @foreach($users as $user)
         @php $counter ++; @endphp
         <tr>
