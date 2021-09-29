@@ -198,7 +198,7 @@ class CourseController extends Controller
                             'relationship'  => $relationship,
                             'profession'    => $profession,
                             'country'       => $country,
-                            'course_name'   => $$course->name,
+                            'course_name'   => $course->name,
                             'course_price'  => $course_price,
                             'payment_country' => $payment_country,
                             'payment_method' => $payment_method,
