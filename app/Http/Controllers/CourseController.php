@@ -185,6 +185,7 @@ class CourseController extends Controller
 
                     $user->role_id       = 2;
 
+
                     if($user->save()) {
 
                         $data = [
@@ -197,7 +198,7 @@ class CourseController extends Controller
                             'relationship'  => $relationship,
                             'profession'    => $profession,
                             'country'       => $country,
-                            'course_name'   => $course_name,
+                            'course_name'   => $$course->name,
                             'course_price'  => $course_price,
                             'payment_country' => $payment_country,
                             'payment_method' => $payment_method,
