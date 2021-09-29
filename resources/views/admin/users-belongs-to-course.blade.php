@@ -28,7 +28,7 @@ $counter = 0;
                 @if($user->users()->exists())
                     {{ $user->users->name }}
                 @else
-                    <p class='text-danger'> Korisnik je obrisan </p>
+                    <span class='text-danger'> Korisnik je obrisan </span>
                 @endif
             </td>
             <td>{{$user->users()->exists() ? $user->users->email : ''}}</td>
