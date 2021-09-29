@@ -19,13 +19,13 @@ $counter = 0;
     </thead>
     <tbody>
 
-        @dd($users)
+        
         @foreach($users as $user)
         @php $counter ++; @endphp
         <tr>
             <th scope="row">{{$counter }}</th>
-            <td>{{$user->users->name ? $user->users->name : 'Korisnik je obrisan' }}</td>
-            <td>{{$user->users->email ? $user->users->email : 'Korisnik je obrisan'}}</td>
+            <td>{{  $user->users()->exists() ? $user->users->name : 'Korisnik je obrisan' }}</td>
+            <td>{{$user->users()->exists() ? $user->users->email : 'Korisnik je obrisan'}}</td>
             <td>{{$user->courses->name}}</td>
 
         </tr>
