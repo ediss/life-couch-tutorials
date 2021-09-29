@@ -63,6 +63,7 @@ class AdminController extends Controller
                $course_application  = $request->input("course_application_to");
                $course_organisation = $request->input("course_organisation");
                $course_slug         = $request->input("course_slug");
+               $is_free             = $request->input("is_free");
 
                $cover_img_path =null;
                   //uplouding event photos
@@ -118,6 +119,7 @@ class AdminController extends Controller
                $course->course_application_to   = $course_application;
                $course->course_organisation     = $course_organisation;
                $course->slug                    = $course_slug;
+               $course->is_free                 = $is_free;
 
                if($course->save()) {
                    $course_price = new CoursePrice();
@@ -262,6 +264,7 @@ class AdminController extends Controller
                 $course_available    = $request->input("course_available");
                 $course_organisation = $request->input("course_organisation");
                 $course_slug         = $request->input("course_slug");
+                $is_free             = $request->input("is_free");
 
 
                 if ($request->hasFile('cover_img')) {
@@ -325,6 +328,7 @@ class AdminController extends Controller
                 $course->course_application_to  = $course_application;
                 $course->course_organisation    = $course_organisation;
                 $course->slug                   = $course_slug;
+                $course->is_free                = $is_free;
 
                 if($course->save()) {
                     $course_price = CoursePrice::where("course_id", "=", $course_id)->first();
@@ -395,5 +399,18 @@ class AdminController extends Controller
     public function deleteCourse($course_id) {
         Course::where('id', "=", $course_id)->delete();
         return back()->with('error','Kurs je obrisan!');
+    }
+
+
+    public function getUsers() {
+        $users = User::all();
+
+        return view('admin.users', ['users' => $users]);
+    }
+
+    public function deleteUser($user_id) {
+        User::where('id', "=", $user_id)->delete();
+        
+        return back()->with('error','Korisnik je obrisan!');
     }
 }

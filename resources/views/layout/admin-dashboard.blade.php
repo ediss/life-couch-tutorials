@@ -88,7 +88,7 @@
                with font-awesome or any other icon font library -->
             <li class="nav-item has-treeview">
               <a href="#" class="nav-link">
-                <i class="nav-icon fas fa-tachometer-alt"></i>
+                <i class="nav-icon fab fa-vimeo-v"></i>
                 <p>
                   Rad sa kursevima
                   <i class="right fas fa-angle-left"></i>
@@ -97,7 +97,7 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="{{ route('admin.courses') }}" class="nav-link">
-                    <i class="nav-icon fas fa-th"></i>
+                    <i class="nav-icon fas fa-list"></i>
                     <p>
                       Lista Kurseva
                     </p>
@@ -105,7 +105,7 @@
                 </li>
                 <li class="nav-item">
                   <a href="{{ route('admin.create-course') }}" class="nav-link">
-                    <i class="nav-icon fas fa-th"></i>
+                    <i class="nav-icon fas fa-plus"></i>
                     <p>
                       Dodaj kurs
                     </p>
@@ -114,8 +114,15 @@
 
               </ul>
             </li>
-            <li class="nav-item">
+   
 
+            <li class="nav-item mt-3">
+              <a href="{{ route('admin.users') }}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>
+                  Lista korisnika
+                </p>
+              </a>
             </li>
 
 

@@ -89,7 +89,7 @@
 
                             </div>
 
-
+                            @if($course->is_free == 0)
                             <div class="row mt-5">
                                 <div class="col-md-10 offset-md-1 mt-2">
 
@@ -356,10 +356,9 @@
                                         </div>
                                     </div>
 
-
-
                                 </div>
                             </div>
+                            @endif
 
 
                             <div class="row mt-5">
@@ -577,6 +576,7 @@
                     <div class="modal-body">
 
 
+                        @if($course->is_free == 0)
                         <div class="form-group">
                             <label for="">Način plaćanja</label>
                             <div class="payment-country d-flex">
@@ -755,6 +755,10 @@
                                 </div>
                             @endif
                         </div>
+                        @else
+                            <p>Hvala što pratite moje aktivnosti! </p>
+                                <p>Uživajte u zajedničkom druženju &#x1F642;</p>
+                        @endif
 
                     </div>
                     <div class="modal-footer">

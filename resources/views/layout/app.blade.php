@@ -525,56 +525,56 @@ Author URL: http://w3layouts.com
 	</script> --}}
 
 	<script>
-		if (window.requestIdleCallback) {
-    		requestIdleCallback(function () {
-				var options = {
-    				excludes: {
-						userAgent: true,
-						sessionStorage: true,
-						localStorage: true,
-						indexedDb: true,
-						addBevior: true,
-						openDatabase: true,
-						doNotTrack: true,
-						plugins: true,
-						canvas:true,
-						webgl:true,
-						adBlock:true,
-						fonts:true,
-						audio:true,
-						enumerateDevices: true,
-						webdriver:true,
-						webglVendorAndRenderer:true,
-						hasLiedLanguages:true,
-						hasLiedResolution:true,
-						hasLiedOs:true,
-						hasLiedBrowser:true,
-						touchSupport:true,
-						fontsFlash:true,
-						addBehavior:true
-					}
-				}
-				Fingerprint2.get(options, function (components) {
-			  		console.log(components) // an array of components: {key: ..., value: ...}
+		// if (window.requestIdleCallback) {
+    	// 	requestIdleCallback(function () {
+		// 		var options = {
+    	// 			excludes: {
+		// 				userAgent: true,
+		// 				sessionStorage: true,
+		// 				localStorage: true,
+		// 				indexedDb: true,
+		// 				addBevior: true,
+		// 				openDatabase: true,
+		// 				doNotTrack: true,
+		// 				plugins: true,
+		// 				canvas:true,
+		// 				webgl:true,
+		// 				adBlock:true,
+		// 				fonts:true,
+		// 				audio:true,
+		// 				enumerateDevices: true,
+		// 				webdriver:true,
+		// 				webglVendorAndRenderer:true,
+		// 				hasLiedLanguages:true,
+		// 				hasLiedResolution:true,
+		// 				hasLiedOs:true,
+		// 				hasLiedBrowser:true,
+		// 				touchSupport:true,
+		// 				fontsFlash:true,
+		// 				addBehavior:true
+		// 			}
+		// 		}
+		// 		Fingerprint2.get(options, function (components) {
+		// 	  		console.log(components) // an array of components: {key: ..., value: ...}
 
-					var values = components.map(function (component) { return component.value })
-					var murmur = Fingerprint2.x64hash128(values.join(''), 31)
-					hash = murmur;
-			   		$("#device_id_login").val(murmur);
-					console.log(murmur); //before options :9188e47be875c8d629553cd5d3b2c8d9; AFTER OPTIONS 63cc4ec5833f0ede976d11b8c0333474
+		// 			var values = components.map(function (component) { return component.value })
+		// 			var murmur = Fingerprint2.x64hash128(values.join(''), 31)
+		// 			hash = murmur;
+		// 	   		$("#device_id_login").val(murmur);
+		// 			console.log(murmur); //before options :9188e47be875c8d629553cd5d3b2c8d9; AFTER OPTIONS 63cc4ec5833f0ede976d11b8c0333474
 
-					//		online 880ed18a44c9abe5528122588b0cbe69
-					//		d99db7186fbd2e0da6c1037707663150
-					//		online dc03447fdfbbb5c7ea4dd64e381a9930
-        		})
-    		})
-		} else {
-    		setTimeout(function () {
-        		Fingerprint2.get(function (components) {
-          			console.log(components) // an array of components: {key: ..., value: ...}
-        		})
-    		}, 500)
-		}
+		// 			//		online 880ed18a44c9abe5528122588b0cbe69
+		// 			//		d99db7186fbd2e0da6c1037707663150
+		// 			//		online dc03447fdfbbb5c7ea4dd64e381a9930
+        // 		})
+    	// 	})
+		// } else {
+    	// 	setTimeout(function () {
+        // 		Fingerprint2.get(function (components) {
+        //   			console.log(components) // an array of components: {key: ..., value: ...}
+        // 		})
+    	// 	}, 500)
+		// }
 	</script>
 
 

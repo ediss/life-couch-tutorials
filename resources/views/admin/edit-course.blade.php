@@ -42,6 +42,27 @@ Izmena kursa
 
       <div id="step-1" class="tab-pane" role="tabpanel">
         <div class="row flex-column justify-content-center align-items-center mt-5">
+
+          <div class="col-4">
+            <div class="form-group">
+              <label>Vrsta kursa</label>
+              
+              <div class="radio">
+                <label for="">
+                  <input type="radio" name="is_free" value="0" {{ $course->is_free == 0 ? 'checked' : '' }} >
+                    <span class="">Placeni kurs</span>
+                </label>
+              </div>
+
+              <div class="radio">
+                <label for="">
+                  <input type="radio" name="is_free" value="1" {{ $course->is_free == 1 ? 'checked' : '' }}>
+                    <span class="">Radionica</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
           <div class="col-4">
             <div class="form-group">
               <label>Naziv kursa</label>

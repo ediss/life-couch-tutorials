@@ -66,8 +66,9 @@ class CourseController extends Controller
     }
 
     public function courseSubscription(Request $request, $course_id=null) {
-        $course         = Course::where('id', $course_id);
-        $course_name    = $course->first('name');
+        $course         = Course::where('id', $course_id)->first();
+
+        $course_name    = $course->name;
         $course_slug    = $course->first('slug');
         $course_slug    = $course_slug->slug;
 
@@ -85,7 +86,7 @@ class CourseController extends Controller
                 $user           = Auth::user();
                 $name           = $user->name;
                 $gender         = $user->gender;
-                $course_name    = $course_name->name;
+                $course_name    = $course_name;
 
                 $payment_country = $request->input('payment_country');
                 $payment_method  = $request->input("payment_method");
@@ -121,7 +122,8 @@ class CourseController extends Controller
                     $message->to($data['email'], 'Prijava na kurs')->subject ('Prijava na kurs')->replyTo($data['email']);
                     $message->from($data['email'], $data['course_name'] );
                 });
-            }else {
+            }
+            else {
 
                 $validator = Validator::make($request->all(), [
                     "name"      => "required",
@@ -207,7 +209,12 @@ class CourseController extends Controller
                             $message->from($data['email'], $data['name'] );
                         });
 
-                        $mail_tmpl = ($payment_country === "Iz inostranstva") ? 'mails.test-mail' : 'mails.to-user';
+                        if($course->is_free = 0) {
+                            $mail_tmpl = ($payment_country === "Iz inostranstva") ? 'mails.test-mail' : 'mails.to-user';
+                        }else {
+                            $mail_tmpl = 'mails.to-user-free-course';
+                        }
+                        
 
                         Mail::send(['html'=>$mail_tmpl], $data, function($message) use ($data) {
                             $message->to($data['email'], 'Prijava na kurs')->subject ('Prijava na kurs')->replyTo($data['email']);
@@ -233,19 +240,19 @@ class CourseController extends Controller
 
 
             return view('success-apply', [
-                'anchor' => 'success',
-                'user'   => $name,
-                'course' => $course_name,
-                'gender' => $gender
+                'anchor'    => 'success',
+                'user'      => $name,
+                'course'    => $course,
+                'gender'    => $gender
             ]);
 
         }
 
         if(!Auth::user()) {
             return view('form-for-apply', [
-                'course_name' => $course_name->name,
-                'course_id'   => $course_id,
-                'countries'   => $countries,
+                'course'        => $course,
+                'course_id'     => $course_id,
+                'countries'     => $countries,
                 'course_price'  => $course_price
     
             ]);
