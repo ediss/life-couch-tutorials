@@ -116,14 +116,14 @@
             </li>
    
 
-            <li class="nav-item mt-3">
+            {{-- <li class="nav-item mt-3">
               <a href="{{ route('admin.users') }}" class="nav-link">
                 <i class="nav-icon fas fa-users"></i>
                 <p>
                   Lista korisnika
                 </p>
               </a>
-            </li>
+            </li> --}}
 
 
           </ul>
