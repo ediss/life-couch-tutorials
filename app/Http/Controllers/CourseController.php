@@ -207,7 +207,7 @@ class CourseController extends Controller
 
                         ];
 
-                        dd($course);
+                        
                         Mail::send(['text'=>'mails.to-admin'], $data, function($message) use ($data) {
                             $message->to('prijava.kursevi@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
                             $message->from($data['email'], $data['name'] );
