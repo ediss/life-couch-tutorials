@@ -242,8 +242,6 @@ class CourseController extends Controller
 
             }
 
-            
-            dd($course);
 
             return view('success-apply', [
                 'anchor'    => 'success',
