@@ -68,6 +68,7 @@ class CourseController extends Controller
     public function courseSubscription(Request $request, $course_id=null) {
         $course         = Course::where('id', $course_id)->first();
 
+
         $course_name    = $course->name;
         $course_slug    = $course->first('slug');
         $course_slug    = $course_slug->slug;
@@ -205,6 +206,8 @@ class CourseController extends Controller
                             'course_slug'    => $course_slug
 
                         ];
+
+                        dd($course);
                         Mail::send(['text'=>'mails.to-admin'], $data, function($message) use ($data) {
                             $message->to('prijava.kursevi@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
                             $message->from($data['email'], $data['name'] );
@@ -239,6 +242,7 @@ class CourseController extends Controller
 
             }
 
+            
 
             return view('success-apply', [
                 'anchor'    => 'success',
