@@ -25,9 +25,11 @@ Uspešna Prijava
         <div class="col-8 offset-2 text-justify box-shadow" style="padding:5%">
 
 
-            @if($course->is_free == 0) 
+            @if($course->is_free == 0)
+                @dd("0")
                 @include('partial.succes-apply-paid-course')
             @else
+                @dd("1")
                 @include('partial.succes-apply-free-course')
             @endif
 
