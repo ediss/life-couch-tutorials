@@ -21,6 +21,7 @@ $counter = 0;
 
         @foreach($users as $user)
         @php $counter ++; @endphp
+        @dd($users)
         <tr>
             <th scope="row">{{$counter }}</th>
             <td>{{$user->users->name}}</td>
