@@ -24,6 +24,9 @@
 
         <tbody>
             @foreach ($users as $user)
+                @if($user->role_id == 1)
+                    @continue
+                @endif
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
