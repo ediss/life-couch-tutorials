@@ -219,6 +219,9 @@ class CourseController extends Controller
                             $message->from($data['email'], $data['name'] );
                         });
 
+
+                        dd($course);
+
                         if($course->is_free = 0) {
                             $mail_tmpl = ($payment_country === "Iz inostranstva") ? 'mails.test-mail' : 'mails.to-user';
                         }else {
