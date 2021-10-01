@@ -116,7 +116,13 @@ class CourseController extends Controller
                 });
 
 
-                $mail_tmpl = ($payment_country === "Iz inostranstva") ? 'mails.test-mail' : 'mails.to-user';
+
+
+                if($course->is_free = 0) {
+                    $mail_tmpl = ($payment_country === "Iz inostranstva") ? 'mails.test-mail' : 'mails.to-user';
+                }else {
+                    $mail_tmpl = 'mails.to-user-free-course';
+                }
 
 
                 Mail::send(['html'=>$mail_tmpl], $data, function($message) use ($data) {
