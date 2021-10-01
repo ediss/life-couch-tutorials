@@ -220,8 +220,6 @@ class CourseController extends Controller
                         });
 
 
-                        dd($course);
-
                         if($course->is_free = 0) {
                             $mail_tmpl = ($payment_country === "Iz inostranstva") ? 'mails.test-mail' : 'mails.to-user';
                         }else {
