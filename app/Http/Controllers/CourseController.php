@@ -118,7 +118,7 @@ class CourseController extends Controller
 
 
 
-                if($course->is_free = 0) {
+                if($course->is_free == 0) {
                     $mail_tmpl = ($payment_country === "Iz inostranstva") ? 'mails.test-mail' : 'mails.to-user';
                 }else {
                     $mail_tmpl = 'mails.to-user-free-course';
@@ -220,7 +220,7 @@ class CourseController extends Controller
                         });
 
 
-                        if($course->is_free = 0) {
+                        if($course->is_free == 0) {
                             $mail_tmpl = ($payment_country === "Iz inostranstva") ? 'mails.test-mail' : 'mails.to-user';
                         }else {
                             $mail_tmpl = 'mails.to-user-free-course';
