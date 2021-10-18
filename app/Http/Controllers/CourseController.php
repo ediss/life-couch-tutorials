@@ -111,7 +111,7 @@ class CourseController extends Controller
 
 
                 Mail::send(['text'=>'mails.to-admin'], $data, function($message) use ($data) {
-                    $message->to('prijava.kursevi@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
+                    $message->to('prijava.kursevi@gmail.com', $data['name'])->subject ('Nova Prijava')->replyTo($data['email']);
                     $message->from($data['email'], $data['name'] );
                 });
 
@@ -215,7 +215,7 @@ class CourseController extends Controller
 
                         
                         Mail::send(['text'=>'mails.to-admin'], $data, function($message) use ($data) {
-                            $message->to('prijava.kursevi@gmail.com', 'Nova Prijava')->subject ('Nova Prijava')->replyTo($data['email']);
+                            $message->to('prijava.kursevi@gmail.com', $data['name'])->subject ('Nova Prijava')->replyTo($data['email']);
                             $message->from($data['email'], $data['name'] );
                         });
 
