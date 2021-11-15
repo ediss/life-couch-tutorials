@@ -361,65 +361,97 @@
                             @endif
 
 
+                            {{-- <div class="row mt-5">
+                                <div class="col-md-10 offset-md-1 mt-2">
+                                    <ul class="nav nav-tabs w-100" id="myTab" role="tablist">
+
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="course-desc-tab" data-toggle="tab"
+                                                href="#course-desc" role="tab" aria-controls="profile" aria-selected="false">
+                                                <h3 class="hny-title">
+                                                    Opis
+                                                </h3>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="course-program-tab" data-toggle="tab" href="#course-program"
+                                                role="tab" aria-controls="contact" aria-selected="false">
+                                                <h3 class="hny-title">
+                                                    Program
+                                                </h3>
+                                            </a>
+                                        </li>
+    
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="course-content-tab" data-toggle="tab"
+                                                href="#course-content2" role="tab" aria-controls="contact"
+                                                aria-selected="false">
+                                                <h3 class="hny-title">
+                                                    Sadržaj
+                                                </h3>
+                                            </a>
+                                        </li>
+    
+                                    </ul>
+                                </div>
+                            </div> --}}
+
                             <div class="row mt-5">
-                                <ul class="nav nav-tabs w-100" id="myTab" role="tablist">
+                                <div class="col-md-10 offset-md-1">
+                                    <div class="row">
+                                        <div class="col-12 mt-3">
+                                            {!! $course->description !!}
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            {!! $course->plan_and_program !!}
+                                        </div>
+                                        <div class="col-12 mt-3">
+                                            {!! $course->course_content !!}
+                                        </div>
 
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="course-desc-tab" data-toggle="tab"
-                                            href="#course-desc" role="tab" aria-controls="profile" aria-selected="false">
-                                            <h3 class="hny-title">
-                                                Opis
-                                            </h3>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="course-program-tab" data-toggle="tab" href="#course-program"
-                                            role="tab" aria-controls="contact" aria-selected="false">
-                                            <h3 class="hny-title">
-                                                Program
-                                            </h3>
-                                        </a>
-                                    </li>
+                                        <div class="col-md-6 offset-md-3">
+                                            <div class="button-4-pink mt-4">
+                                                <div class="eff-4-pink"></div>
+                                                @if (Auth::user())
 
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="course-content-tab" data-toggle="tab"
-                                            href="#course-content2" role="tab" aria-controls="contact"
-                                            aria-selected="false">
-                                            <h3 class="hny-title">
-                                                Sadržaj
-                                            </h3>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-
-                            <div class="tab-content mt-5" id="myTabContent">
-
-                                <div class="tab-pane fade show active" id="course-desc" role="tabpanel"
-                                    aria-labelledby="course-desc-tab">
-
-                                    {!! $course->description !!}
-
-                                </div>
-                                <div class="tab-pane fade" id="course-program" role="tabpanel"
-                                    aria-labelledby="course-program-tab">
-                                    {!! $course->plan_and_program !!}
-
-                                </div>
-
-                                <div class="tab-pane fade" id="course-content2" role="tabpanel"
-                                    aria-labelledby="course-content-tab">
-                                    <div class="course-content">
-                                        {!! $course->course_content !!}
+                                                <a href="#" class="" data-toggle="modal" data-target="#subscribeModal">
+                                                    Dakle, šta čekate? Prijavite se!
+                                                </a>
+        
+                                                @else
+                                                <a href="{{ route('course.subscription', ['course_id' => $course->id]) }}#form-apply"
+                                                    class="">Dakle, šta čekate? Prijavite se!</a>
+                                                @endif
+                                                
+                                            </div>
+                                        </div>
                                     </div>
+                                    {{-- <div class="tab-content mt-5" id="myTabContent">
 
+                                        <div class="tab-pane fade show active" id="course-desc" role="tabpanel"
+                                            aria-labelledby="course-desc-tab">
+        
+                                            {!! $course->description !!}
+        
+                                        </div>
+                                        <div class="tab-pane fade" id="course-program" role="tabpanel"
+                                            aria-labelledby="course-program-tab">
+                                            {!! $course->plan_and_program !!}
+        
+                                        </div>
+        
+                                        <div class="tab-pane fade" id="course-content2" role="tabpanel"
+                                            aria-labelledby="course-content-tab">
+                                            <div class="course-content">
+                                                {!! $course->course_content !!}
+                                            </div>
+        
+                                        </div>
+        
+        
+                                    </div> --}}
                                 </div>
-
-
                             </div>
-
-
                         </div>
 
                     </div>

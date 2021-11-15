@@ -367,7 +367,27 @@ $("#smartwizard-edit").on("leaveStep", function(e, anchorObject, currentStepInde
   <script>
     $(function () {
     // Summernote
-    $('.textarea').summernote()
+    // $('.textarea').summernote()
+
+      // $('.textarea').summernote({
+      //   fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48' , '64', '82', '150']
+      // });
+
+      $('.textarea').summernote({
+        fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36', '48' , '64', '82', '150'],
+  toolbar: [
+    ['style', ['style']],
+    ['fontsize', ['fontsize']],
+    ['font', ['bold', 'italic', 'underline', 'clear']],
+    ['fontname', ['fontname']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']],
+    ['insert', ['picture', 'hr']],
+    ['table', ['table']]
+  ],
+  
+});
   })
 
   $('select').selectpicker();

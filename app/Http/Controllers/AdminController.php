@@ -14,7 +14,7 @@ use Mail;
 class AdminController extends Controller
 {
     public function index() {
-        $courses = Course::all()->sortByDesc('id');
+        $courses = Course::all()->sortByDesc('created_at');
 
         return view ("admin.courses", [
             "courses" => $courses
