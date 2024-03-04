@@ -713,7 +713,7 @@
 				<!-- početak srednje kolone -->
 				<div id="racunprimaoca">
 					<div id="racunprimaocanaslov">рачун примаоца</div>
-					<div id="racunprimaocaunos"> 330-3003222-74 </div>
+					<div id="racunprimaocaunos"> 265-3300310034834-74 </div>
 				</div>
 				<!-- kraj srednje kolone -->
 				<!-- početak donje kolone -->
